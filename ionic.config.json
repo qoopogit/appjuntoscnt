@@ -1,0 +1,7 @@
+{
+  "name": "juntas",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "custom"
+}
