@@ -1,18 +1,14 @@
-<ion-header>
-  <ion-toolbar class="encabezado">
 
-    <ion-title>intro</ion-title>
-     <ion-buttons slot="end">
-      <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
-  <button   onclick="openMenu()">Toggle Menu</button>
-  <ion-menu-button></ion-menu-button>
 
-  <button   onclick="openMenu()">menu </button>
-
-
+  <ion-img src="assets/logotop.png" class="logotop"></ion-img>
+  <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
+    <ng-template swiperSlide><ion-img src="assets/splash1.png" class="imgen_intro" ></ion-img></ng-template>
+    <ng-template swiperSlide><ion-img src="assets/splash2.png" class="imgen_intro" ></ion-img></ng-template>
+    <ng-template swiperSlide><ion-img src="assets/splash3.png" class="imgen_intro" ></ion-img></ng-template>
+  </swiper>
+  <div class="menus_intro">menu principal</div>
 </ion-content>
+
+
