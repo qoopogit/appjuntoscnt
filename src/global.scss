@@ -49,3 +49,55 @@ z-index: 100;
 
 }
 
+.menu-icon {
+  padding:10px !important;
+  border-radius: 0 !important;
+   color:#27BB9B !important;
+}
+ion-menu-button{
+ --color:#27BB9B !important;
+  color:#27BB9B !important;
+}
+
+ion-menu-buttons{
+ --color:#27BB9B !important;
+  color:#27BB9B !important;
+}
+
+.ios-button{
+ color:#27BB9B !important;
+}
+
+
+
+ion-content{
+
+  --ion-background-color:#202020;
+
+}
+
+.bordes{
+
+
+  --border-radius: 21px 0px 0px 21px!important;
+  --box-shadow: 0px 14px 25px rgba(182, 30, 30, 0.59);
+}
+ion-menu{
+
+border: 0px;
+border-radius: 21px 0px 0px 21px!important;
+--ion-background-color:#242425;
+
+--box-shadow: 0px 14px 25px rgba(182, 30, 30, 0.59)!important;
+}
+ ion-menu  ion-content{
+
+
+  --ion-background-color:#202020;
+  --box-shadow: 0px 14px 25px rgba(182, 30, 30, 0.59)!important;
+
+border-radius: 38px 0px 0px 0px!important;
+
+border: 24px solid #202020;
+
+}
