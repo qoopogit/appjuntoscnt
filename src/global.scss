@@ -39,6 +39,16 @@
   --color: #ffffff;
 }
 
+@font-face {
+  font-family: 'RobotoCondensed-BoldItalic';    //This is what we are going to call
+  src: url('assets/fonts/RobotoCondensed-BoldItalic.ttf');
+}
+@font-face {
+  font-family: 'Uni_Sans';    //This is what we are going to call
+  src: url('assets/fonts/Uni Sans Bold Regular.ttf');
+}
+
+
 .logotop{
 
 width: 50px;
@@ -99,5 +109,31 @@ border-radius: 21px 0px 0px 21px!important;
 border-radius: 38px 0px 0px 0px!important;
 
 border: 24px solid #202020;
+
+}
+.logotop_center{
+
+  width: 25vw;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+.actions
+{
+
+  position: absolute;
+  bottom: 3vh;
+  width: 100vw;
+}
+
+
+.botn
+{
+  width: 50%;
+  float: left;
+  text-align: center;
 
 }
