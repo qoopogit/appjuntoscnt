@@ -21,6 +21,10 @@ const routes: Routes = [
   },  {
     path: 'acerca',
     loadChildren: () => import('./acerca/acerca.module').then( m => m.AcercaPageModule)
+  },
+  {
+    path: 'hacer',
+    loadChildren: () => import('./hacer/hacer.module').then( m => m.HacerPageModule)
   }
 
 
