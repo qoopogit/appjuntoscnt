@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 const routes: Routes = [
   {
     path: '',
@@ -18,7 +19,8 @@ const routes: Routes = [
   {
     path: 'principal',
     loadChildren: () => import('./principal/principal.module').then( m => m.PrincipalPageModule)
-  },  {
+  },
+  {
     path: 'acerca',
     loadChildren: () => import('./acerca/acerca.module').then( m => m.AcercaPageModule)
   },
@@ -32,7 +34,9 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
+    BrowserModule, HttpClientModule,
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+
   ],
   exports: [RouterModule]
 })
