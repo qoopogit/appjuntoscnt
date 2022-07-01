@@ -1,0 +1,123 @@
+<ion-header>
+  <ion-toolbar class="encabezado">
+    <ion-img src="assets/logotop.png" class="logotop_center"></ion-img>
+
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content :fullscreen="true">
+  <ion-grid class="gridCenter">
+    <ion-row>
+      <ion-col class="text-left">
+        <ion-button expand="block" (click)="mobbing()">
+          <table style="width: 100%">
+            <tr>
+              <td style="width: 20%">
+                <ion-icon
+                  slot="start"
+                  name="newspaper"
+                  class="menu-icon"
+                ></ion-icon>
+                <img src="assets/img/icon_atencion.png" class="menu-img" />
+              </td>
+              <td>
+                <ion-label class="texto"
+                  >¿Estoy sufriendo acoso sexual <br />en el trabajo
+                  (Mobbing)?</ion-label
+                >
+              </td>
+            </tr>
+          </table>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" (click)="acoso()">
+          <table style="width: 100%">
+            <tr>
+              <td style="width: 10%">
+                <ion-icon slot="start" name="help" class="menu-icon"></ion-icon>
+                <img src="assets/img/icon_help.png" class="menu-img" />
+              </td>
+              <td>
+                <ion-label class="texto">¿Soy victima de ciberacoso?</ion-label>
+              </td>
+            </tr>
+          </table>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="text-left">
+        <ion-button expand="block" (click)="violencia()">
+          <table style="width: 100%">
+            <tr>
+              <td style="width: 10%">
+                <ion-icon
+                  slot="start"
+                  name="search-circle"
+                  class="menu-icon"
+                ></ion-icon>
+                <img src="assets/img/icon_consultar.png" class="menu-img" />
+              </td>
+              <td>
+                <ion-label class="texto">¿Sufro violencia?</ion-label>
+              </td>
+            </tr>
+          </table>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" (click)="violento()">
+          <table style="width: 100%">
+            <tr>
+              <td style="width: 10%">
+                <ion-icon
+                  slot="start"
+                  name="settings"
+                  class="menu-icon"
+                ></ion-icon>
+                <img src="assets/img/icon_config.png" class="menu-img" />
+              </td>
+              <td>
+                <ion-label class="texto">¿Soy violento?</ion-label>
+              </td>
+            </tr>
+          </table>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-row>
+            <ion-col>
+
+                <ion-icon name="information-circle"></ion-icon>
+                <div class="texto">Importante</div>
+
+            </ion-col>
+          </ion-row>
+          <ion-card-content text-justify>
+            <p class="texto justify">
+              Estos test no son diagnósticos psicológicos, únicamente son
+              indicadores que te permitirán tomar conciencia para pedir ayuda,
+              salir de la violencia o cambiar tu forma de actuar para no ser
+              violento.
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

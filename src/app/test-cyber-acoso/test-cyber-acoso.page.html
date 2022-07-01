@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar class="encabezado">
+    <ion-img src="assets/logotop.png" class="logotop_center"></ion-img>
+
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content :fullscreen="true">
+  <ion-grid>
+    <ion-row text-right class="test-title">
+      <ion-col> {{testTile}} </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        <ion-button size="small" (click)="showAlertComoUsar()" icon-end>
+          Como usar
+          <ion-icon name="help"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div>
+          <div class="preg" id="preg" name="preg">{{pregunta}}</div>
+          <form name="fo" (submit)="getPregunta()">
+            <div id="output" name="output" class="main">
+              <input
+                type="hidden"
+                id="qnumber"
+                name="qnumber"
+                [(ngModel)]="qnumber"
+              />
+              <input
+                type="hidden"
+                id="qorden"
+                name="qorden"
+                [(ngModel)]="qorden"
+              />
+              <input
+                type="hidden"
+                id="qsuma"
+                name="qsuma"
+                [(ngModel)]="qsuma"
+              />
+              <ion-list radio-group class="main">
+                <div class="controls" *ngFor="let o of this.s_opciones">
+                  <ion-item>
+                    <ion-label>{{o.opcion}}</ion-label>
+                    <ion-radio
+                      [(ngModel)]="qresp"
+                      name="qresp"
+                      id="{{ o.id }}"
+                      value="{{o.valor}}"
+                      (click)="guardarRespuesta(o.valor)"
+                      checked="false"
+                      ngDefaultControl
+                    ></ion-radio>
+                  </ion-item>
+                </div>
+              </ion-list>
+
+              <div id="puntuacion" name="puntuacion">{{mensaje}}</div>
+              <input
+                type="hidden"
+                id="dchange"
+                name="dchange"
+                [(ngModel)]="dchange"
+              />
+              <br />
+              <ion-button expand="block" (click)="getPregunta()"
+                >{{btnAccion}}</ion-button
+              >
+            </div>
+          </form>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
