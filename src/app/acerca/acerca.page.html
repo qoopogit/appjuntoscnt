@@ -11,31 +11,22 @@
 
 <ion-content :fullscreen="true">
   <div class="filatop">
-      <div class="titulo">¿Acerca <br>  de Junt@s?</div>
-      <div class="texto">"Junt@s es una herramienta informática dirigida principalmente
-          a mujeres que sufren de violencia de género;también está destinada a
-          cualquier persona que detecte en su entorno una posible situación de
-          violencia de género y a toda persona interesada en general.
+      <div class="titulo titulo1" [innerHTML]="titulo1"> </div>
+      <div class="texto texto1" [innerHTML]="texto1">
       </div>
   </div>
   <div class="filabootom">
-      <div class="titulo">Objetivos  <br> prioritarios</div>
+      <div class="titulo titulo2" [innerHTML]="titulo2"> </div>
       <div style="width: 50%;float: left;">
-        <div class="texto">Detectar los primeros signos de
-          violencia de género.  <br> <br>
-          Informar sobre los recursos que
-          existen para las mujeres que sufren
-          violencia.
+
+        <div class="texto" [innerHTML]="texto2">
+
         </div>
+
       </div>
       <div style="width: 50%;float: left;">
-        <div class="texto">
-          Informar sobre las medidas que pueden
-          adoptar para su autoprotección. <br> <br>
+        <div class="texto" [innerHTML]="texto3  ">
 
-          Fortalecer a las mujeres para que puedan
-          romper el silencio y salir del círculo de la
-          violencia de género.
 
       </div>
       </div>

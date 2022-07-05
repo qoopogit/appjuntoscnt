@@ -8,8 +8,10 @@ import { Service } from './api/Service';
 import { Api } from './api/Api';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { MyhtmlPipe } from './myhtml.pipe';
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, MyhtmlPipe],
 
   imports: [
     BrowserModule,
@@ -26,4 +28,4 @@ import { AppRoutingModule } from './app-routing.module';
 
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
