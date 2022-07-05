@@ -44,7 +44,7 @@
 }
 @font-face {
   font-family: "Uni_Sans"; //This is what we are going to call
-  src: url("assets/fonts/Uni Sans Bold Regular.ttf");
+  src: url("assets/fonts/UniSansBoldRegular.ttf");
 }
 
 @font-face {
@@ -302,6 +302,7 @@ ion-content {
 
 .bloque{
 
+  display: inline-block;
   background-color: #09333D;
   padding: 10px;
   border-radius: 14px;
@@ -309,5 +310,41 @@ ion-content {
   color: white;
   width: 100%;
   height: auto;
+
+}
+
+
+.titulo_ciudad{
+  font-family: "Uni_Sans";
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.listaitems{
+
+  float: left;
+  width: 80%;
+
+
+}
+
+.nombre_casa{
+  font-family: "Uni_Sans";
+  float: left;
+  width: 40%;
+}
+
+.telefono_casa{
+  float: left;
+  width: 40%;
+  font-family: "Uni_Sans";
+
+}
+.icono_refugio{
+
+  width: 20%;
+  float: left;
+  padding-left: 20px;
+  padding-right: 20px;
 
 }

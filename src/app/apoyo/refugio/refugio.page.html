@@ -23,7 +23,11 @@
       <ion-col>
 
 
-        <div class="texto" [innerHTML]="body  "></div>
+        <div  *ngFor="let item of body; let i = index" [attr.data-index]="i"   >
+
+          <div class="texto texto1" [innerHTML]="item" (click)="getCasa(i)" routerLink="/folder/1">      </div>
+
+        </div>
       </ion-col>
 
     </ion-row>
