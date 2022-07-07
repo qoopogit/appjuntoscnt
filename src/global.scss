@@ -184,12 +184,6 @@ div.main {
   height: 1.5em;
 }
 
-
-
-
-
-
-
 #container {
   text-align: center;
   position: absolute;
@@ -240,25 +234,23 @@ ion-content {
 #container a {
   text-decoration: none;
 }
-.margen10botton{
+.margen10botton {
   margin-bottom: 1vh;
 }
 
-.menu_bottom{
+.menu_bottom {
   z-index: 1000;
   position: absolute;
   bottom: 5vh;
 }
 
-.dos_columnas
-{
-
+.dos_columnas {
   width: 50%;
   float: left;
   text-align: center;
 }
 
-.bloquetitulo{
+.bloquetitulo {
   object-fit: cover;
   width: 100%;
   height: 10vh;
@@ -266,5 +258,4 @@ ion-content {
   margin-bottom: 10px;
   padding-left: 15px;
   padding-top: 20px;
-
 }
