@@ -44,8 +44,25 @@
 }
 @font-face {
   font-family: "Uni_Sans"; //This is what we are going to call
-  src: url("assets/fonts/Uni Sans Bold Regular.ttf");
+  src: url("assets/fonts/UniSansBoldRegular.ttf");
 }
+
+@font-face {
+  font-family: "RobotoCondensed-Light"; //This is what we are going to call
+  src: url("assets/fonts/RobotoCondensed-Light.ttf");
+}
+
+@font-face {
+  font-family: "RobotoCondensed-Bold"; //This is what we are going to call
+  src: url("assets/fonts/RobotoCondensed-Bold.ttf");
+}
+
+/*
+@font-face {
+  font-family: "UniSansBoldRegular"; //This is what we are going to call
+  src: url("assets/fonts/UniSansBoldRegular.ttf");
+}
+*/
 
 .logotop {
   width: 50px;
@@ -216,6 +233,13 @@ ion-content {
   color: #fff;
   font-family: "Uni_Sans";
   font-size: 13px;
+  text-align: justify;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.negrilla {
+  font-weight: bold;
+  font-size: 14px;
 }
 .justify {
   text-align: justify;
@@ -242,6 +266,8 @@ ion-content {
   z-index: 1000;
   position: absolute;
   bottom: 5vh;
+  margin-bottom: 10px;
+  display: contents;
 }
 
 .dos_columnas {
@@ -251,11 +277,54 @@ ion-content {
 }
 
 .bloquetitulo {
+  background-size: cover;
   object-fit: cover;
   width: 100%;
   height: 10vh;
-  height: 15vh;
+  height: 20vh;
   margin-bottom: 10px;
   padding-left: 15px;
   padding-top: 20px;
+  background-position-x: center;
+  background-position-y: center;
+}
+
+.bloque {
+  display: inline-block;
+  background-color: #09333d;
+  padding: 10px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  color: white;
+  width: 100%;
+  height: auto;
+}
+
+.titulo_ciudad {
+  font-family: "Uni_Sans";
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.listaitems {
+  float: left;
+  width: 80%;
+}
+
+.nombre_casa {
+  font-family: "Uni_Sans";
+  float: left;
+  width: 40%;
+}
+
+.telefono_casa {
+  float: left;
+  width: 40%;
+  font-family: "Uni_Sans";
+}
+.icono_refugio {
+  width: 20%;
+  float: left;
+  padding-left: 20px;
+  padding-right: 20px;
 }

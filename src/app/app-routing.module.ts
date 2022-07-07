@@ -100,6 +100,16 @@ const routes: Routes = [
     loadChildren: () =>
       import('./apoyo/apoyo.module').then((m) => m.ApoyoPageModule),
   },
+  {
+    path: 'refugio',
+    loadChildren: () =>
+      import('./apoyo/refugio/refugio.module').then((m) => m.RefugioPageModule),
+  },
+  {
+    path: 'integral',
+    loadChildren: () =>
+      import('./apoyo/integral/integral.module').then((m) => m.IntegralPageModule),
+  },
 ];
 
 @NgModule({

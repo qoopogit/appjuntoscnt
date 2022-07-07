@@ -18,7 +18,7 @@ export class HacerPage implements OnInit {
 
   constructor(private cmsservice: CmsService, private http: HttpClient ) {
 
-    axios.get('https://uploads.bayoli.com/cmsjuntas.php')
+    axios.get('https://uploads.bayoli.com/cmsjuntas.php?pagina=hacer')
     .then(res => {
 
       this.imagenprincial= res.data.imagen_princial;
