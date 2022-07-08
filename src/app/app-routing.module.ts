@@ -115,7 +115,11 @@ const routes: Routes = [
     path: 'zona/:id',
     loadChildren: () =>
       import('./apoyo/integral/zonas/zonas.module').then((m) => m.ZonasPageModule),
+  },  {
+    path: 'testimonios',
+    loadChildren: () => import('./testimonios/testimonios.module').then( m => m.TestimoniosPageModule)
   },
+
 ];
 
 @NgModule({
