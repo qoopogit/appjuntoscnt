@@ -110,6 +110,14 @@ const routes: Routes = [
     loadChildren: () =>
       import('./apoyo/integral/integral.module').then((m) => m.IntegralPageModule),
   },
+  {
+    path: 'contactos',
+    loadChildren: () => import('./contactos/contactos.module').then( m => m.ContactosPageModule)
+  },
+  {
+    path: 'contactos-nuevo',
+    loadChildren: () => import('./contactos-nuevo/contactos-nuevo.module').then( m => m.ContactosNuevoPageModule)
+  },
 ];
 
 @NgModule({
