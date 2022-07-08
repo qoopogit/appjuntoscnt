@@ -1,0 +1,71 @@
+.menu_bottom{
+
+ background-color: #119DD9;
+  color: white;
+}
+
+.secretaria{
+
+  font-size: 12px;
+
+  color: white;
+}
+
+.contenido{
+  --ion-background-color: #F1901F;
+  --background: url('../../../../assets/fondo_zonas.png') no-repeat center center / cover;
+}
+
+.titulozonanumero
+{
+  background-color: white;
+  color: #F1901F;
+  width: fit-content;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 10px;
+  padding-bottom: 3px;
+}
+
+.titulo_fondomorado
+{
+  background-color: #5D2E87;
+  color: white;
+  padding: 10px;
+  border-radius: 14px;
+  text-align: center;
+  font-size: 20px;
+  margin-top: -7px;
+}
+
+.titulo_mediano
+{
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  margin-bottom: 10vh;
+
+}
+
+.titulo_small{
+  font-size: 10px;
+  color: white;
+}
+
+.logo_zona
+{
+  margin-top: 60px;
+  width: 25vw;
+  text-align: right;
+  margin-bottom: 40px;
+}
+
+.dos_columnas
+{
+
+  background-color: #119DD9 !important;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 100px
+
+}

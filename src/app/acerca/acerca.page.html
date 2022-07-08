@@ -10,41 +10,50 @@
 </ion-header>
 
 <ion-content :fullscreen="true">
-  <div class="filatop">
-      <div class="titulo titulo1" [innerHTML]="titulo1"> </div>
-      <div class="texto texto1" [innerHTML]="texto1">
+  <div class="acerca">
+
+
+      <div class="filatop">
+          <div class="titulo titulo1" [innerHTML]="titulo1"> </div>
+          <div class="texto texto1" [innerHTML]="texto1">
+          </div>
       </div>
-  </div>
-  <div class="filabootom">
-      <div class="titulo titulo2" [innerHTML]="titulo2"> </div>
-      <div style="width: 50%;float: left;">
+      <div class="filabootom">
+            <div class="titulo titulo2" [innerHTML]="titulo2"> </div>
+            <div style="width: 50%;float: left;
+            margin-bottom: 20px;">
 
-        <div class="texto" [innerHTML]="texto2">
+              <div class="texto" [innerHTML]="texto2">
 
-        </div>
+              </div>
 
-      </div>
-      <div style="width: 50%;float: left;">
-        <div class="texto" [innerHTML]="texto3  ">
-
-
-      </div>
-      </div>
+            </div>
+            <div style="width: 50%;float: left;
+            margin-bottom: 20px;">
+              <div class="texto" [innerHTML]="texto3  ">
 
 
-  </div>
-  <div class="actions">
+            </div>
+            </div>
+            <div class="menu_bottom">
 
-
-        <div class="botn"><a href="/911/"><img src="assets/911.png" style="height: 35px;text-align: center;"></a></div>
-
-          <div class="botn">
-            <a href="/911/"><img src="assets/ayuda.png" style="height: 35px;text-align: center;"></a>
+              <div class="dos_columnas">
+                <ion-img src="assets/hacer-26.png"  class="margen10botton"  style="
+                width: 50%;
+                margin-left: auto;
+                margin-right: auto;" >
+                </ion-img>
+              </div>
+              <div class="dos_columnas">
+                <ion-img src="assets/hacer-25.png"  class="margen10botton" style="
+                width: 50%;
+                margin-left: auto;
+                margin-right: auto;" >
+                </ion-img>
+              </div>
           </div>
 
-
-
+      </div>
 
   </div>
-
   </ion-content>

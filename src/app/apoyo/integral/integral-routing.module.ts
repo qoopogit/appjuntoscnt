@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: IntegralPage
+  },  {
+    path: 'zonas',
+    loadChildren: () => import('./zonas/zonas.module').then( m => m.ZonasPageModule)
   }
+
 ];
 
 @NgModule({

@@ -110,6 +110,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./apoyo/integral/integral.module').then((m) => m.IntegralPageModule),
   },
+  {
+
+    path: 'zona/:id',
+    loadChildren: () =>
+      import('./apoyo/integral/zonas/zonas.module').then((m) => m.ZonasPageModule),
+  },
 ];
 
 @NgModule({

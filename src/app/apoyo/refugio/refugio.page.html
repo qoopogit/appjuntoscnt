@@ -20,12 +20,12 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col>
+      <ion-col class="bloque">
 
 
         <div  *ngFor="let item of body; let i = index" [attr.data-index]="i"   >
 
-          <div class="texto texto1" [innerHTML]="item" (click)="getCasa(i)" routerLink="/folder/1">      </div>
+          <div class="texto texto1" [innerHTML]="item"  >      </div>
 
         </div>
       </ion-col>
