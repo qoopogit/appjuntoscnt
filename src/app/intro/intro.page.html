@@ -3,36 +3,47 @@
 <ion-content>
 
   <ion-img src="assets/logotop.png" class="logotop"></ion-img>
-  <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
+  <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="false" [zoom]="false">
     <ng-template swiperSlide>
         <ion-img src="assets/intro0.png" class="imgen_intro" ></ion-img>
         <div class="marco_intro">
           <div class="juntos"> Junt@s <br> nos <br>accionamos
+                 <div class="fila_continuar" style="top: 70%;">
+                  <div class="continuar" routerLink="/principal"> continuar > </div>
+
+
+
+                </div>
+                <div class="menu_bottom"  >
+
+                  <div class="dos_columnas">
+                    <ion-img src="assets/hacer-26.png"  class="margen10botton"  style="
+                    width: 50%;
+                    margin-left: auto;
+                    margin-right: auto;" >
+                    </ion-img>
+                  </div>
+                  <div class="dos_columnas">
+                    <ion-img src="assets/hacer-25.png"  class="margen10botton" style="
+                    width: 50%;
+                    margin-left: auto;
+                    margin-right: auto;" >
+                    </ion-img>
+                  </div>
+               </div>
 
           </div>
-          <div class="fila_continuar">
-            <div class="continuar" routerLink="/principal"> continuar > </div>
-          </div>
 
-          <div class="menu_bottom">
 
-              <div class="dos_columnas">
-                <ion-img src="assets/hacer-26.png"  class="margen10botton"  style="
-                width: 50%;
-                margin-left: auto;
-                margin-right: auto;" >
-                </ion-img>
-              </div>
-              <div class="dos_columnas">
-                <ion-img src="assets/hacer-25.png"  class="margen10botton" style="
-                width: 50%;
-                margin-left: auto;
-                margin-right: auto;" >
-                </ion-img>
-              </div>
-          </div>
+
+          <div class="banner_top">
+          <ion-img src="assets/banner_top.png"  style="          width: 80%;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;"></ion-img>
         </div>
-        <div class="banner_top"> <ion-img src="assets/banner_top.png"  ></ion-img></div>
+        </div>
+
     </ng-template>
     <ng-template swiperSlide><ion-img src="assets/sabias_que.png" class="imgen_intro" ></ion-img>
 
@@ -40,29 +51,31 @@
 
         <div class="text" [innerHTML]="splash1"  >      </div>
 
+        <div class="fila_continuar">
+          <div class="continuar" routerLink="/principal"> continuar > </div>
+        </div>
 
+        <div class="menu_bottom">
+
+          <div class="dos_columnas">
+            <ion-img src="assets/hacer-26.png"  class="margen10botton"  style="
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;" >
+            </ion-img>
+          </div>
+          <div class="dos_columnas">
+            <ion-img src="assets/hacer-25.png"  class="margen10botton" style="
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;" >
+            </ion-img>
+          </div>
+        </div>
       </div>
 
-      <div class="fila_continuar">
-        <div class="continuar" routerLink="/principal"> continuar > </div>
-      </div>
-      <div class="menu_bottom">
 
-        <div class="dos_columnas">
-          <ion-img src="assets/hacer-26.png"  class="margen10botton"  style="
-          width: 50%;
-          margin-left: auto;
-          margin-right: auto;" >
-          </ion-img>
-        </div>
-        <div class="dos_columnas">
-          <ion-img src="assets/hacer-25.png"  class="margen10botton" style="
-          width: 50%;
-          margin-left: auto;
-          margin-right: auto;" >
-          </ion-img>
-        </div>
-    </div>
+
 
     </ng-template>
 
@@ -70,13 +83,10 @@
 
       <div class="juntos"> Datos de <br> interés
         <div class="text" [innerHTML]="splash2"  >      </div>
-
-      </div>
-
-      <div class="fila_continuar">
-        <div class="continuar" routerLink="/principal"> continuar > </div>
-      </div>
-      <div class="menu_bottom">
+        <div class="fila_continuar">
+          <div class="continuar" routerLink="/principal"> continuar > </div>
+        </div>
+        <div class="menu_bottom">
 
         <div class="dos_columnas">
           <ion-img src="assets/hacer-26.png"  class="margen10botton"  style="
@@ -93,15 +103,16 @@
           </ion-img>
         </div>
     </div>
+      </div>
+
+
+
     </ng-template>
     <ng-template swiperSlide><ion-img src="assets/sabias_que.png" class="imgen_intro" ></ion-img>
 
       <div class="juntos"> ¿Sabías  <br>  qué?
 
         <div class="text" [innerHTML]="splash3"  >      </div>
-
-
-      </div>
 
       <div class="fila_continuar">
         <div class="continuar" routerLink="/principal" > continuar > </div>
@@ -123,6 +134,10 @@
           </ion-img>
         </div>
     </div>
+      </div>
+
+
+
 
     </ng-template>
   </swiper>

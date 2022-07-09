@@ -14,15 +14,20 @@
 
 .banner_top
 {
-  bottom: 0px;
+  background-color: white;
+  bottom: 0vh;
   position: absolute;
-  height: 11vh;
+  height: 13vh;
 }
 
 .fila_continuar{
-  position: absolute;
-  bottom: 13vh;
-  width: 100vw;
+  display: table;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10vw;
+    margin-top: 20px;
+    margin-bottom: 50px;
 }
 .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal
 {
@@ -56,15 +61,7 @@
     text-align: center;
 }
 
-.menu_bottom{
-  z-index: 1000;
-  position: absolute;
-  bottom: 1vh;
-  margin-bottom: 10px;
-  display: block;
-  width: 100vw;
-  float: left;
-}
+
 .logotop {
   width: 25vw;
   margin-left: 10px;
@@ -81,8 +78,8 @@
   width: 100vw;
   text-align: right;
   padding-right: 10vw;
-  font-size: 55px;
-  line-height: 43px;
+  font-size: 50px;
+  line-height: 40px;
   text-shadow: 2px 2px 2px #323236;
   top: 50vh;
 
@@ -90,9 +87,9 @@
 
   .menu_bottom {
     z-index: 1000;
-    position: absolute;
+    position: relative;
     margin-bottom: 10px;
-    display: block;
+    display: contents;
     width: 100vw;
     float: left;
 }
@@ -101,7 +98,8 @@
 
   width: 100vw;
   position: absolute;
-  height: 88vh;
+  height: auto;
   top: 0px;
+  display: contents;
 }
 
