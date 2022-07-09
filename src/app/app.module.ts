@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MyhtmlPipe } from './myhtml.pipe';
 
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 @NgModule({
   declarations: [AppComponent, MyhtmlPipe],
 
@@ -22,7 +23,7 @@ import { MyhtmlPipe } from './myhtml.pipe';
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Service,
-    Api,
+    Api,  SocialSharing,
     //WaitUtil,
   ],
 

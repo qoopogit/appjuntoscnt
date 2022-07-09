@@ -45,3 +45,16 @@ ion-content {
 #container a {
   text-decoration: none;
 }
+
+.bloquetitulo{
+  background-image: url("../../assets/test/emcabezado_independiente.png");
+  font-family: "RobotoCondensed-BoldItalic";
+  color: #27C1A1;
+    font-size: 23px;
+    text-align: right;
+    padding-left: 40%;
+}
+
+.menu_bottom{
+  display: block;
+}
