@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar class="encabezado">
-    <ion-img src="assets/logotop.png" class="logotop_center"></ion-img>
+    <ion-img routerLink="/principal" src="assets/logotop.png" class="logotop_center"></ion-img>
 
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
@@ -10,21 +10,21 @@
 
 <ion-content :fullscreen="true">
   <ion-grid>
-    <ion-row text-right class="test-title">
-      <ion-col> {{testTile}} </ion-col>
+    <ion-row>
+      <ion-col class="bloquetitulo"  >{{testTile}}
+      </ion-col>
     </ion-row>
     <ion-row>
       <ion-col text-center>
-        <ion-button size="small" (click)="showAlertComoUsar()" icon-end>
+        <div class="btn_verde" size="small" (click)="showAlertComoUsar()" icon-end>
           Como usar
-          <ion-icon name="help"></ion-icon>
-        </ion-button>
+        </div>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
         <div>
-          <div class="preg" id="preg" name="preg">{{pregunta}}</div>
+          <div class="preg" id="preg" name="preg">{{pregunta}}  </div>
           <form name="fo" (submit)="getPregunta()">
             <div id="output" name="output" class="main">
               <input
@@ -45,10 +45,10 @@
                 name="qsuma"
                 [(ngModel)]="qsuma"
               />
-              <ion-list radio-group class="main">
+              <ion-list radio-group class="lista_opciones">
                 <div class="controls" *ngFor="let o of this.s_opciones">
                   <ion-item>
-                    <ion-label>{{o.opcion}}</ion-label>
+                    <ion-label>{{o.opcion}}  </ion-label>
                     <ion-radio
                       [(ngModel)]="qresp"
                       name="qresp"
@@ -70,9 +70,8 @@
                 [(ngModel)]="dchange"
               />
               <br />
-              <ion-button expand="block" (click)="getPregunta()"
-                >{{btnAccion}}</ion-button
-              >
+              <div class="btn_siguiente" expand="block" (click)="getPregunta()"
+                >{{btnAccion}} </div>
             </div>
           </form>
         </div>

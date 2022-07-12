@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar class="encabezado">
-    <ion-img src="assets/logotop.png" class="logotop_center"></ion-img>
+    <ion-img routerLink="/principal" src="assets/logotop.png" class="logotop_center"></ion-img>
 
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
@@ -11,111 +11,72 @@
 <ion-content :fullscreen="true">
   <ion-grid class="gridCenter">
     <ion-row>
-      <ion-col class="text-left">
-        <ion-button expand="block" (click)="mobbing()">
-          <table style="width: 100%">
-            <tr>
-              <td style="width: 20%">
-                <ion-icon
-                  slot="start"
-                  name="newspaper"
-                  class="menu-icon"
-                ></ion-icon>
-                <img src="assets/img/icon_atencion.png" class="menu-img" />
-              </td>
-              <td>
-                <ion-label class="texto"
-                  >¿Estoy sufriendo acoso sexual <br />en el trabajo
-                  (Mobbing)?</ion-label
-                >
-              </td>
-            </tr>
-          </table>
-        </ion-button>
-      </ion-col>
-    </ion-row>
+      <ion-col class="bloquetitulo"  >
 
-    <ion-row>
-      <ion-col>
-        <ion-button expand="block" (click)="acoso()">
-          <table style="width: 100%">
-            <tr>
-              <td style="width: 10%">
-                <ion-icon slot="start" name="help" class="menu-icon"></ion-icon>
-                <img src="assets/img/icon_help.png" class="menu-img" />
-              </td>
-              <td>
-                <ion-label class="texto">¿Soy victima de ciberacoso?</ion-label>
-              </td>
-            </tr>
-          </table>
-        </ion-button>
+
+
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col class="text-left">
-        <ion-button expand="block" (click)="violencia()">
-          <table style="width: 100%">
-            <tr>
-              <td style="width: 10%">
-                <ion-icon
-                  slot="start"
-                  name="search-circle"
-                  class="menu-icon"
-                ></ion-icon>
-                <img src="assets/img/icon_consultar.png" class="menu-img" />
-              </td>
-              <td>
-                <ion-label class="texto">¿Sufro violencia?</ion-label>
-              </td>
-            </tr>
-          </table>
-        </ion-button>
+
+        <ion-img   (click)="mobbing()" src="assets/test/test-15.png"  class="margen10botton"  ></ion-img>
+
+      </ion-col>
+      <ion-col>
+        <ion-img   (click)="acoso()" src="assets/test/test-16.png"  class="margen10botton"  ></ion-img>
+
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col>
-        <ion-button expand="block" (click)="violento()">
-          <table style="width: 100%">
-            <tr>
-              <td style="width: 10%">
-                <ion-icon
-                  slot="start"
-                  name="settings"
-                  class="menu-icon"
-                ></ion-icon>
-                <img src="assets/img/icon_config.png" class="menu-img" />
-              </td>
-              <td>
-                <ion-label class="texto">¿Soy violento?</ion-label>
-              </td>
-            </tr>
-          </table>
-        </ion-button>
+        <ion-img   (click)="violencia()" src="assets/test/test-17.png"  class="margen10botton"  ></ion-img>
+
       </ion-col>
     </ion-row>
 
+
+
+
     <ion-row>
       <ion-col>
-        <ion-card>
           <ion-row>
             <ion-col>
-              <ion-icon name="information-circle"></ion-icon>
-              <div class="texto">Importante</div>
-            </ion-col>
-          </ion-row>
-          <ion-card-content text-justify>
-            <p class="texto justify">
+              <div class="bloquee_gris">
+
+                  <div class="texto centrado"><ion-icon name="information-circle"></ion-icon> Importante</div>
+
+                   <div class="texto justify">
               Estos test no son diagnósticos psicológicos, únicamente son
               indicadores que te permitirán tomar conciencia para pedir ayuda,
               salir de la violencia o cambiar tu forma de actuar para no ser
               violento.
-            </p>
-          </ion-card-content>
-        </ion-card>
+            </div>
+              </div>
+
+            </ion-col>
+          </ion-row>
+
       </ion-col>
     </ion-row>
   </ion-grid>
+  <div class="menu_bottom">
+
+    <div class="dos_columnas">
+      <ion-img src="assets/hacer-26.png"  class="margen10botton"  style="
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+  " ></ion-img>
+    </div>
+    <div class="dos_columnas">
+      <ion-img src="assets/hacer-25.png"  class="margen10botton" style="
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+  " ></ion-img>
+    </div>
+</div>
 </ion-content>

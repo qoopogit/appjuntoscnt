@@ -13,7 +13,7 @@
 <ion-content class="contenido">
   <ion-grid>
     <ion-row>
-      <ion-col class="bloquetitulo" style="background-image: url({{imagenprincial}});">
+      <ion-col class="bloquetitulo"  >
 
 
 
@@ -21,26 +21,50 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-img routerLink="/mujeres"  src="assets/hacer-28.png"  class="margen10botton"  ></ion-img>
-        <ion-img routerLink="/amigos" src="assets/hacer-27.png"  class="margen10botton"  ></ion-img>
-      </ion-col>
-      <ion-col>
-        <ion-img   routerLink="/hombres" src="assets/hacer-30.png"  class="margen10botton"  ></ion-img>
-        <ion-img routerLink="/denuncia" src="assets/hacer-29.png"  class="margen10botton"  ></ion-img>
+        <div class="bloquee_gris" [innerHTML]="titulo  "></div>
+
       </ion-col>
 
     </ion-row>
+
+    <ion-row>
+      <ion-col>
+
+
+
+
+
+        <ion-slides [options]="{ slidesPerView: true, loop: true }" >
+
+                <ion-slide *ngFor="let item of body; let i = index" [attr.data-index]="i"   >
+                <div [innerHTML]="item"  ></div>
+
+                </ion-slide>
+
+        </ion-slides>
+
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+
+      <ion-col>
+
+      </ion-col>
+    </ion-row>
+
   </ion-grid>
 
 
   <div class="menu_bottom">
 
       <div class="dos_columnas">
-        <ion-img src="assets/hacer-26.png"  class="margen10botton"  style="
+        <a href="" target="_blank"><ion-img src="assets/hacer-26.png"  class="margen10botton"  style="
         width: 50%;
         margin-left: auto;
         margin-right: auto;
-    " ></ion-img>
+    " ></ion-img></a>
       </div>
       <div class="dos_columnas">
         <ion-img src="assets/hacer-25.png"  class="margen10botton" style="
