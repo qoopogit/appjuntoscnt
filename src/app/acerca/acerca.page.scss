@@ -10,8 +10,14 @@
   background-color:#2C2C2C;
 }
 
-ion-content{
-    --background: url(../../assets/acerca.png) no-repeat center center / cover;
+.acerca{
+    background: url(../../assets/acerca.png) no-repeat center center / cover;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+
+    height: 100vh;
+    display: table;
 }
 .titulo{
   color: #fff;
@@ -34,7 +40,9 @@ ion-content{
     align-items: stretch;
     padding: 8vw;
     align-content: start;
-    padding-top: 0vh;
+    padding-top: 10vh;
+    height: 50vh;
+    padding-bottom: 0px;
 }
 .texto{
   color: #fff;
@@ -49,7 +57,7 @@ ion-content{
     padding: 8vw;
     display: grid;
     align-content: end;
-    padding-bottom: 10vh;
+    padding-bottom: 5vh;
 
 }
 #container strong {

@@ -118,6 +118,11 @@ const routes: Routes = [
     path: 'contactos-nuevo',
     loadChildren: () => import('./contactos-nuevo/contactos-nuevo.module').then( m => m.ContactosNuevoPageModule)
   },
+  {
+    path: 'zona/:id',
+    loadChildren: () =>
+      import('./apoyo/integral/zonas/zonas.module').then((m) => m.ZonasPageModule),
+  },
 ];
 
 @NgModule({

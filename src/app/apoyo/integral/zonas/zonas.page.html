@@ -11,34 +11,52 @@
 </ion-header>
 
 <ion-content class="contenido">
-  <ion-grid  >
-
+  <ion-grid>
     <ion-row>
-      <ion-col class="bloquetitulo" style="background-image: url({{imagenprincial}});">
+      <ion-col class="secretaria"  >
+        Secretaria de Derechos Humanos
       </ion-col>
     </ion-row>
+    <ion-row>
+      <ion-col   >
+        <div class="titulozonanumero"> ZONA 1</div>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="titulo_fondomorado"  >
+        SERVICIO DE PROTECCIÓN INTEGRAL - SPI
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="titulo_small" >
+        Durante la emergencia sanitaria
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="titulo_mediano blanco espacio50"  >
+        Si necesitas ATENCIÓN PSICOLÓGICA Y SOCIAL en
+casos de violencia de género en el ámbito familiar<br> LLÁMANOS:
+      </ion-col>
+    </ion-row>
+
+
+
+
     <ion-row>
       <ion-col >
-        <div class="descipcion" [innerHTML]="descipcion"  >      </div>
+        <div class="descipcion" [innerHTML]="body"  >      </div>
       </ion-col>
     </ion-row>
+
     <ion-row>
-      <ion-col >
-        <div class="titulo" [innerHTML]="titulo"  >      </div>
+      <ion-col style="text-align: right;">
+        <img src="assets/logo_zona.png"   class="logo_zona" >
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col  >
 
-
-        <div  *ngFor="let item of body; let i = index" [attr.data-index]="i"   >
-
-          <div  class="bloque_boton"  [innerHTML]="item"  (click)="zonas(i)" >      </div>
-
-        </div>
-      </ion-col>
-
-    </ion-row>
   </ion-grid>
 
 

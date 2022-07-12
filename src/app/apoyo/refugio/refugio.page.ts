@@ -38,12 +38,7 @@ export class RefugioPage implements OnInit {
 
    }
 
-   async getCasa(i) {
 
-
-
-
-   }
 
   ngOnInit() {
   }

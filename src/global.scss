@@ -98,6 +98,8 @@ ion-content {
 .bordes {
   --border-radius: 21px 0px 0px 21px !important;
   --box-shadow: 0px 14px 25px rgba(182, 30, 30, 0.59);
+  --ion-background-color: #202020;
+  background-color: #202020 !important;
 }
 ion-menu {
   border: 0px;
@@ -115,11 +117,9 @@ ion-menu ion-content {
   border: 24px solid #202020;
 }
 .logotop_center {
-  width: 25vw;
+  width: 22vw;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 1vh;
+  padding: 1vh;
   margin-bottom: 1vh;
 }
 
@@ -274,6 +274,8 @@ ion-content {
   width: 50%;
   float: left;
   text-align: center;
+
+  margin-bottom: 15px;
 }
 
 .bloquetitulo {
@@ -327,4 +329,111 @@ ion-content {
   float: left;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+
+.bloque_boton{
+  display: inline-block;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: white;
+  width: 50%;
+  height: auto;
+  float: left;
+
+}
+
+.bloque_zona{
+
+  background-color: #09333D !important;
+  padding: 10px;
+  border-radius: 14px;
+  width: 100%;
+  height: auto;
+
+  display: inline-block;
+}
+
+.titulo_ciudad{
+width: 100%;
+text-align: center;
+font-family: "Uni_Sans";
+font-size: 20px;
+
+}
+
+
+.titulo_ciudad2{
+  font-family: "Uni_Sans";
+  width: 50%;
+  text-align: left;
+  float: left;
+
+  font-size: 20px;
+
+  }
+
+.fila_ciudad
+{
+  font-family: "Uni_Sans";
+width: 50%;
+float: left;
+
+font-size: 12px;
+}
+
+.boton_blanco{
+
+  color: #3B2562;
+  background-color: white;
+  text-align: center;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 14px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 9px #000000a3;
+
+}
+
+.Fila_ciudad_zona{
+  width: 100%;
+    float: left;
+    color: white;
+    border-bottom: 1px solid #ffffff;
+    padding: 5px;
+
+}
+.zona_ciudad{
+width: auto;
+  text-align: left;
+  float: left;
+}
+
+.link_claro{
+
+  text-decoration: none;
+  color: white;
+}
+
+.link_claro:hover{
+
+  text-decoration: none;
+color: #3B2562;
+}
+
+.link_morado{
+
+  text-decoration: none;
+  color: #3B2562;
+}
+
+.zona_telefonos{
+  width: auto;
+float: right;
+  text-align: right;
 }
