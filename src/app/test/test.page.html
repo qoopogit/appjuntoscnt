@@ -1,6 +1,10 @@
 <ion-header>
   <ion-toolbar class="encabezado">
-    <ion-img routerLink="/principal" src="assets/logotop.png" class="logotop_center"></ion-img>
+    <ion-img
+      routerLink="/principal"
+      src="assets/logotop.png"
+      class="logotop_center"
+    ></ion-img>
 
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
@@ -11,72 +15,71 @@
 <ion-content :fullscreen="true">
   <ion-grid class="gridCenter">
     <ion-row>
-      <ion-col class="bloquetitulo"  >
-
-
-
-      </ion-col>
+      <ion-col class="bloquetitulo"> </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col class="text-left">
-
-        <ion-img   (click)="mobbing()" src="assets/test/test-15.png"  class="margen10botton"  ></ion-img>
-
+        <ion-img
+          (click)="mobbing()"
+          src="assets/test/test-15.png"
+          class="margen10botton"
+        ></ion-img>
       </ion-col>
       <ion-col>
-        <ion-img   (click)="acoso()" src="assets/test/test-16.png"  class="margen10botton"  ></ion-img>
-
+        <ion-img
+          (click)="acoso()"
+          src="assets/test/test-16.png"
+          class="margen10botton"
+        ></ion-img>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col>
-        <ion-img   (click)="violencia()" src="assets/test/test-17.png"  class="margen10botton"  ></ion-img>
-
+        <ion-img
+          (click)="violencia()"
+          src="assets/test/test-17.png"
+          class="margen10botton"
+        ></ion-img>
       </ion-col>
     </ion-row>
 
-
-
-
     <ion-row>
       <ion-col>
-          <ion-row>
-            <ion-col>
-              <div class="bloquee_gris">
-
-                  <div class="texto centrado"><ion-icon name="information-circle"></ion-icon> Importante</div>
-
-                   <div class="texto justify">
-              Estos test no son diagnósticos psicológicos, únicamente son
-              indicadores que te permitirán tomar conciencia para pedir ayuda,
-              salir de la violencia o cambiar tu forma de actuar para no ser
-              violento.
-            </div>
+        <ion-row>
+          <ion-col>
+            <div class="bloquee_gris">
+              <div class="texto centrado">
+                <ion-icon name="information-circle"></ion-icon> Importante
               </div>
 
-            </ion-col>
-          </ion-row>
-
+              <div class="texto justify">
+                Estos test no son diagnósticos psicológicos, únicamente son
+                indicadores que te permitirán tomar conciencia para pedir ayuda,
+                salir de la violencia o cambiar tu forma de actuar para no ser
+                violento.
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
       </ion-col>
     </ion-row>
   </ion-grid>
   <div class="menu_bottom">
-
     <div class="dos_columnas">
-      <ion-img src="assets/hacer-26.png"  class="margen10botton"  style="
-      width: 50%;
-      margin-left: auto;
-      margin-right: auto;
-  " ></ion-img>
+      <ion-img
+        src="assets/hacer-26.png"
+        class="margen10botton"
+        style="width: 50%; margin-left: auto; margin-right: auto"
+      ></ion-img>
     </div>
     <div class="dos_columnas">
-      <ion-img src="assets/hacer-25.png"  class="margen10botton" style="
-      width: 50%;
-      margin-left: auto;
-      margin-right: auto;
-  " ></ion-img>
+      <ion-img
+        src="assets/hacer-25.png"
+        class="margen10botton"
+        style="width: 50%; margin-left: auto; margin-right: auto"
+      ></ion-img>
     </div>
-</div>
+  </div>
 </ion-content>

@@ -6,9 +6,11 @@ import { HttpClientModule } from '@angular/common/http';
 //import { WaitUtil } from './api/WaitUtil';
 import { Service } from './api/Service';
 import { Api } from './api/Api';
+import { DbService } from './api/db.service';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MyhtmlPipe } from './myhtml.pipe';
+import { SQLite } from '@ionic-native/sqlite/ngx';
 
 @NgModule({
   declarations: [AppComponent, MyhtmlPipe],
@@ -22,10 +24,12 @@ import { MyhtmlPipe } from './myhtml.pipe';
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Service,
+    SQLite,
     Api,
+    DbService,
     //WaitUtil,
   ],
 
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

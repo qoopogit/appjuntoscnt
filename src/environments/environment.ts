@@ -2,8 +2,10 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-const server = 'https://appdesarrollo73.cnt.gob.ec';
+//const server = 'https://appdesarrollo73.cnt.gob.ec';
+const server = 'https://181.113.34.230:9966';
 //const server='https://appbono.qoopo.net';
+
 
 export const environment = {
   production: false,

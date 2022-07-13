@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { ContactosPageRoutingModule } from './contactos-routing.module';
-import { ContactosPage } from './contactos.page';
+import { ContactoPageRoutingModule } from './contacto-routing.module';
+import { ContactoPage } from './contacto.page';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -10,10 +10,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     IonicModule,
-    ContactosPageRoutingModule,
+    ContactoPageRoutingModule,
     ReactiveFormsModule,
     FormsModule,
   ],
-  declarations: [ContactosPage],
+  declarations: [ContactoPage],
 })
-export class ContactosPageModule {}
+export class ContactoPageModule {}
