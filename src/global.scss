@@ -329,9 +329,11 @@ ion-content {
 }
 
 .telefono_casa {
-  float: left;
-  width: 40%;
-  font-family: "Uni_Sans";
+
+  float: right;
+    width: 40%;
+    font-family: "Uni_Sans";
+    text-align: right;
 }
 .icono_refugio {
   width: 20%;
@@ -368,6 +370,14 @@ width: 100%;
 text-align: center;
 font-family: "Uni_Sans";
 font-size: 20px;
+
+}
+.refugio_titulo_ciudad{
+
+  width: 100%;
+  font-family: "Uni_Sans";
+  font-size: 20px;
+  margin-bottom: 10px;
 
 }
 
