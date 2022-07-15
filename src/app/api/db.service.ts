@@ -13,7 +13,7 @@ import { JUNTOSDB } from '../db/model';
 export class DbService {
   private storage: SQLiteObject;
   contactsList = new BehaviorSubject([]);
-  public lista: Contacto[] = [];
+  //public lista: Contacto[] = [];
   private isDbReady: BehaviorSubject<boolean> = new BehaviorSubject(false);
   private juntosDB = JUNTOSDB;
 
@@ -26,7 +26,6 @@ export class DbService {
 
     this.platform.ready().then(() => {
       console.log('platform ready');
-
       if (this.platform.is('cordova')) {
         this.sqlite
           .create({
@@ -54,33 +53,20 @@ export class DbService {
     });
   }
 
+  /*
   getData() {
     return this.lista;
   }
+  */
 
   dbState() {
     return this.isDbReady.asObservable();
   }
 
   fetchContactos(): Observable<Contacto[]> {
-    this.loadContactos();
     return this.contactsList.asObservable();
   }
-  // Render fake data
-  /*getFakeData() {
-    this.httpClient
-      .get('assets/dump.sql', { responseType: 'text' })
-      .subscribe((data) => {
-        this.sqlPorter
-          .importSqlToDb(this.storage, data)
-          .then((_) => {
-            this.loadContactos();
-            this.isDbReady.next(true);
-          })
-          .catch((error) => console.error(error));
-      });
-  }
-*/
+
   /**
    * Inicia la bdd de acuerdo al modelo
    */
@@ -131,6 +117,7 @@ export class DbService {
             console.log('res=>' + res);
             console.log('records size=' + res.rows.length);
             let items: Contacto[] = [];
+            //this.lista=[];
             if (res.rows.length > 0) {
               for (var i = 0; i < res.rows.length; i++) {
                 items.push({
@@ -139,14 +126,14 @@ export class DbService {
                   number: res.rows.item(i).cont_numero,
                   sms: res.rows.item(i).cont_sms,
                 });
-
+                /*
                 this.lista.push({
                   id: res.rows.item(i).cont_id,
                   name: res.rows.item(i).cont_nombre,
                   number: res.rows.item(i).cont_numero,
                   sms: res.rows.item(i).cont_sms,
                 });
-
+                */
                 console.log(
                   'adding...' +
                     res.rows.item(i).cont_id +
@@ -155,10 +142,9 @@ export class DbService {
                 );
               }
             }
-
             this.contactsList.next(items);
-            console.log('Lista');
-            console.log(this.contactsList);
+            //console.log('Lista');
+            //console.log(this.contactsList);
           },
           (error) => {
             console.log(error);
@@ -226,7 +212,7 @@ export class DbService {
   // Get single object
   getContacto(id): Promise<Contacto> {
     return this.storage
-      .executeSql('SELECT * FROM junt_contactos WHERE id = ?', [id])
+      .executeSql('SELECT * FROM junt_contactos WHERE cont_id = ?', [id])
       .then((res) => {
         return {
           id: res.rows.item(0).cont_id,
@@ -242,7 +228,7 @@ export class DbService {
 
     return this.storage.transaction((tsql) => {
       tsql.executeSql(
-        `UPDATE junt_contactos SET cont_nombre = ?, cont_numero = ?, cont_sms = ? WHERE id = ${id}`,
+        `UPDATE junt_contactos SET cont_nombre = ?, cont_numero = ?, cont_sms = ? WHERE cont_id = ${id}`,
         data,
         (resp) => {
           console.log(resp);
@@ -260,7 +246,7 @@ export class DbService {
     /*
     return this.storage
       .executeSql(
-        `UPDATE junt_contactos SET cont_nombre = ?, cont_numero = ?, cont_sms = ? WHERE id = ${id}`,
+        `UPDATE junt_contactos SET cont_nombre = ?, cont_numero = ?, cont_sms = ? WHERE cont_id = ${id}`,
         data
       )
       .then((data) => {
@@ -273,7 +259,7 @@ export class DbService {
     console.log('Eliminando registro ' + id);
     return this.storage.transaction((tsql) => {
       tsql.executeSql(
-        'DELETE FROM junt_contactos WHERE id = ?',
+        'DELETE FROM junt_contactos WHERE cont_id = ?',
         [id],
         (resp) => {
           console.log('Eliminado registro ' + resp);
@@ -281,7 +267,6 @@ export class DbService {
           return resp;
         },
         (error) => {
-
           let dataResponse = JSON.parse(JSON.stringify(error));
           console.log('Error stringfy ' + dataResponse.json);
           console.log('Error al eliminar ' + error);

@@ -30,8 +30,14 @@ export class ContactosPage implements OnInit {
   /**
    * Elimina un registro
    */
-  deleteContacto(id) {
-    this.db.deleteContacto(id)
+  async deleteContacto(id) {
+    this.db.deleteContacto(id);
+
+    let toast = await this.toast.create({
+      message: 'Eliminado',
+      duration: 2500,
+    });
+    toast.present();
 
     /*;
     .then(async (res) => {
@@ -47,7 +53,7 @@ export class ContactosPage implements OnInit {
   /**
    * Almacena la informacion cuando el usuario hace click en submit
    */
-  storeData() {
+  async storeData() {
     console.log(
       'al guardar=>' +
         this.db.addContacto(
@@ -57,16 +63,16 @@ export class ContactosPage implements OnInit {
           this.mainForm.value.sms
         )
     );
+    this.mainForm.reset();
+    let toast = await this.toast.create({
+      message: 'Guardado',
+      duration: 2500,
+    });
+    toast.present();
     /*
       .then((res) => {
         this.mainForm.reset();
       });*/
-  }
-
-  refrescarData() {
-    console.log('Cargando registros..');
-    this.db.loadContactos();
-    this.Data = this.db.getData();
   }
 
   ngOnInit() {
@@ -76,8 +82,11 @@ export class ContactosPage implements OnInit {
       sms: [''],
     });
 
-    this.refrescarData();
-
+    this.db.fetchContactos().subscribe((item) => {
+      console.log('Ejecutando el fetch que actualiza la data...');
+      this.Data = item;
+    });
+    /*
     this.db.dbState().subscribe((res) => {
       if (res) {
         this.db.fetchContactos().subscribe((item) => {
@@ -86,5 +95,6 @@ export class ContactosPage implements OnInit {
         });
       }
     });
+*/
   }
 }

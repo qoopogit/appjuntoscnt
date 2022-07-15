@@ -16,33 +16,33 @@
   <ion-list lines="full">
     <form [formGroup]="mainForm" (ngSubmit)="storeData()">
       <ion-item>
-        <ion-label position="floating">Nombre</ion-label>
-        <ion-input formControlName="name" type="text" required></ion-input>
+        <ion-label class="formLabel" position="floating">Nombre</ion-label>
+        <ion-input class="controls" formControlName="name" type="text" required></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Número</ion-label>
-        <ion-input formControlName="number" type="text" required> </ion-input>
+        <ion-label class="formLabel" position="floating">Número</ion-label>
+        <ion-input class="controls" formControlName="number" type="text" required> </ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Mensaje</ion-label>
-        <ion-input formControlName="sms" type="text" required> </ion-input>
+        <ion-label class="formLabel" position="floating">Mensaje</ion-label>
+        <ion-input class="controls" formControlName="sms" type="text" required> </ion-input>
       </ion-item>
       <ion-row>
         <ion-col>
-          <ion-button type="submit" color="primary" shape="full" expand="block">
+          <button type="submit" class="btn_verde">
             Guardar
-          </ion-button>
+          </button>
         </ion-col>
       </ion-row>
     </form>
   </ion-list>
   <ion-list>
-    <ion-list-header> Contactos </ion-list-header>
-    <ion-item lines="inset" *ngFor="let data of Data" class="contactRecord">
-      <ion-label >
-        <h5>{{data.displayName}}</h5>
-        <p>{{data.phoneNumber}}</p>
-        <p>{{data.sms}}</p>
+    <ion-list-header class="formLabel"> Contactos </ion-list-header>
+    <ion-item lines="inset" *ngFor="let data of Data" class="contactItem">
+      <ion-label class="contactRecord">
+        <h5 class="contactName">{{data.name}}</h5>
+        <p class="contactNumber">{{data.number}}</p>
+        <p class="contactSms">{{data.sms}}</p>
       </ion-label>
       <div class="item-note" item-end>
         <ion-icon

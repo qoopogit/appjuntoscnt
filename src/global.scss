@@ -327,11 +327,10 @@ ion-content {
 }
 
 .telefono_casa {
-
   float: right;
-    width: 40%;
-    font-family: "Uni_Sans";
-    text-align: right;
+  width: 40%;
+  font-family: "Uni_Sans";
+  text-align: right;
 }
 .icono_refugio {
   width: 20%;
@@ -366,13 +365,11 @@ ion-content {
   font-family: "Uni_Sans";
   font-size: 20px;
 }
-.refugio_titulo_ciudad{
-
+.refugio_titulo_ciudad {
   width: 100%;
   font-family: "Uni_Sans";
   font-size: 20px;
   margin-bottom: 10px;
-
 }
 
 .titulo_ciudad2 {
@@ -384,10 +381,10 @@ ion-content {
   font-size: 20px;
 }
 .item-content {
-  background-color:#ffffff;
+  background-color: #ffffff;
 }
-.item-background-color{
-  --ion-item-background:#2c2c2c;
+.item-background-color {
+  --ion-item-background: #2c2c2c;
 }
 
 .fila_ciudad {
@@ -478,10 +475,25 @@ ion-content {
   font-size: 23px;
 }
 
-.contactForm {
-  background-color: white;
-  color: #000;
+.contactItem {
+  color: #ffffff;
 }
-.contactRecord {
-  color: white;
+
+.contactName {
+  color: #ffffff;
+}
+.contactNumber {
+  color: #ffffff;
+}
+.contactSms {
+  color: #ffffff;
+}
+
+.controls {
+  color: #ffffff;
+  background: #2c2c2c;
+}
+
+.formLabel {
+  color: #ffffff !important;
 }
