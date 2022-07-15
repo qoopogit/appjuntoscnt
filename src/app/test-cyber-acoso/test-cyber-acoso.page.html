@@ -8,7 +8,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content :fullscreen="true">
+<ion-content  :fullscreen="true">
   <ion-grid>
     <ion-row>
       <ion-col class="bloquetitulo"  >{{testTile}}
@@ -25,7 +25,7 @@
       <ion-col>
         <div>
           <div class="preg" id="preg" name="preg">{{pregunta}}</div>
-          <form name="fo" (submit)="getPregunta()">
+          <form name="fo" (submit)="getPregunta()" class="preg">
             <div id="output" name="output" class="main">
               <input
                 type="hidden"
@@ -47,8 +47,8 @@
               />
               <ion-list radio-group class="lista_opciones">
                 <div class="controls" *ngFor="let o of this.s_opciones">
-                  <ion-item>
-                    <ion-label>{{o.opcion}}</ion-label>
+                  <ion-item class="item-background-color">
+                    <ion-label class="opciones">{{o.opcion}}</ion-label>
                     <ion-radio
                       [(ngModel)]="qresp"
                       name="qresp"

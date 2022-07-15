@@ -45,6 +45,18 @@ ion-content {
 #container a {
   text-decoration: none;
 }
+.item-background-color{
+  --ion-item-background:#2c2c2c;
+}
+.controls, .opciones, .item-fill, .lista_opciones
+{
+
+  color: #ffffff;
+    background: #2C2C2C;
+}
+.item .item-content {
+  background-color: transparent !important;
+}
 
 .bloquetitulo{
   background-image: url("../../assets/test/emcabezado_independiente.png");
