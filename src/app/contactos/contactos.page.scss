@@ -1,0 +1,41 @@
+.box{
+
+  background: #2C2C2C;
+  border-radius: 14px;
+  margin: 30px;
+  padding: 10px;
+  margin-top: 5px;
+  box-shadow: 2px 2px 8px 0px #000000ab;
+}
+
+.label
+{
+  color: white;
+}
+.titulo{
+  color: white;
+
+  font-family: "Uni_Sans";
+
+  font-size: 20px;
+}
+
+.continuar{
+  color: white;
+  padding: 4px;
+  background-color: #27C1A1;
+  font-family: "RobotoCondensed-BoldItalic";
+    bottom: 11vh;
+    --ion-color-primary :#27C1A1;
+    width: auto;
+    display: table;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 22px;
+    border-radius: 14px;
+    text-align: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40px;
+}
