@@ -13,7 +13,7 @@ export class MujeresPage implements OnInit {
   body = '';
   constructor() {
     axios
-      .get(environment.cms + '?pagina=mujeres')
+      .get(environment.cms + 'mujeres')
       .then((res) => {
         this.imagenprincial = res.data.imagen_princial;
         this.titulo = res.data.titulo;

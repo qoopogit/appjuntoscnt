@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import axios from 'axios';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../../../environments/environment';
 @Component({
   selector: 'app-zonas',
   templateUrl: './zonas.page.html',
@@ -22,7 +23,8 @@ export class ZonasPage implements OnInit {
       this.listId =  + parseFloat(this.route.snapshot.paramMap.get('id')) + 1 ;
       console.log( this.listId);
 
-        axios.get('https://uploads.bayoli.com/cmsjuntas.php?pagina=zona&id='+this.listId)
+        axios
+        .get(environment.cms + 'zona&id='+this.listId)
         .then(res => {
 
           this.imagenprincial= res.data.imagen_princial;

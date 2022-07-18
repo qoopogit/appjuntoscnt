@@ -14,7 +14,7 @@ export class AmigosPage implements OnInit {
   texto1 = '';
   constructor() {
     axios
-      .get(environment.cms + '?pagina=amigos')
+      .get(environment.cms + 'amigos')
       .then((res) => {
         this.imagenprincial = res.data.imagen_princial;
         this.titulo = res.data.titulo;

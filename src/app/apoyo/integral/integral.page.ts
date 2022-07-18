@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 import axios from 'axios';
 import { FolderPage } from 'src/app/folder/folder.page';
+import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-integral',
   templateUrl: './integral.page.html',
@@ -19,7 +19,8 @@ export class IntegralPage implements OnInit {
   folderPage: FolderPage;
 
   constructor( private route: Router) {
-    axios.get('https://uploads.bayoli.com/cmsjuntas.php?pagina=integral')
+    axios
+    .get(environment.cms + 'integral')
     .then(res => {
 
       this.imagenprincial= res.data.imagen_princial;

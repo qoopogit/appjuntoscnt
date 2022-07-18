@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { environment } from '../../../environments/environment';
 
 import axios from 'axios';
 import { ApoyoPage } from '../apoyo.page';
@@ -16,8 +17,8 @@ export class RefugioPage implements OnInit {
   bloques = [];
 
   constructor(private router: Router  ) {
-
-    axios.get('https://uploads.bayoli.com/cmsjuntas.php?pagina=refugio')
+    axios
+    .get(environment.cms + 'refugio')
     .then(res => {
 
       this.imagenprincial= res.data.imagen_princial;

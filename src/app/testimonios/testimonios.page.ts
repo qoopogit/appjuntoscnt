@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../environments/environment';
 import SwiperCore, {
   Autoplay,
   Keyboard,
@@ -22,17 +22,13 @@ export class TestimoniosPage implements OnInit {
   titulo = '';
   body = [];
 
-  text = 'Flamenco';
-  imgurl =
-    'https://cdn.pixabay.com/photo/2019/12/26/05/10/pink-4719682_960_720.jpg';
-  link = 'https://link.medium.com/JA4amAHFJ5';
+
 
   constructor() {
     axios
-      .get(environment.cms + '?pagina=testimonios')
+      .get(environment.cms + 'testimonios')
       .then((res) => {
-        const i = 0;
-        this.imagenprincial = res.data.imagen_princial;
+
         this.titulo = res.data.titulo;
         console.log(res.data);
 

@@ -19,7 +19,7 @@ export class HacerPage implements OnInit {
 
   constructor(private cmsservice: CmsService, private http: HttpClient) {
     axios
-      .get(environment.cms + '?pagina=hacer')
+      .get(environment.cms + 'hacer')
       .then((res) => {
         this.imagenprincial = res.data.imagen_princial;
         this.titulo = res.data.titulo;
