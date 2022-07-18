@@ -9,7 +9,8 @@ const server = 'https://appdesarrollo73.cnt.gob.ec';
 
 export const environment = {
   production: false,
-  servicios: server + '/juntos-backend/app/otro.php?'
+  servicios: server + '/juntos-backend/app/otro.php?',
+  cms:'https://uploads.bayoli.com/cmsjuntas.php'
 };
 
 /*

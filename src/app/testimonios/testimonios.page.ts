@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
+import { environment } from '../../../environments/environment';
 import SwiperCore, {
   Autoplay,
   Keyboard,
@@ -28,7 +29,7 @@ export class TestimoniosPage implements OnInit {
 
   constructor() {
     axios
-      .get('https://uploads.bayoli.com/cmsjuntas.php?pagina=testimonios')
+      .get(environment.cms + '?pagina=testimonios')
       .then((res) => {
         const i = 0;
         this.imagenprincial = res.data.imagen_princial;

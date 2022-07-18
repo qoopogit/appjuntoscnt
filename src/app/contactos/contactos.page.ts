@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import axios from 'axios';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-contactos',
@@ -14,7 +15,7 @@ export class ContactosPage implements OnInit {
 
   constructor(private route: Router) {
     axios
-      .get('https://uploads.bayoli.com/cmsjuntas.php?pagina=contactos')
+      .get(environment.cms + '?pagina=contactos')
       .then((res) => {
         this.imagenprincial = res.data.imagen_princial;
         this.titulo = res.data.titulo;
