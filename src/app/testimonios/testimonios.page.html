@@ -34,14 +34,11 @@
 
 
 
-        <ion-slides [options]="{ slidesPerView: true, loop: true }" >
 
-                <ion-slide *ngFor="let item of body; let i = index" [attr.data-index]="i"   >
-                <div [innerHTML]="item"  ></div>
+                <div [innerHTML]="body"  ></div>
 
-                </ion-slide>
 
-        </ion-slides>
+
 
       </ion-col>
     </ion-row>

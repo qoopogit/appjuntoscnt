@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'principal',
+    redirectTo: 'intro',
     pathMatch: 'full',
   },
   {
