@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { SendSmsPageRoutingModule } from './send-sms-routing.module';
 import { SendSmsPage } from './send-sms.page';
 //import { SMS } from '@awesome-cordova-plugins/sms/ngx';
+//import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { SendSmsPage } from './send-sms.page';
     IonicModule,
     SendSmsPageRoutingModule,
     //SMS,
+    //Geolocation,
   ],
   declarations: [SendSmsPage],
 })

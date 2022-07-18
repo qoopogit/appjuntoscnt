@@ -36,6 +36,7 @@
     </ion-label>
     <ion-select
       class="controls"
+      [(ngModel)]="smsSeleccionado"
       [disabled]="smsActivo"
       interface="action-sheet"
       (ionChange)="onChangeSms( $event )"
@@ -52,7 +53,7 @@
     round
     icon-start
     [disabled]="contactoSelecionado == null"
-    (click)="enviarSms()"
+    (click)="sendSms()"
   >
     <ion-icon name="mail"></ion-icon>
     Enviar
