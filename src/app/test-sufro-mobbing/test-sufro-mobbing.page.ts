@@ -108,6 +108,7 @@ export class TestSufroMobbingPage implements OnInit {
               this.qorden = result[i].contador;
               this.btnAccion = 'SIGUIENTE';
               this.s_opciones = botones;
+              console.log('punt mensaje(2)=' + result[i].punt_mensaje);
             } else {
               /*Fin del test*/
               this.pregunta =

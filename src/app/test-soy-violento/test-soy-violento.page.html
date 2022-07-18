@@ -1,6 +1,10 @@
 <ion-header>
   <ion-toolbar class="encabezado">
-    <ion-img routerLink="/principal" src="assets/logotop.png" class="logotop_center"></ion-img>
+    <ion-img
+      routerLink="/principal"
+      src="assets/logotop.png"
+      class="logotop_center"
+    ></ion-img>
 
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
@@ -45,24 +49,24 @@
                 name="qsuma"
                 [(ngModel)]="qsuma"
               />
-              <ion-list radio-group class="lista_opciones">
-                <div class="controls" *ngFor="let o of this.s_opciones">
-                  <ion-item class="item-background-color">
-                    <ion-label class="opciones">{{o.opcion}}</ion-label>
-                    <ion-radio
-                      [(ngModel)]="qresp"
-                      name="qresp"
-                      id="{{ o.id }}"
-                      value="{{o.valor}}"
-                      (click)="guardarRespuesta(o.valor)"
-                      checked="false"
-                      ngDefaultControl
-                    ></ion-radio>
-                  </ion-item>
-                </div>
+              <ion-list class="lista_opciones">
+                <ion-radio-group>
+                  <div class="controls" *ngFor="let o of this.s_opciones">
+                    <ion-item class="item-background-color">
+                      <ion-label class="opciones">{{o.opcion}} </ion-label>
+                      <ion-radio
+                        id="{{ o.id }}"
+                        (click)="guardarRespuesta(o.valor)"
+                        value="{{o.valor}}"
+                      ></ion-radio>
+                    </ion-item>
+                  </div>
+                </ion-radio-group>
               </ion-list>
 
-              <div id="puntuacion" name="puntuacion">{{mensaje}}</div>
+              <div id="puntuacion" class="formLabel" name="puntuacion">
+                {{mensaje}}
+              </div>
               <input
                 type="hidden"
                 id="dchange"
@@ -81,20 +85,19 @@
   </ion-grid>
 
   <div class="menu_bottom">
-
     <div class="dos_columnas">
-      <ion-img src="assets/hacer-26.png"  class="margen10botton"  style="
-      width: 50%;
-      margin-left: auto;
-      margin-right: auto;
-  " ></ion-img>
+      <ion-img
+        src="assets/hacer-26.png"
+        class="margen10botton"
+        style="width: 50%; margin-left: auto; margin-right: auto"
+      ></ion-img>
     </div>
     <div class="dos_columnas">
-      <ion-img src="assets/hacer-25.png"  class="margen10botton" style="
-      width: 50%;
-      margin-left: auto;
-      margin-right: auto;
-  " ></ion-img>
+      <ion-img
+        src="assets/hacer-25.png"
+        class="margen10botton"
+        style="width: 50%; margin-left: auto; margin-right: auto"
+      ></ion-img>
     </div>
-</div>
+  </div>
 </ion-content>

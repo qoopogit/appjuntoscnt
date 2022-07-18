@@ -7,15 +7,13 @@ import {
 import { Router } from '@angular/router';
 import { Service } from '../api/Service';
 
-
 @Component({
   selector: 'app-test-sufro-violencia',
   templateUrl: './test-sufro-violencia.page.html',
   styleUrls: ['./test-sufro-violencia.page.scss'],
 })
 export class TestSufroViolenciaPage implements OnInit {
-
-  testTile:string="¿SUFRO VIOLENCIA?";
+  testTile: string = '¿SUFRO VIOLENCIA?';
 
   _preguntas: any[] = [];
   s_opciones: any[] = [];
