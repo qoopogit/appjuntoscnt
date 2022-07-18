@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ContactosNuevoPage } from './contactos-nuevo.page';
+import { SendSmsPage } from './send-sms.page';
 
-describe('ContactosNuevoPage', () => {
-  let component: ContactosNuevoPage;
-  let fixture: ComponentFixture<ContactosNuevoPage>;
+describe('SendSmsPage', () => {
+  let component: SendSmsPage;
+  let fixture: ComponentFixture<SendSmsPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ContactosNuevoPage ],
+      declarations: [ SendSmsPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ContactosNuevoPage);
+    fixture = TestBed.createComponent(SendSmsPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

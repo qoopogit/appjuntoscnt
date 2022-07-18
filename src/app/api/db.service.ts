@@ -13,7 +13,7 @@ import { JUNTOSDB } from '../db/model';
 export class DbService {
   private storage: SQLiteObject;
   contactsList = new BehaviorSubject([]);
-  //public lista: Contacto[] = [];
+  public lista: Contacto[] = [];
   private isDbReady: BehaviorSubject<boolean> = new BehaviorSubject(false);
   private juntosDB = JUNTOSDB;
 
@@ -53,11 +53,9 @@ export class DbService {
     });
   }
 
-  /*
   getData() {
     return this.lista;
   }
-  */
 
   dbState() {
     return this.isDbReady.asObservable();
@@ -126,14 +124,14 @@ export class DbService {
                   number: res.rows.item(i).cont_numero,
                   sms: res.rows.item(i).cont_sms,
                 });
-                /*
+
                 this.lista.push({
                   id: res.rows.item(i).cont_id,
                   name: res.rows.item(i).cont_nombre,
                   number: res.rows.item(i).cont_numero,
                   sms: res.rows.item(i).cont_sms,
                 });
-                */
+
                 console.log(
                   'adding...' +
                     res.rows.item(i).cont_id +
@@ -211,16 +209,25 @@ export class DbService {
 
   // Get single object
   getContacto(id): Promise<Contacto> {
-    return this.storage
-      .executeSql('SELECT * FROM junt_contactos WHERE cont_id = ?', [id])
-      .then((res) => {
-        return {
-          id: res.rows.item(0).cont_id,
-          name: res.rows.item(0).cont_nombre,
-          number: res.rows.item(0).cont_numero,
-          sms: res.rows.item(0).cont_sms,
-        };
-      });
+    return this.storage.transaction((tsql) => {
+      tsql.executeSql(
+        'SELECT * FROM junt_contactos WHERE cont_id = ?',
+        [id],
+        (res) => {
+          return {
+            id: res.rows.item(0).cont_id,
+            name: res.rows.item(0).cont_nombre,
+            number: res.rows.item(0).cont_numero,
+            sms: res.rows.item(0).cont_sms,
+          };
+        },
+        (error) => {
+          console.log(error);
+          this.loadContactos();
+          return error;
+        }
+      );
+    });
   }
   // Update
   updateContacto(id, item: Contacto) {

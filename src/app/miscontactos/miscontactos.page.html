@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar class="encabezado">
+    <ion-img
+      routerLink="/principal"
+      src="assets/logotop.png"
+      class="logotop_center"
+    ></ion-img>
+
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content :fullscreen="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-list lines="full">
+          <form [formGroup]="mainForm" (ngSubmit)="storeData()">
+            <ion-item>
+              <ion-label class="label" position="floating">Nombre</ion-label>
+              <ion-input
+                class="controls"
+                formControlName="name"
+                type="text"
+                required
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label class="label" position="floating">Número</ion-label>
+              <ion-input
+                class="controls"
+                formControlName="number"
+                type="text"
+                required
+              >
+              </ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label class="label" position="floating">Mensaje</ion-label>
+              <ion-input
+                class="controls"
+                formControlName="sms"
+                type="text"
+                required
+              >
+              </ion-input>
+            </ion-item>
+            <ion-row>
+              <ion-col>
+                <button type="submit" class="continuar">Guardar</button>
+              </ion-col>
+            </ion-row>
+          </form>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-list-header class="titulo"> Contactos </ion-list-header>
+          <ion-item lines="inset" *ngFor="let data of Data" class="contactItem">
+            <ion-label>
+              <h5 class="contactName">{{data.name}}</h5>
+              <p class="contactNumber">{{data.number}}</p>
+              <p class="contactSms">{{data.sms}}</p>
+            </ion-label>
+            <div class="item-note" item-end>
+              <ion-icon
+                name="create"
+                style="zoom: 2"
+                [routerLink]="['/contacto/', data.id]"
+              ></ion-icon>
+              <ion-icon
+                name="trash"
+                style="zoom: 2"
+                (click)="deleteContacto(data.id)"
+              ></ion-icon>
+            </div>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

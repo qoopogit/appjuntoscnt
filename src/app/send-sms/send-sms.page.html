@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar class="encabezado">
+    <ion-img
+      routerLink="/principal"
+      src="assets/logotop.png"
+      class="logotop_center"
+    ></ion-img>
+
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content :fullscreen="true">
+  <ion-item>
+    <ion-label class="formLabel">
+      <ion-icon name="person"></ion-icon>
+      Contacto
+    </ion-label>
+    <ion-select
+      class="controls"
+      [(ngModel)]="contactoSelecionado"
+      interface="action-sheet"
+      (ionChange)="onChangeContacto($event)"
+    >
+      <ion-select-option *ngFor="let contact of contactos" [value]="contact">
+        {{contact.name}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label class="formLabel">
+      <ion-icon name="chatbubbles"></ion-icon>
+      Mensaje
+    </ion-label>
+    <ion-select
+      class="controls"
+      [disabled]="smsActivo"
+      interface="action-sheet"
+      (ionChange)="onChangeSms( $event )"
+    >
+      <ion-select-option *ngFor="let sms of smsMensajes">
+        {{sms}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <br />
+  <button
+    class="btn_verde"
+    ion-button
+    round
+    icon-start
+    [disabled]="contactoSelecionado == null"
+    (click)="enviarSms()"
+  >
+    <ion-icon name="mail"></ion-icon>
+    Enviar
+  </button>
+</ion-content>

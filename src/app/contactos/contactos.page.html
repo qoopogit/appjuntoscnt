@@ -13,49 +13,25 @@
 </ion-header>
 
 <ion-content :fullscreen="true">
-  <ion-list lines="full">
-    <form [formGroup]="mainForm" (ngSubmit)="storeData()">
-      <ion-item>
-        <ion-label class="formLabel" position="floating">Nombre</ion-label>
-        <ion-input class="controls" formControlName="name" type="text" required></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label class="formLabel" position="floating">Número</ion-label>
-        <ion-input class="controls" formControlName="number" type="text" required> </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label class="formLabel" position="floating">Mensaje</ion-label>
-        <ion-input class="controls" formControlName="sms" type="text" required> </ion-input>
-      </ion-item>
-      <ion-row>
-        <ion-col>
-          <button type="submit" class="btn_verde">
-            Guardar
-          </button>
-        </ion-col>
-      </ion-row>
-    </form>
-  </ion-list>
-  <ion-list>
-    <ion-list-header class="formLabel"> Contactos </ion-list-header>
-    <ion-item lines="inset" *ngFor="let data of Data" class="contactItem">
-      <ion-label class="contactRecord">
-        <h5 class="contactName">{{data.name}}</h5>
-        <p class="contactNumber">{{data.number}}</p>
-        <p class="contactSms">{{data.sms}}</p>
-      </ion-label>
-      <div class="item-note" item-end>
-        <ion-icon
-          name="create"
-          style="zoom: 2"
-          [routerLink]="['/contacto/', data.id]"
-        ></ion-icon>
-        <ion-icon
-          name="trash"
-          style="zoom: 2"
-          (click)="deleteContacto(data.id)"
-        ></ion-icon>
+  <ion-grid>
+    <ion-row>
+      <ion-col
+        class="bloquetitulo"
+        style="background-image: url({{imagenprincial}});"
+      >
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="box">
+        <div class="texto texto1" [innerHTML]="body"></div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <div class="btn_siguiente" expand="block" (click)="misContactos()">
+        Mis contactos
       </div>
-    </ion-item>
-  </ion-list>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -44,13 +44,6 @@ const routes: Routes = [
       import('./contacto/contacto.module').then((m) => m.ContactoPageModule),
   },
   {
-    path: 'contactos-nuevo',
-    loadChildren: () =>
-      import('./contactos-nuevo/contactos-nuevo.module').then(
-        (m) => m.ContactosNuevoPageModule
-      ),
-  },
-  {
     path: 'test',
     loadChildren: () =>
       import('./test/test.module').then((m) => m.TestPageModule),
@@ -134,6 +127,18 @@ const routes: Routes = [
       import('./apoyo/integral/zonas/zonas.module').then(
         (m) => m.ZonasPageModule
       ),
+  },
+  {
+    path: 'miscontactos',
+    loadChildren: () =>
+      import('./miscontactos/miscontactos.module').then(
+        (m) => m.MiscontactosPageModule
+      ),
+  },
+  {
+    path: 'send-sms',
+    loadChildren: () =>
+      import('./send-sms/send-sms.module').then((m) => m.SendSmsPageModule),
   },
 ];
 

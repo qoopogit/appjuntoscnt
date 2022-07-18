@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MyhtmlPipe } from './myhtml.pipe';
 import { SQLite } from '@ionic-native/sqlite/ngx';
+import { SMS } from '@awesome-cordova-plugins/sms/ngx';
 
 @NgModule({
   declarations: [AppComponent, MyhtmlPipe],
@@ -27,6 +28,7 @@ import { SQLite } from '@ionic-native/sqlite/ngx';
     SQLite,
     Api,
     DbService,
+    SMS,
     //WaitUtil,
   ],
 
