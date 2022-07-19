@@ -15,9 +15,8 @@ export class ContactosPage implements OnInit {
 
   constructor(private route: Router) {
     axios
-      .get(environment.cms + '?pagina=contactos')
+      .get(environment.cms + 'contactos')
       .then((res) => {
-        this.imagenprincial = res.data.imagen_princial;
         this.titulo = res.data.titulo;
         this.body = res.data.body;
         console.log(res.data.body);

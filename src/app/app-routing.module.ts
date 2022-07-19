@@ -136,6 +136,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'testimonios',
+    loadChildren: () =>
+      import('./testimonios/testimonios.module').then(
+        (m) => m.TestimoniosPageModule
+      ),
+  },
+  {
     path: 'send-sms',
     loadChildren: () =>
       import('./send-sms/send-sms.module').then((m) => m.SendSmsPageModule),

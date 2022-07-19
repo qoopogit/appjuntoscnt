@@ -18,7 +18,7 @@ export class AcercaPage implements OnInit {
   body = '';
   constructor() {
     axios
-      .get(environment.cms + '?pagina=acerca')
+      .get(environment.cms + 'acerca')
       .then((res) => {
         this.titulo1 = res.data.titulo1;
         this.titulo2 = res.data.titulo2;
@@ -26,7 +26,6 @@ export class AcercaPage implements OnInit {
         this.texto2 = res.data.texto2;
         this.texto3 = res.data.texto3;
 
-        this.imagenprincial = res.data.imagen_princial;
         this.titulo = res.data.titulo;
         this.body = res.data.body;
         console.log(res.data);

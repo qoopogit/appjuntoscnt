@@ -2,15 +2,15 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-const server = 'https://appdesarrollo73.cnt.gob.ec';
-//const server = 'https://appdesarrollo73.cnt.gob.ec:9966';
+//const server = 'https://appdesarrollo73.cnt.gob.ec';
+const server = 'https://appdesarrollo73.cnt.gob.ec:9966';
 //const server='https://appbono.qoopo.net';
 
 
 export const environment = {
   production: false,
   servicios: server + '/juntos-backend/app/otro.php?',
-  cms:'https://uploads.bayoli.com/cmsjuntas.php'
+  cms:'https://juntas.dimater.com/index.php?view=api&tabla='
 };
 
 /*

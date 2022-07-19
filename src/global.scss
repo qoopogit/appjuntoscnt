@@ -108,10 +108,24 @@ ion-menu {
 
   --box-shadow: 0px 14px 25px rgba(182, 30, 30, 0.59) !important;
 }
-ion-menu ion-content {
-  --ion-background-color: #202020;
-  --box-shadow: 0px 14px 25px rgba(182, 30, 30, 0.59) !important;
+.list-ios{
 
+
+  --ion-background-color: #202020 !important;
+}
+
+:host {
+  ion-content {
+    --ion-background-color: #202020;
+  }
+}
+:root {
+  --background: #202020!important;
+}
+ion-menu ion-content {
+  --ion-background-color: #202020 !important;
+  --box-shadow: 0px 14px 25px rgba(182, 30, 30, 0.59) !important;
+  --ion-background-color: var(--ion-color-primary);
   border-radius: 38px 0px 0px 0px !important;
 
   border: 24px solid #202020;
@@ -481,22 +495,22 @@ color: #27b090;
 }
 
 .contactItem {
-  color: #ffffff;
+  color: #ffffff!important;
 }
 
 .contactName {
-  color: #ffffff;
+  color: #009688 !important;
 }
 .contactNumber {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 .contactSms {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .controls {
   color: #ffffff;
-  background: #2c2c2c;
+  background: #20202000 !important;
 }
 
 .formLabel {

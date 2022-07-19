@@ -28,12 +28,13 @@
       </ion-col>
     </ion-row>
     <ion-row>
+
+
       <ion-col  >
 
+        <div  *ngFor="let item of body; let i = index" [attr.data-index]="idzonas[i]"      >
 
-        <div  *ngFor="let item of body; let i = index" [attr.data-index]="i"   >
-
-          <div  class="bloque_boton"  [innerHTML]="item"  (click)="zonas(i)" >      </div>
+          <div  class="bloque_boton"  [innerHTML]="item"  (click)="zonas(idzonas[i])" >      </div>
 
         </div>
       </ion-col>
@@ -44,15 +45,15 @@
 
   <div class="menu_bottom">
 
-      <div class="dos_columnas">
+      <div class="dos_columnas"><a href="tel:911">
         <ion-img src="assets/hacer-26.png"  class="margen10botton"  style="
         width: 50%;
         margin-left: auto;
         margin-right: auto;
-    " ></ion-img>
+    " ></ion-img></a>
       </div>
       <div class="dos_columnas">
-        <ion-img src="assets/hacer-25.png"  class="margen10botton" style="
+        <ion-img  routerLink="/send-sms" src="assets/hacer-25.png"  class="margen10botton" style="
         width: 50%;
         margin-left: auto;
         margin-right: auto;

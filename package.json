@@ -19,6 +19,7 @@
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
+    "@awesome-cordova-plugins/core": "5.44.0",
     "@awesome-cordova-plugins/geolocation": "^5.44.0",
     "@awesome-cordova-plugins/http": "^5.43.0",
     "@awesome-cordova-plugins/sms": "^5.44.0",
@@ -81,5 +82,14 @@
     "ts-node": "~8.3.0",
     "typescript": "~4.7.3"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qoopogit/appjuntoscnt.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qoopogit/appjuntoscnt/issues"
+  }
 }

@@ -35,3 +35,47 @@
   margin-right: auto;
   height: 40px;
 }
+.box {
+  background: #2c2c2c;
+  border-radius: 14px;
+  margin: 30px;
+  padding: 10px;
+  margin-top: 5px;
+  box-shadow: 2px 2px 8px 0px #000000ab;
+}
+
+.bloquetitulo
+{
+  background-image: url("../../assets/contacto/header_CONTACTOS.png")
+}
+
+.label {
+  color: white;
+}
+.titulo {
+  color: white;
+
+  font-family: "Uni_Sans";
+
+  font-size: 20px;
+}
+
+.continuar {
+  color: white;
+  padding: 4px;
+  background-color: #27c1a1;
+  font-family: "RobotoCondensed-BoldItalic";
+  bottom: 11vh;
+  --ion-color-primary: #27c1a1;
+  width: auto;
+  display: table;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-size: 22px;
+  border-radius: 14px;
+  text-align: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  height: 40px;
+}

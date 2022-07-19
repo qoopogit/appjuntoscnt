@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 import axios from 'axios';
 import { FolderPage } from 'src/app/folder/folder.page';
+import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-integral',
   templateUrl: './integral.page.html',
@@ -15,16 +15,19 @@ export class IntegralPage implements OnInit {
   body = '';
   bloques = [];
   descipcion='';
+  idzonas ='';
 
   folderPage: FolderPage;
 
   constructor( private route: Router) {
-    axios.get('https://uploads.bayoli.com/cmsjuntas.php?pagina=integral')
+    axios
+    .get(environment.cms + 'integral')
     .then(res => {
 
       this.imagenprincial= res.data.imagen_princial;
       this.titulo= res.data.titulo;
       this.body= res.data.body;
+      this.idzonas= res.data.idZonas;
       this.descipcion= res.data.descipcion;
      // console.log(res.data.body, );
       const i =0;
@@ -33,6 +36,8 @@ export class IntegralPage implements OnInit {
         this.bloques[i]=element;
 
        });
+
+
 
     })
     .catch(err => {
