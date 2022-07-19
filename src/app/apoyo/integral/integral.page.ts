@@ -15,6 +15,7 @@ export class IntegralPage implements OnInit {
   body = '';
   bloques = [];
   descipcion='';
+  idzonas ='';
 
   folderPage: FolderPage;
 
@@ -26,6 +27,7 @@ export class IntegralPage implements OnInit {
       this.imagenprincial= res.data.imagen_princial;
       this.titulo= res.data.titulo;
       this.body= res.data.body;
+      this.idzonas= res.data.idZonas;
       this.descipcion= res.data.descipcion;
      // console.log(res.data.body, );
       const i =0;
@@ -34,6 +36,8 @@ export class IntegralPage implements OnInit {
         this.bloques[i]=element;
 
        });
+
+
 
     })
     .catch(err => {

@@ -28,12 +28,13 @@
       </ion-col>
     </ion-row>
     <ion-row>
+
+
       <ion-col  >
 
+        <div  *ngFor="let item of body; let i = index" [attr.data-index]="idzonas[i]"      >
 
-        <div  *ngFor="let item of body; let i = index" [attr.data-index]="i"   >
-
-          <div  class="bloque_boton"  [innerHTML]="item"  (click)="zonas(i)" >      </div>
+          <div  class="bloque_boton"  [innerHTML]="item"  (click)="zonas(idzonas[i])" >      </div>
 
         </div>
       </ion-col>

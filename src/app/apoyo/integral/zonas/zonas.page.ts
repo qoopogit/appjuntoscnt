@@ -20,7 +20,7 @@ export class ZonasPage implements OnInit {
 
   constructor(private  route: ActivatedRoute) {
 
-      this.listId =  + parseFloat(this.route.snapshot.paramMap.get('id')) + 1 ;
+      this.listId =  + parseFloat(this.route.snapshot.paramMap.get('id'))   ;
       console.log( this.listId);
 
         axios
