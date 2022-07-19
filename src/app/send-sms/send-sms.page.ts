@@ -61,9 +61,7 @@ export class SendSmsPage implements OnInit {
     // Send a text message using default options
     var numero = this.contactoSelecionado.number;
     var mensaje = this.contactoSelecionado.sms.trim().toString();
-    mensaje = `${this.contactoSelecionado.sms
-      .trim()
-      .toString()}, Mi ubicación actual es: https://www.google.com/maps/dir/?api=1&destination=${this.latitud.toString()},${this.longitud.toString()}&zoom=20`;
+    mensaje = `${this.contactoSelecionado.sms.toString()}, Mi ubicación actual es: https://www.google.com/maps/dir/?api=1&destination=${this.latitud.toString()},${this.longitud.toString()}&zoom=20`;
 
     var error = function (e) {
       alert('Something went wrong:' + e);

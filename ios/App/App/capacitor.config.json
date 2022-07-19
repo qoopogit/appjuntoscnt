@@ -1,1 +1,6 @@
-{}
+{
+	"appId": "io.ionic.starter",
+	"appName": "juntas",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
