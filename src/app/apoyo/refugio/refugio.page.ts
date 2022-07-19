@@ -24,14 +24,6 @@ export class RefugioPage implements OnInit {
       this.imagenprincial= res.data.imagen_princial;
       this.titulo= res.data.titulo;
       this.body= res.data.body;
-      console.log(res.data.body, );
-      const i =0;
-      res.data.body.forEach(element => {
-
-        this.bloques[i]=element;
-
-       });
-
     })
     .catch(err => {
       console.log(err);

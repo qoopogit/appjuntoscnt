@@ -19,7 +19,6 @@ export class AmigosPage implements OnInit {
         this.imagenprincial = res.data.imagen_princial;
         this.titulo = res.data.titulo;
         this.body = res.data.body;
-        this.texto1 = res.data.texto1;
         console.log(res.data);
       })
       .catch((err) => {
