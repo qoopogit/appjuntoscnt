@@ -13,21 +13,15 @@
 <ion-content class="contenido">
   <ion-grid>
     <ion-row>
-      <ion-col class="bloquetitulo" style="background-image: url({{imagenprincial}});">
-
-
+      <ion-col class="bloquetitulo"  >
 
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="bloque">
 
+          <div class="texto texto1" [innerHTML]="body"  >      </div>
 
-        <div  *ngFor="let item of body; let i = index" [attr.data-index]="i"   >
-
-          <div class="texto texto1" [innerHTML]="item"  >      </div>
-
-        </div>
       </ion-col>
 
     </ion-row>
