@@ -30,8 +30,6 @@ export class TestimoniosPage implements OnInit {
       .then((res) => {
 
         this.titulo = res.data.titulo;
-        console.log(res.data);
-
         this.body = res.data.body;
       })
       .catch((err) => {

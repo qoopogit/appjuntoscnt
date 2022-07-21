@@ -12,7 +12,7 @@ export class ZonasPage implements OnInit {
   imagenprincial ='';
   titulo='';
   body = '';
-  bloques = [];
+  zona = '';
   descipcion='';
   id='';
   public listId: number;
@@ -27,7 +27,7 @@ export class ZonasPage implements OnInit {
         .get(environment.cms + 'zona&id='+this.listId)
         .then(res => {
 
-          this.imagenprincial= res.data.imagen_princial;
+          this.zona= res.data.zona;
           this.titulo= res.data.titulo;
           this.body= res.data.body;
           this.descipcion= res.data.descipcion;
