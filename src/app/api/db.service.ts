@@ -208,7 +208,7 @@ export class DbService {
   }
 
   // Get single object
-  async getContacto(id):Promise<Contacto> {
+  async getContacto(id): Promise<Contacto> {
     return this.storage.transaction((tsql) => {
       console.log('consultado contacto con id=' + id);
       tsql.executeSql(
@@ -227,7 +227,7 @@ export class DbService {
           };
           return returnData;
 
-         /* return new Promise((resolve, reject) => {
+          /* return new Promise((resolve, reject) => {
             console.log('dentro de la promesa');
             var returnData: any = {
               id: res.rows.item(0).cont_id,

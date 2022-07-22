@@ -1,6 +1,6 @@
 export class Contacto {
-  id:string;
+  id: string;
   name: string;
   number: string;
-  sms:string;
+  sms: string;
 }
