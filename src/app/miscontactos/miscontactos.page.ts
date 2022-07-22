@@ -43,14 +43,11 @@ export class MiscontactosPage implements OnInit {
    * Almacena la informacion cuando el usuario hace click en submit
    */
   async storeData() {
-    console.log(
-      'al guardar=>' +
-        this.db.addContacto(
-          this.mainForm.value.name,
-          this.mainForm.value.name,
-          this.mainForm.value.number,
-          this.mainForm.value.sms
-        )
+    this.db.addContacto(
+      this.mainForm.value.name+this.mainForm.value.number,
+      this.mainForm.value.name,
+      this.mainForm.value.number,
+      this.mainForm.value.sms
     );
     this.mainForm.reset();
     let toast = await this.toast.create({

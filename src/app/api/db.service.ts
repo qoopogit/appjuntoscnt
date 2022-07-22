@@ -208,21 +208,38 @@ export class DbService {
   }
 
   // Get single object
-  getContacto(id): Promise<Contacto> {
+  async getContacto(id):Promise<Contacto> {
     return this.storage.transaction((tsql) => {
+      console.log('consultado contacto con id=' + id);
       tsql.executeSql(
         'SELECT * FROM junt_contactos WHERE cont_id = ?',
         [id],
-        (res) => {
-          return {
+        (tsql, res) => {
+          console.log('Resulado encontrado ');
+          console.log('res=>' + res);
+          console.log('records size=' + res.rows.length);
+
+          var returnData: any = {
             id: res.rows.item(0).cont_id,
             name: res.rows.item(0).cont_nombre,
             number: res.rows.item(0).cont_numero,
             sms: res.rows.item(0).cont_sms,
           };
+          return returnData;
+
+         /* return new Promise((resolve, reject) => {
+            console.log('dentro de la promesa');
+            var returnData: any = {
+              id: res.rows.item(0).cont_id,
+              name: res.rows.item(0).cont_nombre,
+              number: res.rows.item(0).cont_numero,
+              sms: res.rows.item(0).cont_sms,
+            };
+            resolve(returnData);
+          });*/
         },
         (error) => {
-          console.log(error);
+          console.log('Error al conseguir contacto:' + error);
           this.loadContactos();
           return error;
         }
@@ -231,13 +248,13 @@ export class DbService {
   }
   // Update
   updateContacto(id, item: Contacto) {
-    let data = [item.name, item.number, item.sms];
+    let data = [item.name, item.number, item.sms, id];
 
     return this.storage.transaction((tsql) => {
       tsql.executeSql(
-        `UPDATE junt_contactos SET cont_nombre = ?, cont_numero = ?, cont_sms = ? WHERE cont_id = ${id}`,
+        'UPDATE junt_contactos SET cont_nombre = ?, cont_numero = ?, cont_sms = ? WHERE cont_id = ?',
         data,
-        (resp) => {
+        (var1, resp) => {
           console.log(resp);
           this.loadContactos();
           return resp;

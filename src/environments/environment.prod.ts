@@ -1,8 +1,8 @@
-//const server = 'http://appdesarrollo73.cnt.gob.ec';
-const server = 'https://www.micnt.com.ec/cntapp/juntos/app/otro.php?';
+//const server = 'http://juntos-backend.cnt.gob.ec';
+const server = 'http://181.113.34.230:9966';
 
 export const environment = {
   production: true,
-  servicios: server + '/juntos-backend/app/otro.php?',
-  cms: 'https://uploads.bayoli.com/cmsjuntas.php',
+  servicios: server + '/app/otro.php?',
+  cms: server+'/cms/index.php?view=api&tabla=',
 };

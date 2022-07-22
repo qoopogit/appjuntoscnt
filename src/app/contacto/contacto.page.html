@@ -10,23 +10,33 @@
   <ion-list lines="full">
     <form [formGroup]="editForm" (ngSubmit)="saveForm()">
       <ion-item>
-        <ion-label position="floating">Nombre</ion-label>
-        <ion-input formControlName="name" type="text" required></ion-input>
+        <ion-label class="label" position="floating">Nombre</ion-label>
+        <ion-input
+          class="controls"
+          formControlName="name"
+          type="text"
+          required
+        ></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Número</ion-label>
-        <ion-input formControlName="number" type="text" required> </ion-input>
+        <ion-label class="label" position="floating">Número</ion-label>
+        <ion-input
+          class="controls"
+          formControlName="number"
+          type="text"
+          required
+        >
+        </ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Mensaje</ion-label>
-        <ion-input formControlName="sms" type="text" required> </ion-input>
+        <ion-label class="label" position="floating">Mensaje</ion-label>
+        <ion-input class="controls" formControlName="sms" type="text" required>
+        </ion-input>
       </ion-item>
 
       <ion-row>
         <ion-col>
-          <ion-button type="submit" color="primary" shape="full" expand="block">
-            Actualizar
-          </ion-button>
+          <button type="submit" class="continuar">Actualizar</button>
         </ion-col>
       </ion-row>
     </form>

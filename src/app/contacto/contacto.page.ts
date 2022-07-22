@@ -23,10 +23,18 @@ export class ContactoPage implements OnInit {
     private db: DbService,
     private router: Router,
     public formBuilder: FormBuilder,
-    private actRoute: ActivatedRoute
+    private actRoute: ActivatedRoute,
+    private toast: ToastController
   ) {
+    this.editForm = this.formBuilder.group({
+      name: [''],
+      number: [''],
+      sms: [''],
+    });
+
     this.id = this.actRoute.snapshot.paramMap.get('id');
     this.db.getContacto(this.id).then((res) => {
+      console.log('resp de getContacto2 ' + JSON.stringify(res));
       this.editForm.setValue({
         name: res['name'],
         number: res['number'],
@@ -41,10 +49,13 @@ export class ContactoPage implements OnInit {
       sms: [''],
     });
   }
-  saveForm() {
-    this.db.updateContacto(this.id, this.editForm.value).then((res) => {
-      console.log(res);
-      this.router.navigate(['/home']);
+  async saveForm() {
+    this.db.updateContacto(this.id, this.editForm.value);
+    let toast = await this.toast.create({
+      message: 'Guardado',
+      duration: 2500,
     });
+    toast.present();
+    this.router.navigate(['/miscontactos']);
   }
 }
