@@ -5,13 +5,11 @@
 const server = 'http://juntos-backend.cnt.gob.ec';
 //const server = 'http://appdesarrollo73.cnt.gob.ec:9966';
 
-
-
 export const environment = {
   production: false,
   servicios: server + '/app/otro.php?',
   //cms:'https://juntas.dimater.com/index.php?view=api&tabla='
-  cms:'http://juntos-backend.cnt.gob.ec/cms/index.php?view=api&tabla='
+  cms: 'http://juntos-backend.cnt.gob.ec/cms/index.php?view=api&tabla=',
 };
 
 /*

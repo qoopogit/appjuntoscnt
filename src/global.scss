@@ -364,14 +364,33 @@ ion-content {
   padding-right: 20px;
 }
 
-.bloque_boton {
-  display: inline-block;
-  padding: 10px;
+.fecha_testimonio{
+  font-size: 11px;
+  color: #ffffff59;
   margin-bottom: 10px;
-  color: white;
-  width: 50%;
-  height: auto;
-  float: left;
+  display: block;margin-top: 5px;
+
+}
+
+.bloquee_gris{
+  background: #363636;
+    padding: 5px;
+    border-radius: 14px;
+    color: white;
+    margin: 15px;
+    padding: 15px;
+
+    text-align: justify;
+}
+.bloque_boton {
+  display: block;
+    padding: 10px;
+    padding-bottom: 0px;
+    color: white;
+    width: 50%;
+    height: auto;
+    float: left;
+    min-height: 90px;
 }
 
 .bloque_zona {

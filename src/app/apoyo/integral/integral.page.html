@@ -14,7 +14,7 @@
   <ion-grid  >
 
     <ion-row>
-      <ion-col class="bloquetitulo" style="background-image: url({{imagenprincial}});">
+      <ion-col class="bloquetitulo"  >
       </ion-col>
     </ion-row>
     <ion-row>
@@ -32,11 +32,14 @@
 
       <ion-col  >
 
-        <div  *ngFor="let item of body; let i = index" [attr.data-index]="idzonas[i]"      >
+        <div  class="fila"  *ngFor="let item of body; let i = index" [attr.data-index]="idzonas[i]"      >
 
           <div  class="bloque_boton"  [innerHTML]="item"  (click)="zonas(idzonas[i])" >      </div>
 
         </div>
+
+
+
       </ion-col>
 
     </ion-row>

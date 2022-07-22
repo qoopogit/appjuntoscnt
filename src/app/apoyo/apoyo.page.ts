@@ -10,15 +10,7 @@ import { environment } from '../../environments/environment';
 export class ApoyoPage implements OnInit {
   imagenprincial = '';
   constructor() {
-    axios
-      .get(environment.cms + 'apoyo')
-      .then((res) => {
-        this.imagenprincial = res.data.imagen_princial;
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+
   }
 
   ngOnInit() {}
