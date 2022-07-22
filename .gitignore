@@ -18,7 +18,7 @@ log.txt
 npm-debug.log*
 
 /.angular
-/android
+#/android
 /.idea
 /.ionic
 /.sass-cache
