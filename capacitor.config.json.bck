@@ -1,0 +1,12 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "juntas",
+	"webDir": "www",
+	"bundledWebRuntime": false,
+  "server": {
+    "allowNavigation": [
+      "http://181.113.34.230:9966/*"
+    ]
+  }
+}
+

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SMS } from '@awesome-cordova-plugins/sms/ngx';
+//import { SMS } from '@awesome-cordova-plugins/sms/ngx';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DbService } from './../api/db.service';
