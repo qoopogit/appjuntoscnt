@@ -13,10 +13,11 @@ import { MyhtmlPipe } from './myhtml.pipe';
 import { SQLite } from '@ionic-native/sqlite/ngx';
 import { SMS } from '@awesome-cordova-plugins/sms/ngx';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
-
+import { SocialShareComponent } from './components/social-share/social-share.component';
+import { SocialSharing } from '@awesome-cordova-plugins/social-sharing';
 @NgModule({
-  declarations: [AppComponent, MyhtmlPipe],
-
+  declarations: [AppComponent, MyhtmlPipe, SocialShareComponent],
+  entryComponents: [SocialShareComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
@@ -31,6 +32,7 @@ import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
     DbService,
     SMS,
     Geolocation,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     //WaitUtil,
   ],
 

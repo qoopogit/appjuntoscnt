@@ -1,41 +1,52 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import { environment } from '../../environments/environment';
-import SwiperCore, {
-  Autoplay,
-  Keyboard,
-  Pagination,
-  Scrollbar,
-  Zoom,
-} from 'swiper';
-import { IonicSlides } from '@ionic/angular';
-//import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
+import { ModalController } from '@ionic/angular';
+import { SocialShareComponent } from  '../components/social-share/social-share.component';
 
-SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
+
 @Component({
   selector: 'app-testimonios',
   templateUrl: './testimonios.page.html',
   styleUrls: ['./testimonios.page.scss'],
 })
-export class TestimoniosPage implements OnInit {
+export class TestimoniosPage implements OnInit   {
   imagenprincial = '';
   titulo = '';
   body = [];
+ public link= '';
 
 
 
-  constructor() {
+  constructor(public modalCtrl: ModalController ) {
     axios
       .get(environment.cms + 'testimonios')
       .then((res) => {
 
         this.titulo = res.data.titulo;
         this.body = res.data.body;
+
+
       })
       .catch((err) => {
         console.log(err);
       });
   }
+
+  async  compartir()
+  {
+
+
+    const modal = await this.modalCtrl.create({
+      component: SocialShareComponent,
+      cssClass: 'backTransparent',
+      backdropDismiss: true
+    });
+    return modal.present();
+
+  }
+
+
 
   ngOnInit() {}
 }

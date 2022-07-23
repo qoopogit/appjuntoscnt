@@ -1,0 +1,20 @@
+<div padding class="mainContent">
+<div no-margin margin-top class="feedbackCard">
+  <ion-row class="textCenter">
+    <div>
+       Puedes compartir por:
+    </div>
+  </ion-row>
+<div class="logoList">
+  <ion-row *ngFor="let item of sharingList">
+
+        <ion-col (click)="shareVia(item)">
+          <ion-img class="socialLogo" [src]="item.logo"></ion-img>
+        </ion-col>
+  </ion-row>
+</div>
+<ion-button class="btn" (click)="closeModal()" fill="clear">
+  Close
+</ion-button>
+</div>
+</div>
