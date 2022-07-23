@@ -10,6 +10,33 @@ export const environment = {
   servicios: server + '/app/otro.php?',
   //cms:'https://juntas.dimater.com/index.php?view=api&tabla='
   cms: server+'/cms/index.php?view=api&tabla=',
+  socialShareOption: [
+    {
+        title: 'Whatsapp',
+        logo: 'assets/socialShare/whatsapp.png',
+        shareType: 'shareViaWhatsApp'
+    },
+    {
+        title: 'Facebook',
+        logo: 'assets/socialShare/meta.png',
+        shareType: 'shareViaFacebook'
+    },
+    {
+        title: 'Twitter',
+        logo: 'assets/socialShare/twitter.png',
+        shareType: 'shareViaTwitter'
+    },
+    {
+        title: 'Instagram',
+        logo: 'assets/socialShare/Instagram-circle.png',
+        shareType: 'shareViaInstagram'
+    },
+    {
+        title: 'Email',
+        logo: 'assets/socialShare/mail.png',
+        shareType: 'viaEmail'
+    }
+                      ] ,
 };
 
 /*
