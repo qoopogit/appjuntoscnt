@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment.prod';
 import { ModalController } from '@ionic/angular';
- import { SocialSharing } from '@awesome-cordova-plugins/social-sharing';
+import { TestimoniosPage } from 'src/app/testimonios/testimonios.page';
 @Component({
   selector: 'app-social-share',
   templateUrl: './social-share.component.html',
@@ -16,20 +16,29 @@ export class SocialShareComponent implements OnInit {
   emailSubject = 'Download Apps';
   recipent = ['recipient@example.org'];
   sharingImage = ['https://store.enappd.com/wp-content/uploads/2019/03/700x700_2-1-280x280.jpg'];
-  sharingUrl = 'https://store.enappd.com';
+  public sharingUrl = 'https://store.enappd.com';
 
-  constructor( private modal: ModalController ) {
+  constructor( private modal: ModalController,
+    private testimoniosPage: TestimoniosPage,  ) {
 
 
 
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.sharingUrl = this.testimoniosPage.geturl();
+    this.sharingText =  this.testimoniosPage.getText();
+  }
 
   closeModal() {
     this.modal.dismiss();
   }
+
+
   async shareVia(shareData) {
+
+
+
 
       console.log('shareType', shareData.shareType);
     if (shareData.shareType === 'viaEmail')
@@ -40,9 +49,29 @@ export class SocialShareComponent implements OnInit {
 
       if (shareData.shareType === 'shareViaWhatsApp')
       {
-        console.log(' redirecionar con lin a mail', shareData.shareType);
-        window.open('https://api.whatsapp.com/send?text=http://dimater.com', '_system', 'location=yes');
+        console.log(' redirecionar con lin a mail', shareData.shareType+this.sharingUrl+this.testimoniosPage.geturl());
+        window.open('https://api.whatsapp.com/send?text='+this.sharingText+' '+this.sharingUrl, '_system', 'location=yes');
       }
+
+
+      if (shareData.shareType === 'viaEmail')
+      {
+         // eslint-disable-next-line max-len
+         window.open('mailto:?subject='+this.sharingText+'&body='+this.sharingUrl, '_system', 'location=yes');
+      }
+
+      if (shareData.shareType === 'shareViaFacebook')
+      {
+
+         window.open('http://www.facebook.com/sharer.php?u='+this.sharingUrl, '_system', 'location=yes');
+      }
+
+      if (shareData.shareType === 'shareViaTwitter')
+      {
+         // eslint-disable-next-line max-len
+         window.open('http://www.twitter.com/share?url='+this.sharingUrl, '_system', 'location=yes');
+      }
+
 
     this.modal.dismiss();
   }
