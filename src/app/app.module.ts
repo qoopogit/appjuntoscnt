@@ -15,6 +15,7 @@ import { SMS } from '@awesome-cordova-plugins/sms/ngx';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 import { SocialShareComponent } from './components/social-share/social-share.component';
 import { SocialSharing } from '@awesome-cordova-plugins/social-sharing';
+import { TestimoniosPage } from './testimonios/testimonios.page';
 @NgModule({
   declarations: [AppComponent, MyhtmlPipe, SocialShareComponent],
   entryComponents: [SocialShareComponent],
@@ -32,7 +33,8 @@ import { SocialSharing } from '@awesome-cordova-plugins/social-sharing';
     DbService,
     SMS,
     Geolocation,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    TestimoniosPage,
+
     //WaitUtil,
   ],
 

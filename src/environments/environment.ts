@@ -13,7 +13,7 @@ export const environment = {
   socialShareOption: [
     {
         title: 'Whatsapp',
-        logo: 'assets/socialShare/whatsapp.png',
+        logo: 'assets/socialShare/whatsap.png',
         shareType: 'shareViaWhatsApp'
     },
     {
