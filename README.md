@@ -25,3 +25,4 @@ En el archivo capacitor.config.json agregar:
 ... donde se especifican las urls a las que debe tener permiso la app
 
 
+Modificacion
