@@ -12,15 +12,9 @@ export const environment = {
   cms: server + '/cms/index.php?view=api&tabla=',
   socialShareOption: [
     {
-<<<<<<< HEAD
-      title: 'Whatsapp',
-      logo: 'assets/socialShare/whatsapp.png',
-      shareType: 'shareViaWhatsApp',
-=======
         title: 'Whatsapp',
         logo: 'assets/socialShare/whatsap.png',
         shareType: 'shareViaWhatsApp'
->>>>>>> a7950e7637475d85d325456ba626ddb4532a2715
     },
     {
       title: 'Facebook',
