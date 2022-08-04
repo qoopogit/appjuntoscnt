@@ -108,9 +108,7 @@ ion-menu {
 
   --box-shadow: 0px 14px 25px rgba(182, 30, 30, 0.59) !important;
 }
-.list-ios{
-
-
+.list-ios {
   --ion-background-color: #202020 !important;
 }
 
@@ -120,7 +118,7 @@ ion-menu {
   }
 }
 :root {
-  --background: #202020!important;
+  --background: #202020 !important;
 }
 ion-menu ion-content {
   --ion-background-color: #202020 !important;
@@ -345,7 +343,6 @@ ion-content {
   text-align: left;
 }
 .telefono_casa a {
-
   color: white;
   text-decoration: none;
 }
@@ -364,33 +361,33 @@ ion-content {
   padding-right: 20px;
 }
 
-.fecha_testimonio{
+.fecha_testimonio {
   font-size: 11px;
   color: #ffffff59;
   margin-bottom: 10px;
-  display: block;margin-top: 5px;
-
+  display: block;
+  margin-top: 5px;
 }
 
-.bloquee_gris{
+.bloquee_gris {
   background: #363636;
-    padding: 5px;
-    border-radius: 14px;
-    color: white;
-    margin: 15px;
-    padding: 15px;
+  padding: 5px;
+  border-radius: 14px;
+  color: white;
+  margin: 15px;
+  padding: 15px;
 
-    text-align: justify;
+  text-align: justify;
 }
 .bloque_boton {
   display: block;
-    padding: 10px;
-    padding-bottom: 0px;
-    color: white;
-    width: 50%;
-    height: auto;
-    float: left;
-    min-height: 90px;
+  padding: 10px;
+  padding-bottom: 0px;
+  color: white;
+  width: 50%;
+  height: auto;
+  float: left;
+  min-height: 90px;
 }
 
 .bloque_zona {
@@ -416,9 +413,8 @@ ion-content {
   margin-bottom: 10px;
 }
 
-.text_verde{
-
-color: #27b090;
+.text_verde {
+  color: #27b090;
 }
 
 .titulo_ciudad2 {
@@ -525,17 +521,18 @@ color: #27b090;
 }
 
 .contactItem {
-  color: #ffffff!important;
+  color: #ffffff !important;
 }
 
 .contactName {
-  color: #009688 !important;
+  color: #ffffff !important;
+  font-weight: bold;
 }
 .contactNumber {
   color: #ffffff !important;
 }
 .contactSms {
-  color: #ffffff !important;
+  color: #009688 !important;
 }
 
 .controls {
@@ -545,4 +542,14 @@ color: #27b090;
 
 .formLabel {
   color: #ffffff !important;
+}
+
+.fabBtn {
+  --background: #27c1a1;
+}
+.modalHeader {
+  font-family: "RobotoCondensed-BoldItalic";
+  color: #ffffff;
+  --background: #27c1a1;
+  font-size: 23px;
 }

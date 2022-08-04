@@ -105,6 +105,7 @@ export class DbService {
     console.log('Get contactos...');
     console.log(this.storage);
 
+    //this.lista=[];
     if (this.storage) {
       return this.storage.transaction((tsql) => {
         tsql.executeSql(
@@ -141,7 +142,8 @@ export class DbService {
               }
             }
             this.contactsList.next(items);
-            //console.log('Lista');
+            console.log('Lista=>');
+            console.log(this.lista);
             //console.log(this.contactsList);
           },
           (error) => {

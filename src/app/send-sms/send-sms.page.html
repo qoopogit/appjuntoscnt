@@ -24,7 +24,7 @@
       interface="action-sheet"
       (ionChange)="onChangeContacto($event)"
     >
-      <ion-select-option *ngFor="let contact of contactos" [value]="contact">
+      <ion-select-option *ngFor="let contact of Data" [value]="contact">
         {{contact.name}}
       </ion-select-option>
     </ion-select>

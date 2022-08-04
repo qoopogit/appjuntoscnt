@@ -20,7 +20,8 @@ import {
   styleUrls: ['./send-sms.page.scss'],
 })
 export class SendSmsPage implements OnInit {
-  public contactos: Contacto[] = [];
+  //public contactos: Contacto[] = [];
+  Data: any[] = [];
   public contactoSelecionado: Contacto;
   public smsSeleccionado: string;
   public smsActivo = true;
@@ -36,8 +37,10 @@ export class SendSmsPage implements OnInit {
     private sms: SMS,
     private geolocation: Geolocation
   ) {
-    this.db.loadContactos();
-    this.contactos = this.db.getData();
+    //this.db.loadContactos();
+    //this.contactos = this.db.getData();
+    //console.log('Contactos lista=>');
+    //console.log(this.contactos);
     this.geolocation
       .getCurrentPosition()
       .then((resp) => {
@@ -55,7 +58,22 @@ export class SendSmsPage implements OnInit {
       });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.db.fetchContactos().subscribe((item) => {
+      console.log('Ejecutando el fetch que actualiza la data...');
+      this.Data = item;
+    });
+  }
+
+  private toastMensaje(mensaje: string) {
+    let toast = this.toast.create({
+      message: mensaje,
+      duration: 2500,
+    });
+    toast.then((resp) => {
+      resp.present();
+    });
+  }
 
   async sendSms() {
     // Send a text message using default options
@@ -89,12 +107,20 @@ export class SendSmsPage implements OnInit {
         */
     //      });
 
-    this.sms.send(numero, mensaje);
-    let toast = await this.toast.create({
+    this.sms
+      .send(numero, mensaje)
+      .then((resp) => {
+        this.toastMensaje('Mensaje enviado');
+      })
+      .catch((e) => {
+        console.log('Error el enviar sms');
+        this.toastMensaje('Error al enviar el sms');
+      });
+    /*   let toast = await this.toast.create({
       message: 'Mensaje enviado',
       duration: 2500,
     });
-    toast.present();
+    toast.present();*/
   }
 
   onChangeContacto(contacto: Contacto) {
