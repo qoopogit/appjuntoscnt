@@ -50,5 +50,11 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+  <key>NSContactsUsageDescription</key>
+	<string>Acceso a los contactos para importarlos</string>
+  <key>NSPhotoLibraryAddUsageDescription</key>
+  <string>Acceso a galeria</string>
+  <key>NSPhotoLibraryUsageDescription</key>
+  <string>Acceso a galeria</string>
 </dict>
 </plist>

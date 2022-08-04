@@ -14,7 +14,7 @@ import { Service } from '../api/Service';
 })
 export class TestCyberAcosoPage implements OnInit {
 
-  testTile:string="¿SOY VICTIMA DE CIBERACOSO?";
+  testTile:string="¿ERES DEPENDIENTE EMOCIONALMENTE?";
 
   _preguntas: any[] = [];
   s_opciones: any[] = [];

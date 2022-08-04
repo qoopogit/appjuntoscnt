@@ -14,7 +14,7 @@ import { Service } from '../api/Service';
 })
 export class TestSufroMobbingPage implements OnInit {
 
-  testTile:string="¿ESTOY SUFRIENDO ACOSO SEXUAL EN EL TRABAJO?";
+  testTile:string="¿ESTOY SUFRIENDO ACOSO O ACECHO SEXUAL EN EL TRABAJO?";
 
   _preguntas: any[] = [];
   s_opciones: any[] = [];

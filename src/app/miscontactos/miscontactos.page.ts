@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DbService } from './../api/db.service';
 import { IonModal } from '@ionic/angular';
+import { Contacts } from '@capacitor-community/contacts';
 //import { OverlayEventDetail } from '@ionic/core/components';
 
 import {
@@ -11,6 +12,7 @@ import {
   LoadingController,
   AlertController,
 } from '@ionic/angular';
+import { identity } from 'rxjs';
 //import { Service } from '../api/Service';
 
 @Component({
@@ -36,11 +38,6 @@ export class MiscontactosPage implements OnInit {
     this.modal.dismiss(null, 'cancel');
   }
 
-  /*confirm() {
-    this.modal.dismiss(this.name, 'confirm');
-  }
-  */
-
   /**
    * Elimina un registro
    */
@@ -64,16 +61,51 @@ export class MiscontactosPage implements OnInit {
     });
   }
 
+  async seleccionarContacto() {
+    Contacts.getContacts()
+      .then((result) => {
+        console.log(result);
+        for (const contact of result.contacts) {
+          console.log(contact);
+
+          if (contact.phoneNumbers === null) {
+            this.alertCtrl
+              .create({
+                header: 'Aviso',
+                message: `El contacto ${contact.displayName} no tiene un número telefónico.`,
+                buttons: ['Aceptar'],
+              })
+              .then((r) => {
+                r.present();
+              });
+          } else {
+            this.mainForm.value.name = contact.displayName;
+            this.mainForm.value.number = contact.phoneNumbers[0].number;
+          }
+        }
+      })
+      .catch((e) => {
+        console.log('Error al cargar contactos');
+        console.log(e);
+        this.toastMensaje('Error al cargar contactos:' + e);
+      });
+  }
+
   /**
    * Almacena la informacion cuando el usuario hace click en submit
    */
   async storeData() {
-    this.db.addContacto(
-      this.mainForm.value.name + this.mainForm.value.number,
-      this.mainForm.value.name,
-      this.mainForm.value.number,
-      this.mainForm.value.sms
-    );
+    if (this.Data && this.Data.length >= 4) {
+      this.toastMensaje('Puede agregar un máximo de 4 contactos');
+      return;
+    }
+
+    let id: string = this.mainForm.value.name + this.mainForm.value.number;
+    let nombre: string = this.mainForm.value.name;
+    let numero: string = this.mainForm.value.number;
+    let msg: string = this.mainForm.value.sms;
+
+    this.db.addContacto(id, nombre, numero, msg);
 
     let alertaCreacion = this.alertCtrl.create({
       header: 'A su nuevo contacto?',
@@ -93,13 +125,13 @@ export class MiscontactosPage implements OnInit {
 
             this.sms
               .send(
-                this.mainForm.value.number,
+                numero,
                 'Usted ha sido agregado como contacto de emergencia por el remitente de este sms.',
                 options
               )
               .then((resp) => {
                 this.toastMensaje(
-                  `Aviso: Mensaje enviado al contacto. ${this.mainForm.value.name}`
+                  `Aviso: Mensaje enviado al contacto. ${nombre}`
                 );
               })
               .catch((e) => {
