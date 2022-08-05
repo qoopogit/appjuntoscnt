@@ -8,13 +8,12 @@ import { Router } from '@angular/router';
 import { Service } from '../api/Service';
 
 @Component({
-  selector: 'app-test-cyber-acoso',
-  templateUrl: './test-cyber-acoso.page.html',
-  styleUrls: ['./test-cyber-acoso.page.scss'],
+  selector: 'app-test-dependiente',
+  templateUrl: './test-dependiente.page.html',
+  styleUrls: ['./test-dependiente.page.scss'],
 })
 export class TestCyberAcosoPage implements OnInit {
-
-  testTile:string="¿ERES DEPENDIENTE EMOCIONALMENTE?";
+  testTile: string = '¿ERES DEPENDIENTE EMOCIONALMENTE?';
 
   _preguntas: any[] = [];
   s_opciones: any[] = [];

@@ -49,9 +49,9 @@ const routes: Routes = [
       import('./test/test.module').then((m) => m.TestPageModule),
   },
   {
-    path: 'test-cyber-acoso',
+    path: 'test-dependiente',
     loadChildren: () =>
-      import('./test-cyber-acoso/test-cyber-acoso.module').then(
+      import('./test-dependiente/test-dependiente.module').then(
         (m) => m.TestCyberAcosoPageModule
       ),
   },

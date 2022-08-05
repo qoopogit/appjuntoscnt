@@ -1,7 +1,10 @@
 <ion-header>
   <ion-toolbar class="encabezado">
-
-    <ion-img  routerLink="/principal" src="assets/logotop.png" class="logotop_center" ></ion-img>
+    <ion-img
+      routerLink="/principal"
+      src="assets/logotop.png"
+      class="logotop_center"
+    ></ion-img>
 
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
@@ -11,52 +14,38 @@
 
 <ion-content :fullscreen="true">
   <div class="acerca">
-
-
-      <div class="filatop">
-          <div class="titulo titulo1" [innerHTML]="titulo1"> </div>
-          <div class="texto texto1" [innerHTML]="texto1">
-          </div>
+    <div class="filatop">
+      <div class="titulo titulo1" [innerHTML]="titulo1"></div>
+      <div class="texto texto1" [innerHTML]="texto1"></div>
+    </div>
+    <div class="filabootom">
+      <div class="titulo titulo2" [innerHTML]="titulo2"></div>
+      <div style="width: 50%; float: left; margin-bottom: 20px">
+        <div class="texto" [innerHTML]="texto2"></div>
       </div>
-      <div class="filabootom">
-            <div class="titulo titulo2" [innerHTML]="titulo2"> </div>
-            <div style="width: 50%;float: left;
-            margin-bottom: 20px;">
-
-              <div class="texto" [innerHTML]="texto2">
-
-              </div>
-
-            </div>
-            <div style="width: 50%;float: left;
-            margin-bottom: 20px;">
-              <div class="texto" [innerHTML]="texto3  ">
-
-
-            </div>
-            </div>
-            <div class="menu_bottom">
-
-              <div class="dos_columnas">
-                <a href="tel:911">
-                  <ion-img src="assets/hacer-26.png"  class="margen10botton"  style="
-                  width: 50%;
-                  margin-left: auto;
-                  margin-right: auto;" >
-                  </ion-img>
-                </a>
-
-              </div>
-              <div class="dos_columnas">
-                <ion-img src="assets/hacer-25.png"  class="margen10botton" style="
-                width: 50%;
-                margin-left: auto;
-                margin-right: auto;" >
-                </ion-img>
-              </div>
-          </div>
-
+      <div style="width: 50%; float: left; margin-bottom: 20px">
+        <div class="texto" [innerHTML]="texto3  "></div>
       </div>
-
+      <div class="menu_bottom">
+        <div class="dos_columnas">
+          <a href="tel:911">
+            <ion-img
+              src="assets/hacer-26.png"
+              class="margen10botton"
+              style="width: 50%; margin-left: auto; margin-right: auto"
+            >
+            </ion-img>
+          </a>
+        </div>
+        <div class="dos_columnas">
+          <ion-img
+            src="assets/hacer-25.png"
+            class="margen10botton"
+            style="width: 50%; margin-left: auto; margin-right: auto"
+          >
+          </ion-img>
+        </div>
+      </div>
+    </div>
   </div>
-  </ion-content>
+</ion-content>

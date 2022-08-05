@@ -1,8 +1,10 @@
-<ion-header >
-
+<ion-header>
   <ion-toolbar class="encabezado">
-
-    <ion-img routerLink="/principal" src="assets/logotop.png" class="logotop_center" ></ion-img>
+    <ion-img
+      routerLink="/principal"
+      src="assets/logotop.png"
+      class="logotop_center"
+    ></ion-img>
 
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
@@ -11,56 +13,54 @@
 </ion-header>
 
 <ion-content class="contenido">
-  <ion-grid  >
-
+  <ion-grid>
     <ion-row>
-      <ion-col class="bloquetitulo"  >
+      <ion-col class="bloquetitulo"> </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="descipcion" [innerHTML]="descipcion"></div>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col >
-        <div class="descipcion" [innerHTML]="descipcion"  >      </div>
+      <ion-col>
+        <div class="titulo" [innerHTML]="titulo"></div>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col >
-        <div class="titulo" [innerHTML]="titulo"  >      </div>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-
-
-      <ion-col  >
-
-        <div  class="fila"  *ngFor="let item of body; let i = index" [attr.data-index]="idzonas[i]"      >
-
-          <div  class="bloque_boton"  [innerHTML]="item"  (click)="zonas(idzonas[i])" >      </div>
-
+      <ion-col>
+        <div
+          class="fila"
+          *ngFor="let item of body; let i = index"
+          [attr.data-index]="idzonas[i]"
+        >
+          <div
+            class="bloque_boton"
+            [innerHTML]="item"
+            (click)="zonas(idzonas[i])"
+          ></div>
         </div>
-
-
-
       </ion-col>
-
     </ion-row>
   </ion-grid>
 
-
   <div class="menu_bottom">
-
-      <div class="dos_columnas"><a href="tel:911">
-        <ion-img src="assets/hacer-26.png"  class="margen10botton"  style="
-        width: 50%;
-        margin-left: auto;
-        margin-right: auto;
-    " ></ion-img></a>
-      </div>
-      <div class="dos_columnas">
-        <ion-img  routerLink="/send-sms" src="assets/hacer-25.png"  class="margen10botton" style="
-        width: 50%;
-        margin-left: auto;
-        margin-right: auto;
-    " ></ion-img>
-      </div>
+    <div class="dos_columnas">
+      <a href="tel:911">
+        <ion-img
+          src="assets/hacer-26.png"
+          class="margen10botton"
+          style="width: 50%; margin-left: auto; margin-right: auto"
+        ></ion-img
+      ></a>
+    </div>
+    <div class="dos_columnas">
+      <ion-img
+        routerLink="/send-sms"
+        src="assets/hacer-25.png"
+        class="margen10botton"
+        style="width: 50%; margin-left: auto; margin-right: auto"
+      ></ion-img>
+    </div>
   </div>
 </ion-content>

@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { TestCyberAcosoPageRoutingModule } from './test-cyber-acoso-routing.module';
+import { TestCyberAcosoPageRoutingModule } from './test-dependiente-routing.module';
 
-import { TestCyberAcosoPage } from './test-cyber-acoso.page';
+import { TestCyberAcosoPage } from './test-dependiente.page';
 
 @NgModule({
   imports: [

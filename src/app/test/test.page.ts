@@ -26,8 +26,8 @@ export class TestPage implements OnInit {
     this.route.navigate(['/test-soy-violento']);
   }
 
-  acoso() {
-    this.route.navigate(['/test-cyber-acoso']);
+  dependiente() {
+    this.route.navigate(['/test-dependiente']);
   }
 
 

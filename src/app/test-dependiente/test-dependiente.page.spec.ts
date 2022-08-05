@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { TestCyberAcosoPage } from './test-cyber-acoso.page';
+import { TestCyberAcosoPage } from './test-dependiente.page';
 
 describe('TestCyberAcosoPage', () => {
   let component: TestCyberAcosoPage;

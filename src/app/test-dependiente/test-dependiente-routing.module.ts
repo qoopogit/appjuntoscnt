@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { TestCyberAcosoPage } from './test-cyber-acoso.page';
+import { TestCyberAcosoPage } from './test-dependiente.page';
 
 const routes: Routes = [
   {
