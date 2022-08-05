@@ -13,8 +13,7 @@ import { Service } from '../api/Service';
   styleUrls: ['./test-sufro-mobbing.page.scss'],
 })
 export class TestSufroMobbingPage implements OnInit {
-
-  testTile:string="¿ESTOY SUFRIENDO ACOSO O ACECHO SEXUAL EN EL TRABAJO?";
+  testTile: string = '¿ESTOY SUFRIENDO ACOSO O ACECHO SEXUAL EN EL TRABAJO?';
 
   _preguntas: any[] = [];
   s_opciones: any[] = [];
@@ -39,6 +38,8 @@ export class TestSufroMobbingPage implements OnInit {
     acumulado: 0,
   };
 
+  valueGroup: string = '';
+  finalizado: boolean = false;
   constructor(
     public service: Service,
     private route: Router,
@@ -54,14 +55,26 @@ export class TestSufroMobbingPage implements OnInit {
 
   ionViewDidEnter() {
     console.log('Entro a ionViewDidEnter Estoy sufriendo Mobbing');
+    this.estadoRespuesta = true;
+    //this.idx=0;
+    this.qnumber = '0';
+    this.finalizado = false;
     this.getPregunta();
   }
 
   async getPregunta() {
+    if (this.finalizado) {
+      this.route.navigate(['/test']);
+      this.finalizado = false;
+      return;
+    }
+
     if (this.estadoRespuesta) {
       this.mensaje = '';
       this.idx = parseInt(this.qnumber) + 1;
       console.log('pregunta id=' + this.idx);
+      this.valueGroup = (this.idx * this.idx * 30).toString(); //this.idx.toString();
+
       this.qsuma = (parseInt(this.qsuma) + parseInt(this.dchange)).toString();
       var i, j;
 
@@ -84,6 +97,7 @@ export class TestSufroMobbingPage implements OnInit {
           console.log('response  ' + dataResponse.json);
           console.log(JSON.stringify(data));
           this.estadoRespuesta = false;
+
           var result = data;
           for (i in result) {
             if (this.idx <= parseInt(this.qorden)) {
@@ -108,7 +122,6 @@ export class TestSufroMobbingPage implements OnInit {
               this.qorden = result[i].contador;
               this.btnAccion = 'SIGUIENTE';
               this.s_opciones = botones;
-              console.log('punt mensaje(2)=' + result[i].punt_mensaje);
             } else {
               /*Fin del test*/
               this.pregunta =
@@ -125,6 +138,7 @@ export class TestSufroMobbingPage implements OnInit {
               this.s_opciones = [];
               this.idx = 0;
               this.bandResp = 0;
+              this.finalizado = true;
             }
           }
           loader.dismiss();

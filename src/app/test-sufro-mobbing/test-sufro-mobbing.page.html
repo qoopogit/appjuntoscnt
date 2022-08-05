@@ -55,7 +55,7 @@
                 [(ngModel)]="qsuma"
               />
               <ion-list class="lista_opciones">
-                <ion-radio-group>
+                <ion-radio-group value="{{this.valueGroup}}">
                   <div class="controls" *ngFor="let o of this.s_opciones">
                     <ion-item class="item-background-color">
                       <ion-label class="opciones">{{o.opcion}} </ion-label>

@@ -107,8 +107,16 @@ export class SendSmsPage implements OnInit {
         */
     //      });
 
+    let options = {
+      eplaceLineBreaks: true, // true to replace \n by a new line, false by default
+      android: {
+        intent: 'INTENT', // send SMS with the native android SMS messaging
+        //intent: '' // send SMS without open any other app
+      },
+    };
+
     this.sms
-      .send(numero, mensaje)
+      .send(numero, mensaje, options)
       .then((resp) => {
         this.toastMensaje('Mensaje enviado');
       })
@@ -116,11 +124,6 @@ export class SendSmsPage implements OnInit {
         console.log('Error el enviar sms');
         this.toastMensaje('Error al enviar el sms');
       });
-    /*   let toast = await this.toast.create({
-      message: 'Mensaje enviado',
-      duration: 2500,
-    });
-    toast.present();*/
   }
 
   onChangeContacto(contacto: Contacto) {
