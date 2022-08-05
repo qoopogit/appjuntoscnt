@@ -1,5 +1,9 @@
 <ion-header>
   <ion-toolbar class="encabezado">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/principal"></ion-back-button>
+    </ion-buttons>
+
     <ion-img
       routerLink="/principal"
       src="assets/logotop.png"
@@ -13,7 +17,7 @@
 </ion-header>
 
 <ion-content :fullscreen="true">
-  <ion-grid  class="gridCenter">
+  <ion-grid class="gridCenter">
     <ion-row>
       <ion-col class="bloquetitulo">{{testTile}} </ion-col>
     </ion-row>
@@ -89,15 +93,18 @@
   </ion-grid>
 
   <div class="menu_bottom">
-    <div class="dos_columnas"><a href="tel:911">
-      <ion-img
-        src="assets/hacer-26.png"
-        class="margen10botton"
-        style="width: 50%; margin-left: auto; margin-right: auto"
-      ></ion-img></a>
+    <div class="dos_columnas">
+      <a href="tel:911">
+        <ion-img
+          src="assets/hacer-26.png"
+          class="margen10botton"
+          style="width: 50%; margin-left: auto; margin-right: auto"
+        ></ion-img
+      ></a>
     </div>
     <div class="dos_columnas">
-      <ion-img routerLink="/send-sms"
+      <ion-img
+        routerLink="/send-sms"
         src="assets/hacer-25.png"
         class="margen10botton"
         style="width: 50%; margin-left: auto; margin-right: auto"

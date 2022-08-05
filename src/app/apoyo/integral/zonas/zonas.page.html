@@ -1,8 +1,13 @@
-<ion-header >
-
+<ion-header>
   <ion-toolbar class="encabezado">
-
-    <ion-img routerLink="/principal" src="assets/logotop.png" class="logotop_center" ></ion-img>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/principal"></ion-back-button>
+    </ion-buttons>
+    <ion-img
+      routerLink="/principal"
+      src="assets/logotop.png"
+      class="logotop_center"
+    ></ion-img>
 
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
@@ -13,69 +18,61 @@
 <ion-content class="contenido">
   <ion-grid>
     <ion-row>
-      <ion-col class="secretaria"  >
-        Secretaria de Derechos Humanos
+      <ion-col class="secretaria"> Secretaria de Derechos Humanos </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="titulozonanumero">{{zona}}</div>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col   >
-        <div class="titulozonanumero">   {{zona}}</div>
-
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col class="titulo_fondomorado"  >
+      <ion-col class="titulo_fondomorado">
         SERVICIO DE PROTECCIÓN INTEGRAL - SPI
       </ion-col>
     </ion-row>
 
     <ion-row>
-      <ion-col class="titulo_small" >
-        Durante la emergencia sanitaria
+      <ion-col class="titulo_small"> Durante la emergencia sanitaria </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="titulo_mediano blanco espacio50">
+        Si necesitas ATENCIÓN PSICOLÓGICA Y SOCIAL en casos de violencia de
+        género en el ámbito familiar<br />
+        LLÁMANOS:
       </ion-col>
     </ion-row>
 
     <ion-row>
-      <ion-col class="titulo_mediano blanco espacio50"  >
-        Si necesitas ATENCIÓN PSICOLÓGICA Y SOCIAL en
-casos de violencia de género en el ámbito familiar<br> LLÁMANOS:
-      </ion-col>
-    </ion-row>
-
-
-
-
-    <ion-row>
-      <ion-col >
-        <div class="descipcion" [innerHTML]="body"  >      </div>
+      <ion-col>
+        <div class="descipcion" [innerHTML]="body"></div>
       </ion-col>
     </ion-row>
 
     <ion-row>
-      <ion-col style="text-align: right;">
-        <img src="assets/logo_zona.png"   class="logo_zona" >
+      <ion-col style="text-align: right">
+        <img src="assets/logo_zona.png" class="logo_zona" />
       </ion-col>
     </ion-row>
-
   </ion-grid>
 
-
   <div class="menu_bottom">
-
-      <div class="dos_columnas">
-        <a href="tel:911">
-        <ion-img src="assets/hacer-26.png"  class="margen10botton"  style="
-        width: 50%;
-        margin-left: auto;
-        margin-right: auto;
-    " ></ion-img></a>
-      </div>
-      <div class="dos_columnas">
-        <ion-img  routerLink="/send-sms"  src="assets/hacer-25.png"  class="margen10botton" style="
-        width: 50%;
-        margin-left: auto;
-        margin-right: auto;
-    " ></ion-img>
-      </div>
+    <div class="dos_columnas">
+      <a href="tel:911">
+        <ion-img
+          src="assets/hacer-26.png"
+          class="margen10botton"
+          style="width: 50%; margin-left: auto; margin-right: auto"
+        ></ion-img
+      ></a>
+    </div>
+    <div class="dos_columnas">
+      <ion-img
+        routerLink="/send-sms"
+        src="assets/hacer-25.png"
+        class="margen10botton"
+        style="width: 50%; margin-left: auto; margin-right: auto"
+      ></ion-img>
+    </div>
   </div>
 </ion-content>

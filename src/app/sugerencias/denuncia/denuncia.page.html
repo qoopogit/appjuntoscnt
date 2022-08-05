@@ -1,8 +1,13 @@
-<ion-header >
-
+<ion-header>
   <ion-toolbar class="encabezado">
-
-    <ion-img routerLink="/principal" src="assets/logotop.png" class="logotop_center" ></ion-img>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/principal"></ion-back-button>
+    </ion-buttons>
+    <ion-img
+      routerLink="/principal"
+      src="assets/logotop.png"
+      class="logotop_center"
+    ></ion-img>
 
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
@@ -13,40 +18,35 @@
 <ion-content class="contenido">
   <ion-grid>
     <ion-row>
-      <ion-col class="bloquetitulo"  >
-
-      </ion-col>
+      <ion-col class="bloquetitulo"> </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-
         <div class="texto" [innerHTML]="body"></div>
 
-            <p></p>
-        <div   [innerHTML]="titulo"></div>
-
-
+        <p></p>
+        <div [innerHTML]="titulo"></div>
       </ion-col>
-
     </ion-row>
   </ion-grid>
 
-
   <div class="menu_bottom">
-
-      <div class="dos_columnas"><a href="tel:911">
-        <ion-img src="assets/hacer-26.png"  class="margen10botton"  style="
-        width: 50%;
-        margin-left: auto;
-        margin-right: auto;
-    " ></ion-img></a>
-      </div>
-      <div class="dos_columnas">
-        <ion-img routerLink="/send-sms" src="assets/hacer-25.png"  class="margen10botton" style="
-        width: 50%;
-        margin-left: auto;
-        margin-right: auto;
-    " ></ion-img>
-      </div>
+    <div class="dos_columnas">
+      <a href="tel:911">
+        <ion-img
+          src="assets/hacer-26.png"
+          class="margen10botton"
+          style="width: 50%; margin-left: auto; margin-right: auto"
+        ></ion-img
+      ></a>
+    </div>
+    <div class="dos_columnas">
+      <ion-img
+        routerLink="/send-sms"
+        src="assets/hacer-25.png"
+        class="margen10botton"
+        style="width: 50%; margin-left: auto; margin-right: auto"
+      ></ion-img>
+    </div>
   </div>
 </ion-content>
