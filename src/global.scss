@@ -350,9 +350,16 @@ ion-content {
 .telefono_casa {
   float: right;
   width: 40%;
-  font-family: "Uni_Sans";
   text-align: right;
   font-size: 12px;
+}
+.texto_telefono , .texto_refugio{
+
+  color: #fff;
+  font-size: 13px;
+  text-align: justify;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .icono_refugio {
   width: 25%;
