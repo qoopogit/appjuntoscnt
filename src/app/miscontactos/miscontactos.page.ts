@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { SMS } from '@awesome-cordova-plugins/sms/ngx';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { DbService } from './../api/db.service';
-import { IonModal } from '@ionic/angular';
-import { Contacts } from '@capacitor-community/contacts';
+import { IonModal, isPlatform } from '@ionic/angular';
+import { Contacts, Contact } from '@capacitor-community/contacts';
 //import { OverlayEventDetail } from '@ionic/core/components';
 
 import {
@@ -13,6 +14,7 @@ import {
   AlertController,
 } from '@ionic/angular';
 import { identity } from 'rxjs';
+import { ContactosPage } from '../contactos/contactos.page';
 //import { Service } from '../api/Service';
 
 @Component({
@@ -24,6 +26,9 @@ export class MiscontactosPage implements OnInit {
   Data: any[] = [];
   mainForm: FormGroup;
   @ViewChild(IonModal) modal: IonModal;
+
+  deviceContacts = [];
+  contacts: Observable<Contact[]>;
 
   constructor(
     private db: DbService,
@@ -38,12 +43,21 @@ export class MiscontactosPage implements OnInit {
     this.modal.dismiss(null, 'cancel');
   }
 
+  async getPermissions(): Promise<void> {
+    if (isPlatform('android')) {
+      let permission = await Contacts.getPermissions();
+      if (!permission.granted) {
+        this.toastMensaje('No se tiene permisos para leer los contactos.');
+        return;
+      }
+    }
+  }
+
   /**
    * Elimina un registro
    */
   async deleteContacto(id) {
     this.db.deleteContacto(id);
-
     let toast = await this.toast.create({
       message: 'Eliminado',
       duration: 2500,
@@ -61,34 +75,78 @@ export class MiscontactosPage implements OnInit {
     });
   }
 
-  async seleccionarContacto() {
+  async getContacts(): Promise<void> {
+    //this.getPermissions();
+    if (isPlatform('android')) {
+      let permission = await Contacts.getPermissions();
+      if (!permission.granted) {
+        this.toastMensaje('No se tiene permisos para leer los contactos.');
+        return;
+      }
+    }
+
+    this.toastMensaje('Cargando. Espere por favor.');
+
     Contacts.getContacts()
       .then((result) => {
-        console.log(result);
-        for (const contact of result.contacts) {
-          console.log(contact);
-
-          if (contact.phoneNumbers === null) {
-            this.alertCtrl
-              .create({
-                header: 'Aviso',
-                message: `El contacto ${contact.displayName} no tiene un número telefónico.`,
-                buttons: ['Aceptar'],
-              })
-              .then((r) => {
-                r.present();
-              });
-          } else {
-            this.mainForm.value.name = contact.displayName;
-            this.mainForm.value.number = contact.phoneNumbers[0].number;
-          }
-        }
+        console.log('result is:', result);
+        const phoneContacts: Contact[] = result.contacts;
+        this.contacts = of(phoneContacts);
+        this.deviceContacts = result.contacts;
       })
       .catch((e) => {
         console.log('Error al cargar contactos');
         console.log(e);
         this.toastMensaje('Error al cargar contactos:' + e);
       });
+  }
+
+  async seleccionarContacto(contact: Contact) {
+    console.log(contact);
+
+    if (contact === null) {
+      this.toastMensaje('El contacto seleccionado es nulo');
+      /*this.alertCtrl
+        .create({
+          header: 'Aviso',
+          message: `El contacto seleccionado es nulo.`,
+          buttons: ['Aceptar'],
+        })
+        .then((r) => {
+          r.present();
+        });*/
+    } else {
+      if (contact.phoneNumbers === null || contact.phoneNumbers.length ===0) {
+        this.toastMensaje(`El contacto ${contact.displayName} no tiene un número telefónico.`);
+        /*this.alertCtrl
+          .create({
+            header: 'Aviso',
+            message: `El contacto ${contact.displayName} no tiene un número telefónico.`,
+            buttons: ['Aceptar'],
+          })
+          .then((r) => {
+            r.present();
+          });*/
+      } else {
+        //this.mainForm.reset();
+        //this.mainForm.value.name = contact.displayName;
+        //this.mainForm.value.number = contact.phoneNumbers[0].number;
+
+
+        this.mainForm = this.formBuilder.group({
+          name: [contact.displayName],
+          number: [contact.phoneNumbers[0].number],
+          sms: [''],
+        });
+
+        this.toastMensaje(
+          'Contacto seleccionado: ' +
+            contact.displayName +
+            ' ' +
+            contact.phoneNumbers[0].number
+        );
+      }
+    }
   }
 
   /**
@@ -153,7 +211,6 @@ export class MiscontactosPage implements OnInit {
     });
 
     this.mainForm.reset();
-
     this.modal.dismiss(null, 'confirm');
 
     let toast = await this.toast.create({
@@ -175,6 +232,8 @@ export class MiscontactosPage implements OnInit {
       console.log('Ejecutando el fetch que actualiza la data...');
       this.Data = item;
     });
+
+    this.getPermissions();
     /*
       this.db.dbState().subscribe((res) => {
         if (res) {

@@ -4,7 +4,9 @@
 
 //const server = 'https://appjuntos.cnt.gob.ec';
 //const server = 'http://juntos-backend.cnt.gob.ec';
-const server = 'http://181.113.34.230:9966';
+//const server = 'http://181.113.34.230:9966';
+const server = 'http://190.152.75.32';
+
 
 export const environment = {
   production: false,

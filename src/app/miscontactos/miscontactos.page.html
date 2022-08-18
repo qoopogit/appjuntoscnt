@@ -76,15 +76,53 @@
                   </ion-item>
                   <ion-row>
                     <ion-col>
-                      <button (click)="seleccionarContacto()" class="continuar">
-                        Seleccionar
-                      </button>
-                    </ion-col>
-                    <ion-col>
                       <button type="submit" class="continuar">Guardar</button>
                     </ion-col>
                   </ion-row>
                 </form>
+              </ion-list>
+
+              <ion-list lines="full">
+                <ion-toolbar>
+                  <ion-title>Importar Contacto</ion-title>
+                  <ion-buttons slot="end">
+                    <ion-button
+                      type="button"
+                      (click)="getContacts()"
+                      class="colorBtn"
+                      ><ion-icon name="refresh-outline"></ion-icon
+                    ></ion-button>
+                  </ion-buttons>
+                </ion-toolbar>
+
+                <ion-item-sliding *ngFor="let contact of contacts | async">
+                  <ion-item>
+                    <ion-icon
+                      *ngIf="!contact.photoThumbnail"
+                      color="primary"
+                      slot="start"
+                      name="person-circle-outline"
+                    ></ion-icon>
+                    <ion-avatar *ngIf="contact.photoThumbnail" slot="start">
+                      <ion-img [src]="contact.photoThumbnail"></ion-img>
+                    </ion-avatar>
+                    <ion-label class="ion-text-wrap">
+                      <ion-label color="dark">
+                        {{contact.displayName}}
+                      </ion-label>
+                      <ion-text color="medium" *ngFor="let number of contact.phoneNumbers">
+                        <p>{{number.label}}:{{number.number}}</p>
+                      </ion-text>
+                    </ion-label>
+
+                    <button
+                      type="button"
+                      (click)="seleccionarContacto(contact)"
+                      class="colorBtn"
+                      ><ion-icon name="checkmark-outline"></ion-icon
+                    ></button>
+                  </ion-item>
+                </ion-item-sliding>
               </ion-list>
             </ion-content>
           </ng-template>
