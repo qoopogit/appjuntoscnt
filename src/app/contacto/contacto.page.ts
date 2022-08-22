@@ -33,20 +33,39 @@ export class ContactoPage implements OnInit {
     });
 
     this.id = this.actRoute.snapshot.paramMap.get('id');
-    this.db.getContacto(this.id).then((res) => {
-      console.log('resp de getContacto2 ' + JSON.stringify(res));
+    console.log('id=' + this.id);
+    this.db.getContacto(this.id);
+
+    //.then((res) => {
+    /*
+      this.editForm = this.formBuilder.group({
+        name: [res['name']],
+        number: [res['number']],
+        sms: [res['sms']],
+      });
+      */
+    /*
       this.editForm.setValue({
         name: res['name'],
         number: res['number'],
         sms: res['sms'],
-      });
-    });
+      });*/
+    //});
   }
   ngOnInit() {
     this.editForm = this.formBuilder.group({
       name: [''],
       number: [''],
       sms: [''],
+    });
+
+    this.db.fetchEditContact().subscribe((item) => {
+      console.log('Ejecutando el fetch que consulta el contacto...');
+      this.editForm = this.formBuilder.group({
+        name: [item['name']],
+        number: [item['number']],
+        sms: [item['sms']],
+      });
     });
   }
   async saveForm() {

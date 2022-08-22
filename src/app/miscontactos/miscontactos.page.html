@@ -18,7 +18,7 @@
 <ion-content :fullscreen="true">
   <!-- fab placed to the top end -->
   <ion-fab vertical="top" horizontal="end" slot="fixed">
-    <ion-fab-button id="open-modal" class="fabBtn">
+    <ion-fab-button id="open-modal"  (click)="newContact()" class="fabBtn">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
@@ -84,7 +84,7 @@
 
               <ion-list lines="full">
                 <ion-toolbar>
-                  <ion-title>Importar Contacto</ion-title>
+                  <ion-title color="light" class="contactName" >Importar Contacto</ion-title>
                   <ion-buttons slot="end">
                     <ion-button
                       type="button"
@@ -107,10 +107,10 @@
                       <ion-img [src]="contact.photoThumbnail"></ion-img>
                     </ion-avatar>
                     <ion-label class="ion-text-wrap">
-                      <ion-label color="dark">
+                      <ion-label class="contactName">
                         {{contact.displayName}}
                       </ion-label>
-                      <ion-text color="medium" *ngFor="let number of contact.phoneNumbers">
+                      <ion-text color="medium" class="contactNumber" *ngFor="let number of contact.phoneNumbers">
                         <p>{{number.label}}:{{number.number}}</p>
                       </ion-text>
                     </ion-label>

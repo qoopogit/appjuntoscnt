@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 //const server = 'https://appjuntos.cnt.gob.ec';
-//const server = 'http://juntos-backend.cnt.gob.ec';
+const server = 'https://juntas-backend.cnt.gob.ec';
 //const server = 'http://181.113.34.230:9966';
-const server = 'http://190.152.75.32';
+//const server = 'http://190.152.75.32';
 
 
 export const environment = {

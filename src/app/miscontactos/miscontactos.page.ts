@@ -43,6 +43,14 @@ export class MiscontactosPage implements OnInit {
     this.modal.dismiss(null, 'cancel');
   }
 
+  newContact() {
+    this.mainForm = this.formBuilder.group({
+      name: [''],
+      number: [''],
+      sms: [''],
+    });
+  }
+
   async getPermissions(): Promise<void> {
     if (isPlatform('android')) {
       let permission = await Contacts.getPermissions();
@@ -116,8 +124,10 @@ export class MiscontactosPage implements OnInit {
           r.present();
         });*/
     } else {
-      if (contact.phoneNumbers === null || contact.phoneNumbers.length ===0) {
-        this.toastMensaje(`El contacto ${contact.displayName} no tiene un número telefónico.`);
+      if (contact.phoneNumbers === null || contact.phoneNumbers.length === 0) {
+        this.toastMensaje(
+          `El contacto ${contact.displayName} no tiene un número telefónico.`
+        );
         /*this.alertCtrl
           .create({
             header: 'Aviso',
@@ -131,7 +141,6 @@ export class MiscontactosPage implements OnInit {
         //this.mainForm.reset();
         //this.mainForm.value.name = contact.displayName;
         //this.mainForm.value.number = contact.phoneNumbers[0].number;
-
 
         this.mainForm = this.formBuilder.group({
           name: [contact.displayName],

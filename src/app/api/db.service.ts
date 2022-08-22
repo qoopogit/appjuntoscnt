@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { Contacto } from './contacto';
-//import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-//import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 import { JUNTOSDB } from '../db/model';
 
@@ -13,9 +11,10 @@ import { JUNTOSDB } from '../db/model';
 export class DbService {
   private storage: SQLiteObject;
   contactsList = new BehaviorSubject([]);
-  public lista: Contacto[] = [];
   private isDbReady: BehaviorSubject<boolean> = new BehaviorSubject(false);
   private juntosDB = JUNTOSDB;
+
+  editContacto: BehaviorSubject<Contacto> = new BehaviorSubject(new Contacto());
 
   constructor(private platform: Platform, private sqlite: SQLite) {
     console.log('iniciando db service...');
@@ -53,16 +52,26 @@ export class DbService {
     });
   }
 
-  getData() {
-    return this.lista;
-  }
-
   dbState() {
     return this.isDbReady.asObservable();
   }
 
   fetchContactos(): Observable<Contacto[]> {
     return this.contactsList.asObservable();
+  }
+
+  fetchEditContact(): Observable<Contacto> {
+   return  this.editContacto.asObservable();
+    /*
+    return new Observable((observer) => {
+      observer.next(this.editContacto);
+      return {
+        unsubscribe() {
+          console.log('unsuscrito');
+        },
+      };
+    });
+    */
   }
 
   /**
@@ -105,7 +114,6 @@ export class DbService {
     console.log('Get contactos...');
     console.log(this.storage);
 
-    //this.lista=[];
     if (this.storage) {
       return this.storage.transaction((tsql) => {
         tsql.executeSql(
@@ -125,14 +133,6 @@ export class DbService {
                   number: res.rows.item(i).cont_numero,
                   sms: res.rows.item(i).cont_sms,
                 });
-
-                this.lista.push({
-                  id: res.rows.item(i).cont_id,
-                  name: res.rows.item(i).cont_nombre,
-                  number: res.rows.item(i).cont_numero,
-                  sms: res.rows.item(i).cont_sms,
-                });
-
                 console.log(
                   'adding...' +
                     res.rows.item(i).cont_id +
@@ -142,9 +142,8 @@ export class DbService {
               }
             }
             this.contactsList.next(items);
-            console.log('Lista=>');
-            console.log(this.lista);
-            //console.log(this.contactsList);
+            /*console.log('Lista=>');
+            console.log(this.lista);*/
           },
           (error) => {
             console.log(error);
@@ -152,25 +151,6 @@ export class DbService {
           }
         );
       });
-
-      /*
-    return this.storage
-      .executeSql('SELECT * FROM junt_contactos', [])
-      .then((res) => {
-        let items: Contacto[] = [];
-        if (res.rows.length > 0) {
-          for (var i = 0; i < res.rows.length; i++) {
-            items.push({
-              id: res.rows.item(i).cont_id,
-              name: res.rows.item(i).cont_nombre,
-              number: res.rows.item(i).cont_numero,
-              sms: res.rows.item(i).cont_sms,
-            });
-          }
-        }
-        this.contactsList.next(items);
-      });
-      */
     }
   }
 
@@ -179,7 +159,6 @@ export class DbService {
    */
   public addContacto(id, nombre, numero, sms) {
     let data = [id, nombre, numero, sms];
-
     return this.storage.transaction((tsql) => {
       tsql.executeSql(
         'INSERT INTO junt_contactos (cont_id,cont_nombre,cont_numero,cont_sms)  VALUES (?1,?2,?3,?4)',
@@ -196,17 +175,6 @@ export class DbService {
         }
       );
     });
-
-    /*
-    return this.storage
-      .executeSql(
-        'INSERT INTO junt_contactos (cont_id,cont_nombre,cont_numero,cont_sms)  VALUES (?1,?2,?3,?4)',
-        data
-      )
-      .then((res) => {
-        this.loadContactos();
-      });
-      */
   }
 
   // Get single object
@@ -217,28 +185,17 @@ export class DbService {
         'SELECT * FROM junt_contactos WHERE cont_id = ?',
         [id],
         (tsql, res) => {
-          console.log('Resulado encontrado ');
+          console.log('Resultado encontrado ');
           console.log('res=>' + res);
           console.log('records size=' + res.rows.length);
-
-          var returnData: any = {
+          var returnData: Contacto = {
             id: res.rows.item(0).cont_id,
             name: res.rows.item(0).cont_nombre,
             number: res.rows.item(0).cont_numero,
             sms: res.rows.item(0).cont_sms,
           };
+          this.editContacto.next(returnData);
           return returnData;
-
-          /* return new Promise((resolve, reject) => {
-            console.log('dentro de la promesa');
-            var returnData: any = {
-              id: res.rows.item(0).cont_id,
-              name: res.rows.item(0).cont_nombre,
-              number: res.rows.item(0).cont_numero,
-              sms: res.rows.item(0).cont_sms,
-            };
-            resolve(returnData);
-          });*/
         },
         (error) => {
           console.log('Error al conseguir contacto:' + error);
@@ -268,18 +225,8 @@ export class DbService {
         }
       );
     });
-
-    /*
-    return this.storage
-      .executeSql(
-        `UPDATE junt_contactos SET cont_nombre = ?, cont_numero = ?, cont_sms = ? WHERE cont_id = ${id}`,
-        data
-      )
-      .then((data) => {
-        this.loadContactos();
-      });
-      */
   }
+
   // Delete
   deleteContacto(id) {
     console.log('Eliminando registro ' + id);
@@ -301,12 +248,5 @@ export class DbService {
         }
       );
     });
-
-    /*return this.storage
-      .executeSql('DELETE FROM junt_contactos WHERE id = ?', [id])
-      .then((_) => {
-        this.loadContactos();
-      });
-      */
   }
 }
