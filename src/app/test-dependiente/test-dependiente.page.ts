@@ -52,7 +52,10 @@ export class TestCyberAcosoPage implements OnInit {
   ngOnInit() {
     console.log('Entro a ngOnInit Estoy sufriendo Mobbing');
     //this.getPregunta();
+
+
   }
+
 
   ionViewDidEnter() {
     console.log('Entro a ionViewDidEnter Estoy sufriendo Mobbing');
@@ -64,6 +67,13 @@ export class TestCyberAcosoPage implements OnInit {
   }
 
   async getPregunta() {
+    let alert = await this.alertCtrl.create({
+      header: 'Información del Test',
+      message: 'Diseñado para ayudar a evaluar la dependencia con tu pareja. Las siguientes afirmaciones escoge la respuesta más cercana',
+      buttons: ['OK'],
+    });
+    alert.present();
+
     if (this.finalizado) {
       this.route.navigate(['/test']);
       this.finalizado = false;
@@ -180,4 +190,12 @@ export class TestCyberAcosoPage implements OnInit {
     });
     alert.present();
   }
+
+
+  showintrotext()
+  {
+
+
+  }
+
 }
