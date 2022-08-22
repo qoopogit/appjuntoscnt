@@ -192,7 +192,7 @@ export class TestCyberAcosoPage implements OnInit {
   {
  let alert = await this.alertCtrl.create({
       header: 'Información del Test',
-      message: 'Diseñado para ayudar a evaluar la dependencia con tu pareja. Las siguientes afirmaciones escoge la respuesta más cercana',
+      message: 'Diseñado para ayudar a evaluar el grado de dependencia que pudieras tener con tu pareja. Escoge la respuesta más cercana a tu caso.',
       buttons: ['OK'],
     });
     alert.present();
