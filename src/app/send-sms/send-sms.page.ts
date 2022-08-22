@@ -44,12 +44,6 @@ export class SendSmsPage implements OnInit {
     this.geolocation
       .getCurrentPosition()
       .then((resp) => {
-        console.log(
-          'Coordenadas obtenidas (' +
-            resp.coords.latitude +
-            ' , ' +
-            resp.coords.longitude
-        );
         this.latitud = resp.coords.latitude;
         this.longitud = resp.coords.longitude;
       })
@@ -85,27 +79,6 @@ export class SendSmsPage implements OnInit {
       alert('Something went wrong:' + e);
     };
 
-    console.log('mensaje enviado ' + mensaje);
-    /*
-    this.sms
-      .hasPermission()
-      .then((resp) => {
-        console.log('Se tiene permiso? ' + resp);
-        this.sms.send(numero, mensaje);
-      })
-      .catch((error) => {
-        console.error('No se tiene permiso, se solicita');
-        /*this.sms.requestPermission(
-          function () {
-            console.log('[OK] Permission accepted');
-          },
-          function (error) {
-            console.info('[WARN] Permission not accepted');
-            // Handle permission not accepted
-          }
-        );
-        */
-    //      });
 
     let options = {
       eplaceLineBreaks: true, // true to replace \n by a new line, false by default
@@ -127,14 +100,6 @@ export class SendSmsPage implements OnInit {
   }
 
   onChangeContacto(contacto: Contacto) {
-    console.log('se selecciono el contacto:' + contacto.name);
-    console.log('sms:' + contacto.sms);
-
-    console.log(
-      '(2) se selecciono el contacto:' + this.contactoSelecionado.name
-    );
-    console.log('(2) sms:' + this.contactoSelecionado.sms);
-
     if (this.contactoSelecionado.sms !== null) {
       this.smsMensajes = [
         'Llamame urgente',
@@ -154,7 +119,6 @@ export class SendSmsPage implements OnInit {
   }
 
   onChangeSms(sms: string) {
-    console.log('se selecciono el sms: ' + this.smsSeleccionado);
     this.contactoSelecionado.sms = this.smsSeleccionado;
   }
 }

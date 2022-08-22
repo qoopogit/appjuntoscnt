@@ -97,7 +97,6 @@ export class MiscontactosPage implements OnInit {
 
     Contacts.getContacts()
       .then((result) => {
-        console.log('result is:', result);
         const phoneContacts: Contact[] = result.contacts;
         this.contacts = of(phoneContacts);
         this.deviceContacts = result.contacts;
