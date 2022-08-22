@@ -53,7 +53,7 @@ export class TestCyberAcosoPage implements OnInit {
     console.log('Entro a ngOnInit Estoy sufriendo Mobbing');
     //this.getPregunta();
 
-
+    this.showintrotext();
   }
 
 
@@ -66,13 +66,9 @@ export class TestCyberAcosoPage implements OnInit {
     this.getPregunta();
   }
 
+
   async getPregunta() {
-    let alert = await this.alertCtrl.create({
-      header: 'Información del Test',
-      message: 'Diseñado para ayudar a evaluar la dependencia con tu pareja. Las siguientes afirmaciones escoge la respuesta más cercana',
-      buttons: ['OK'],
-    });
-    alert.present();
+
 
     if (this.finalizado) {
       this.route.navigate(['/test']);
@@ -192,9 +188,14 @@ export class TestCyberAcosoPage implements OnInit {
   }
 
 
-  showintrotext()
+  async showintrotext()
   {
-
+ let alert = await this.alertCtrl.create({
+      header: 'Información del Test',
+      message: 'Diseñado para ayudar a evaluar la dependencia con tu pareja. Las siguientes afirmaciones escoge la respuesta más cercana',
+      buttons: ['OK'],
+    });
+    alert.present();
 
   }
 
