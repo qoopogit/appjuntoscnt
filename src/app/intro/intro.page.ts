@@ -41,13 +41,14 @@ export class IntroPage implements OnInit {
         this.splash7 = res.data.splash7;
         this.splash8 = res.data.splash8;
         this.alerta = res.data.alerta;
-        console.log(res.data.splash1);
+        this.showAlertComoUsar(res.data.alerta);
+        console.log();
       })
       .catch((err) => {
         console.log(err);
       });
 
-      this.showAlertComoUsar();
+
 
   }
 
@@ -66,11 +67,11 @@ export class IntroPage implements OnInit {
     this.swiper.swiperRef.slideNext(1200);
     }
 
-    async showAlertComoUsar() {
+    async showAlertComoUsar( texto : string) {
       const alert = await this.alertCtrl.create({
         header: 'Información',
         message:
-        this.alerta,
+        texto,
         buttons: [
           {
             text: 'Aceptar',
@@ -78,6 +79,8 @@ export class IntroPage implements OnInit {
         ],
       });
       alert.present();
+
+
     }
   }
 

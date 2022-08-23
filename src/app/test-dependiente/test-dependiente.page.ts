@@ -54,6 +54,7 @@ export class TestCyberAcosoPage implements OnInit {
     .get(environment.cms + 'alerts_test-dependiente')
     .then((res) => {
       this.texto = res.data.texto;
+      this.showintrotext(res.data.texto);
     })
     .catch((err) => {
       console.log(err);
@@ -65,7 +66,7 @@ export class TestCyberAcosoPage implements OnInit {
     console.log('Entro a ngOnInit Estoy sufriendo Mobbing');
     //this.getPregunta();
 
-    this.showintrotext();
+
   }
 
 
@@ -200,11 +201,11 @@ export class TestCyberAcosoPage implements OnInit {
   }
 
 
-  async showintrotext()
+  async showintrotext(texto: string)
   {
  let alert = await this.alertCtrl.create({
       header: 'Información del Test',
-      message: this.texto,
+      message:  texto,
       buttons: ['OK'],
     });
     alert.present();
