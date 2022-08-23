@@ -7,6 +7,8 @@ import {
 import { Router } from '@angular/router';
 import { Service } from '../api/Service';
 
+import { environment } from '../../environments/environment';
+import axios from 'axios';
 @Component({
   selector: 'app-test-dependiente',
   templateUrl: './test-dependiente.page.html',
@@ -27,7 +29,7 @@ export class TestCyberAcosoPage implements OnInit {
   idx: number = 0;
   bandResp: number = 0;
   mensaje: string = '';
-
+  texto='';
 
   test: {
     idTest: string;
@@ -47,7 +49,17 @@ export class TestCyberAcosoPage implements OnInit {
     public toastController: ToastController,
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController
-  ) {}
+  ) {
+    axios
+    .get(environment.cms + 'alerts_test-dependiente')
+    .then((res) => {
+      this.texto = res.data.texto;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  }
 
   ngOnInit() {
     console.log('Entro a ngOnInit Estoy sufriendo Mobbing');
@@ -192,7 +204,7 @@ export class TestCyberAcosoPage implements OnInit {
   {
  let alert = await this.alertCtrl.create({
       header: 'Información del Test',
-      message: 'Diseñado para ayudar a evaluar el grado de dependencia que pudieras tener con tu pareja. Escoge la respuesta más cercana a tu caso.',
+      message: this.texto,
       buttons: ['OK'],
     });
     alert.present();

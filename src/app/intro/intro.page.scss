@@ -25,9 +25,9 @@
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 10vw;
     margin-top: 20px;
     margin-bottom: 50px;
+    width: 100vw;
 }
 .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal
 {
@@ -52,10 +52,12 @@
   font-family: "RobotoCondensed-BoldItalic";
     bottom: 11vh;
 
+    margin-right: 10px;
+    margin-left: 10px;
     width: auto;
-    display: inline-block;
-    padding-left: 50px;
-    padding-right: 50px;
+    display: initial;
+    padding-left: 30px;
+    padding-right: 30px;
     font-size: 22px;
     border-radius: 14px;
     text-align: center;

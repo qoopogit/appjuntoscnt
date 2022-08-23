@@ -3,16 +3,16 @@
 <ion-content>
 
   <ion-img src="assets/logotop.png" class="logotop"></ion-img>
-  <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true" [speed]="1800">
+  <swiper #swiper   id="myswiper" [autoplay]="true" [ser] [keyboard]="true" [pagination]="true"  [allowSlideNext]="true" (navigationShow)="true" [navigation]="true" [scrollbar]="true" [zoom]="true" [speed]="1800"
+  (swiper)="proximo($event)">
     <ng-template swiperSlide>
         <ion-img src="assets/intro0.png" class="imgen_intro" ></ion-img>
         <div class="marco_intro">
           <div class="juntos"> Junt@s <br> nos <br>accionamos
                  <div class="fila_continuar" style="top: 70%;">
-                  <div class="continuar" routerLink="/principal"> continuar > </div>
+                  <div class="continuar" routerLink="/principal"> Menu > </div>
 
-
-
+                  <div class="swiper-button-next continuar" id="swiper-button-next" (click)="onRobotClick()">continuar</div>
                 </div>
                 <div class="menu_bottom"  >
 
@@ -52,7 +52,9 @@
         <div class="text" [innerHTML]="splash1"  >      </div>
 
         <div class="fila_continuar">
-          <div class="continuar" routerLink="/principal"> continuar > </div>
+          <div class="continuar" routerLink="/principal"> Menu > </div>
+          <div class="swiper-button-next continuar" id="swiper-button-next" (click)="onRobotClick()">continuar</div>
+
         </div>
 
         <div class="menu_bottom">
@@ -74,48 +76,17 @@
         </div>
       </div>
 
-
-
-
-    </ng-template>
-
-    <ng-template swiperSlide><ion-img src="assets/splash/datos_interes.jpg" class="imgen_intro" ></ion-img>
-
-      <div class="juntos"> Datos de <br> interés
-        <div class="text" [innerHTML]="splash2"  >      </div>
-        <div class="fila_continuar">
-          <div class="continuar" routerLink="/principal"> continuar > </div>
-        </div>
-        <div class="menu_bottom">
-
-        <div class="dos_columnas">
-          <ion-img src="assets/hacer-26.png"  class="margen10botton"  style="
-          width: 50%;
-          margin-left: auto;
-          margin-right: auto;" >
-          </ion-img>
-        </div>
-        <div class="dos_columnas">
-          <ion-img routerLink="/send-sms" src="assets/hacer-25.png"  class="margen10botton" style="
-          width: 50%;
-          margin-left: auto;
-          margin-right: auto;" >
-          </ion-img>
-        </div>
-    </div>
-      </div>
-
-
-
     </ng-template>
     <ng-template swiperSlide><ion-img src="assets/splash/sabias_que.jpg" class="imgen_intro" ></ion-img>
 
       <div class="juntos"> ¿Sabías  <br>  qué?
 
-        <div class="text" [innerHTML]="splash3"  >      </div>
+        <div class="text" [innerHTML]="splash2"  >      </div>
 
       <div class="fila_continuar">
-        <div class="continuar" routerLink="/principal" > continuar > </div>
+        <div class="continuar" routerLink="/principal"> Menu > </div>
+        <div class="swiper-button-next continuar" id="swiper-button-next" (click)="onRobotClick()">continuar</div>
+
       </div>
       <div class="menu_bottom">
 
@@ -140,8 +111,211 @@
 
 
     </ng-template>
+    <ng-template swiperSlide><ion-img src="assets/splash/sabias_que.jpg" class="imgen_intro" ></ion-img>
+
+      <div class="juntos"> ¿Sabías  <br>  qué?
+
+        <div class="text" [innerHTML]="splash3"  >      </div>
+
+      <div class="fila_continuar">
+        <div class="continuar" routerLink="/principal"> Menu > </div>
+        <div class="swiper-button-next continuar" id="swiper-button-next" (click)="onRobotClick()">continuar</div>
+
+      </div>
+      <div class="menu_bottom">
+
+        <div class="dos_columnas">
+          <ion-img src="assets/hacer-26.png"  class="margen10botton"  style="
+          width: 50%;
+          margin-left: auto;
+          margin-right: auto;" >
+          </ion-img>
+        </div>
+        <div class="dos_columnas">
+          <ion-img routerLink="/send-sms" src="assets/hacer-25.png"  class="margen10botton" style="
+          width: 50%;
+          margin-left: auto;
+          margin-right: auto;" >
+          </ion-img>
+        </div>
+    </div>
+      </div>
+
+
+
+
+    </ng-template>
+    <ng-template swiperSlide><ion-img src="assets/splash/sabias_que.jpg" class="imgen_intro" ></ion-img>
+
+      <div class="juntos"> ¿Sabías  <br>  qué?
+
+        <div class="text" [innerHTML]="splash4"  >      </div>
+
+      <div class="fila_continuar">
+        <div class="continuar" routerLink="/principal"> Menu > </div>
+        <div class="swiper-button-next continuar" id="swiper-button-next" (click)="onRobotClick()">continuar</div>
+
+      </div>
+      <div class="menu_bottom">
+
+        <div class="dos_columnas">
+          <ion-img src="assets/hacer-26.png"  class="margen10botton"  style="
+          width: 50%;
+          margin-left: auto;
+          margin-right: auto;" >
+          </ion-img>
+        </div>
+        <div class="dos_columnas">
+          <ion-img routerLink="/send-sms" src="assets/hacer-25.png"  class="margen10botton" style="
+          width: 50%;
+          margin-left: auto;
+          margin-right: auto;" >
+          </ion-img>
+        </div>
+    </div>
+      </div>
+
+
+
+
+    </ng-template>
+    <ng-template swiperSlide><ion-img src="assets/splash/datos_interes.jpg" class="imgen_intro" ></ion-img>
+
+      <div class="juntos"> Datos de <br> interés
+        <div class="text" [innerHTML]="splash5"  >      </div>
+        <div class="fila_continuar">
+          <div class="continuar" routerLink="/principal"> Menu > </div>
+          <div class="swiper-button-next continuar" id="swiper-button-next" (click)="onRobotClick()">continuar</div>
+
+        </div>
+        <div class="menu_bottom">
+
+        <div class="dos_columnas">
+          <ion-img src="assets/hacer-26.png"  class="margen10botton"  style="
+          width: 50%;
+          margin-left: auto;
+          margin-right: auto;" >
+          </ion-img>
+        </div>
+        <div class="dos_columnas">
+          <ion-img routerLink="/send-sms" src="assets/hacer-25.png"  class="margen10botton" style="
+          width: 50%;
+          margin-left: auto;
+          margin-right: auto;" >
+          </ion-img>
+        </div>
+    </div>
+      </div>
+
+
+
+    </ng-template>
+    <ng-template swiperSlide><ion-img src="assets/splash/datos_interes.jpg" class="imgen_intro" ></ion-img>
+
+      <div class="juntos"> Datos de <br> interés
+        <div class="text" [innerHTML]="splash6"  >      </div>
+        <div class="fila_continuar">
+          <div class="continuar" routerLink="/principal"> Menu > </div>
+          <div class="swiper-button-next continuar" id="swiper-button-next" (click)="onRobotClick()">continuar</div>
+
+        </div>
+        <div class="menu_bottom">
+
+        <div class="dos_columnas">
+          <ion-img src="assets/hacer-26.png"  class="margen10botton"  style="
+          width: 50%;
+          margin-left: auto;
+          margin-right: auto;" >
+          </ion-img>
+        </div>
+        <div class="dos_columnas">
+          <ion-img routerLink="/send-sms" src="assets/hacer-25.png"  class="margen10botton" style="
+          width: 50%;
+          margin-left: auto;
+          margin-right: auto;" >
+          </ion-img>
+        </div>
+    </div>
+      </div>
+
+
+
+    </ng-template>
+    <ng-template swiperSlide><ion-img src="assets/splash/datos_interes.jpg" class="imgen_intro" ></ion-img>
+
+      <div class="juntos"> Datos de <br> interés
+        <div class="text" [innerHTML]="splash7"  >      </div>
+        <div class="fila_continuar">
+          <div class="continuar" routerLink="/principal"> Menu > </div>
+          <div class="swiper-button-next continuar" id="swiper-button-next" (click)="onRobotClick()">continuar</div>
+
+        </div>
+        <div class="menu_bottom">
+
+        <div class="dos_columnas">
+          <ion-img src="assets/hacer-26.png"  class="margen10botton"  style="
+          width: 50%;
+          margin-left: auto;
+          margin-right: auto;" >
+          </ion-img>
+        </div>
+        <div class="dos_columnas">
+          <ion-img routerLink="/send-sms" src="assets/hacer-25.png"  class="margen10botton" style="
+          width: 50%;
+          margin-left: auto;
+          margin-right: auto;" >
+          </ion-img>
+        </div>
+    </div>
+      </div>
+
+
+
+    </ng-template>
+    <ng-template swiperSlide><ion-img src="assets/splash/datos_interes.jpg" class="imgen_intro" ></ion-img>
+
+      <div class="juntos"> Datos de <br> interés
+        <div class="text" [innerHTML]="splash8"  >      </div>
+        <div class="fila_continuar">
+          <div class="continuar"  routerLink="/principal"> Menu > </div>
+
+        </div>
+        <div class="menu_bottom">
+
+        <div class="dos_columnas">
+          <ion-img src="assets/hacer-26.png"  class="margen10botton"  style="
+          width: 50%;
+          margin-left: auto;
+          margin-right: auto;" >
+          </ion-img>
+        </div>
+        <div class="dos_columnas">
+          <ion-img routerLink="/send-sms" src="assets/hacer-25.png"  class="margen10botton" style="
+          width: 50%;
+          margin-left: auto;
+          margin-right: auto;" >
+          </ion-img>
+        </div>
+    </div>
+      </div>
+
+
+
+    </ng-template>
+
   </swiper>
+
 
 </ion-content>
 
 
+<script>
+  function proximo()
+  {
+
+    console.log('onSwiper');
+  }
+  $('#next').on( 'click', function() {
+    swiper.slideNext();
+});
+</script>
