@@ -25,9 +25,12 @@ export class SendSmsPage implements OnInit {
   public contactoSelecionado: Contacto;
   public smsSeleccionado: string;
   public smsActivo = true;
+  public smsContacto = true;
+
   public smsMensajes = [];
   latitud: number;
   longitud: number;
+  public enviarOpcion = 1;
 
   constructor(
     private db: DbService,
@@ -50,6 +53,7 @@ export class SendSmsPage implements OnInit {
       .catch((error) => {
         console.log('Error getting location', error);
       });
+    this.enviarOpcion = 1;
   }
 
   ngOnInit() {
@@ -57,6 +61,14 @@ export class SendSmsPage implements OnInit {
       console.log('Ejecutando el fetch que actualiza la data...');
       this.Data = item;
     });
+    this.onChangeContacto(null);
+  }
+
+  selectSendOption(opcion) {
+    console.log('opcion send: ' + opcion);
+    //this.enviarOpcion = opcion;
+    this.smsContacto = opcion === 1;
+    this.onChangeContacto(null);
   }
 
   private toastMensaje(mensaje: string) {
@@ -69,16 +81,16 @@ export class SendSmsPage implements OnInit {
     });
   }
 
-  async sendSms() {
-    // Send a text message using default options
-    var numero = this.contactoSelecionado.number;
-    var mensaje = this.contactoSelecionado.sms.trim().toString();
-    mensaje = `${this.contactoSelecionado.sms.toString()}, Mi ubicación actual es: https://www.google.com/maps/dir/?api=1&destination=${this.latitud.toString()},${this.longitud.toString()}&zoom=20`;
-
+  /**
+   * Envia un sms a un numero especificado
+   * @param numero
+   * @param mensaje
+   */
+  sendIndividualSms(numero, mensaje) {
+    console.log('sendind sms ' + mensaje + '  to ' + numero);
     var error = function (e) {
       alert('Something went wrong:' + e);
     };
-
 
     let options = {
       eplaceLineBreaks: true, // true to replace \n by a new line, false by default
@@ -99,8 +111,26 @@ export class SendSmsPage implements OnInit {
       });
   }
 
+  async sendSms() {
+    // Send a text message using default options
+    console.log('send sms global ' + this.smsContacto);
+    var mensaje = this.smsSeleccionado.trim().toString();
+    mensaje = `${this.smsSeleccionado.toString()}, Mi ubicación actual es: https://www.google.com/maps/dir/?api=1&destination=${this.latitud.toString()},${this.longitud.toString()}&zoom=20`;
+
+    if (!this.smsContacto) {
+      var numero = this.contactoSelecionado.number;
+      //var mensaje = this.contactoSelecionado.sms.trim().toString();
+      //mensaje = `${this.contactoSelecionado.sms.toString()}, Mi ubicación actual es: https://www.google.com/maps/dir/?api=1&destination=${this.latitud.toString()},${this.longitud.toString()}&zoom=20`;
+      this.sendIndividualSms(numero, mensaje);
+    } else {
+      for (var contact of this.Data) {
+        this.sendIndividualSms(contact.number, mensaje);
+      }
+    }
+  }
+
   onChangeContacto(contacto: Contacto) {
-    if (this.contactoSelecionado.sms !== null) {
+    if (this.contactoSelecionado && this.contactoSelecionado.sms !== null) {
       this.smsMensajes = [
         'Llamame urgente',
         'Ven a verme urgente',
@@ -119,6 +149,6 @@ export class SendSmsPage implements OnInit {
   }
 
   onChangeSms(sms: string) {
-    this.contactoSelecionado.sms = this.smsSeleccionado;
+    //this.contactoSelecionado.sms = this.smsSeleccionado;
   }
 }

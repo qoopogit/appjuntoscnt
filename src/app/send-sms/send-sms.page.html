@@ -16,6 +16,31 @@
 </ion-header>
 
 <ion-content :fullscreen="true">
+
+
+  <ion-radio-group value="{{enviarOpcion}}">
+
+      <ion-item class="item-background-color">
+        <ion-label class="opciones">Enviar a todos</ion-label>
+        <ion-radio
+          id="radio1"
+          (click)="selectSendOption(1)"
+          value="1"
+        ></ion-radio>
+      </ion-item>
+
+      <ion-item class="item-background-color">
+        <ion-label class="opciones">Enviar a contacto</ion-label>
+        <ion-radio
+          id="radio2"
+          (click)="selectSendOption(2)"
+          value="2"
+        ></ion-radio>
+      </ion-item>
+
+  </ion-radio-group>
+
+
   <ion-item>
     <ion-label class="formLabel">
       <ion-icon name="person"></ion-icon>
@@ -24,6 +49,7 @@
     <ion-select
       class="controls"
       [(ngModel)]="contactoSelecionado"
+      [disabled]="smsContacto"
       interface="action-sheet"
       (ionChange)="onChangeContacto($event)"
     >
@@ -55,7 +81,6 @@
     ion-button
     round
     icon-start
-    [disabled]="contactoSelecionado == null"
     (click)="sendSms()"
   >
     <ion-icon name="mail"></ion-icon>
