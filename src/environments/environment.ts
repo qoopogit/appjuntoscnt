@@ -5,7 +5,7 @@
 //const server = 'https://appjuntos.cnt.gob.ec';
 const server = 'https://juntas-backend.cnt.gob.ec';
 //const server = 'http://181.113.34.230:9966';
-//const server = 'http://190.152.75.32';
+ const server2 = 'https://juntas1.dimater.com/index.php';
 
 
 export const environment = {

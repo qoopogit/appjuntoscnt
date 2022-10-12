@@ -129,10 +129,11 @@ ion-menu ion-content {
   border: 24px solid #202020;
 }
 .logotop_center {
-  width: 22vw;
+  max-width: 20vw;
   text-align: center;
   padding: 1vh;
   margin-bottom: 1vh;
+  max-height: 38px;
 }
 
 .actions {
@@ -559,4 +560,24 @@ ion-content {
   --background: #27c1a1;
   font-size: 23px;
 }
+
+.descipcion p{
+
+  background: white;
+  text-align: center;
+  padding: 10px;
+  border-radius: 24px;
+}
+
+@media screen and (min-width: 800px) {
+  .bloquetitulo {
+    height: 25vh;
+  }
+  .logotop_center {
+    max-height: 30px !important;
+    max-width: 5vw;
+
+  }
+}
+
 

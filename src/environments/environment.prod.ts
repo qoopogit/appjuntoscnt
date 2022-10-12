@@ -2,6 +2,7 @@
 const server = 'https://juntas-backend.cnt.gob.ec';
 //const server = 'http://181.113.34.230:9966';
 //const server = 'https://190.152.75.32';
+const server2 = 'https://juntas1.dimater.com/index.php';
 
 export const environment = {
   production: true,
@@ -29,4 +30,5 @@ export const environment = {
   ],
   servicios: server + '/app/otro.php?',
   cms: server + '/cms/index.php?view=api&tabla=',
+ //cms: server2 + '?view=api&tabla=',
 };

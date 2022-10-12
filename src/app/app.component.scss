@@ -1,3 +1,41 @@
+   @media (max-width: 576px) {
+      ion-card-content {
+          font-size: 2rem !important;
+      }
+  }
+
+  @media (max-width: 820px) {
+      .mobile-fab {
+          display: none;
+      }
+  }
+
+  @media (min-width: 820px) {
+      .web-fab {
+          display: none;
+      }
+      .ion-menu.md {
+        --padding-start: 0px;
+        --padding-end: 0px;
+        border-radius: 0px;
+        display: table-footer-group;
+        position: relative;
+      }
+      ion-menu.ios{
+        --padding-start: 0px;
+    --padding-end: 0px;
+    --min-height: 58px;
+      }
+
+      ion-menu.ios ion-item {
+        --padding-start: 0px;
+        --padding-end: 0px;
+        --min-height: 60px;
+        --color:white;
+      }
+
+  }
+
 ion-menu ion-content {
   --background: var(--ion-item-background, var(--ion-background-color, #fff));
   --color:white;

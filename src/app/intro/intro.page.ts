@@ -42,7 +42,7 @@ export class IntroPage implements OnInit {
         this.splash8 = res.data.splash8;
         this.alerta = res.data.alerta;
         this.showAlertComoUsar(res.data.alerta);
-        console.log();
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
