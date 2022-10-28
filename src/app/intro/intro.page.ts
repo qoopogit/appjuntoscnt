@@ -8,6 +8,8 @@ import {
 } from '@ionic/angular';
 import axios from 'axios';
 import { SwiperComponent } from 'swiper/angular';
+declare var dataLayer: Array<any>;
+
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.page.html',
@@ -17,7 +19,7 @@ import { SwiperComponent } from 'swiper/angular';
 
 export class IntroPage implements OnInit {
   @ViewChild('swiper', { static: false }) swiper?: SwiperComponent;
-
+   dataLayer: any;
   splash1 = '';
   splash2 = '';
   splash3 = '';
@@ -59,7 +61,11 @@ export class IntroPage implements OnInit {
   }
   ngOnInit() {
 
-
+    dataLayer.push({
+      'screenPath': 'intro',
+      'screenName': 'Intro'
+    });
+    dataLayer.push({'event': 'appScreenView'});
   }
 
   onRobotClick() {

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import axios from 'axios';
 import { FolderPage } from 'src/app/folder/folder.page';
 import { environment } from '../../../environments/environment';
+declare var dataLayer: Array<any>;
 @Component({
   selector: 'app-integral',
   templateUrl: './integral.page.html',
@@ -52,6 +53,12 @@ export class IntegralPage implements OnInit {
 
  }
   ngOnInit() {
+
+    dataLayer.push({
+      'screenPath': 'Integral',
+      'screenName': 'El Servicio de Protección Integral'
+    });
+    dataLayer.push({'event': 'appScreenView'});
   }
 
 }

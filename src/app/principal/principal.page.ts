@@ -4,6 +4,9 @@ import {
   LoadingController,
   AlertController,
 } from '@ionic/angular';
+
+
+declare var dataLayer: Array<any>;
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.page.html',
@@ -15,7 +18,11 @@ export class PrincipalPage implements OnInit {
     public alertCtrl: AlertController) { }
 
   ngOnInit() {
-
+    dataLayer.push({
+      'screenPath': 'Principal',
+      'screenName': 'Menu Principal'
+    });
+    dataLayer.push({'event': 'appScreenView'});
     this.showintrotext();
   }
 
