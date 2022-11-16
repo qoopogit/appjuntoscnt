@@ -11,7 +11,8 @@ const server = 'https://juntas-backend.cnt.gob.ec';
 export const environment = {
   production: false,
   servicios: server + '/app/otro.php?',
-  cms: server + '/cms/index.php?view=api&tabla=',
+  //cms: server + '/cms/index.php?view=api&tabla=',
+  cms: server2 + '/index.php?view=api&tabla=',
   socialShareOption: [
     {
         title: 'Whatsapp',

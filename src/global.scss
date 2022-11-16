@@ -395,7 +395,15 @@ ion-content {
   width: 50%;
   height: auto;
   float: left;
-  min-height: 90px;
+}
+
+.mita{
+  width: 50% !important;
+  float: left;
+}
+
+.completo{
+  width: 100% !important;
 }
 
 .bloque_zona {

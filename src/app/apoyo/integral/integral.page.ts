@@ -30,11 +30,14 @@ export class IntegralPage implements OnInit {
       this.body= res.data.body;
       this.idzonas= res.data.idZonas;
       this.descipcion= res.data.descipcion;
-     // console.log(res.data.body, );
+      console.log( res.data.idZonas );
       const i =0;
       res.data.body.forEach(element => {
 
-        this.bloques[i]=element;
+
+
+          this.bloques[i]=element;
+
 
        });
 

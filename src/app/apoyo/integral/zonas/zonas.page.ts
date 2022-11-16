@@ -22,12 +22,16 @@ export class ZonasPage implements OnInit {
 
       this.listId =  + parseFloat(this.route.snapshot.paramMap.get('id'))   ;
       console.log( this.listId);
-
+      console.log( this.listId);
         axios
         .get(environment.cms + 'zona&id='+this.listId)
         .then(res => {
-
-          this.zona= res.data.zona;
+          let zona_label = res.data.zona;
+            if (this.listId ===11 )
+            {
+              zona_label  = 'Zona 2 y 9';
+            }
+          this.zona= zona_label;
           this.titulo= res.data.titulo;
           this.body= res.data.body;
           this.descipcion= res.data.descipcion;
