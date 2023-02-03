@@ -42,6 +42,7 @@
     "cordova-sms-plugin": "^1.0.2",
     "cordova-sqlite-storage": "^6.0.0",
     "es6-promise-plugin": "^4.2.2",
+    "firebase": "^9.17.0",
     "jetifier": "^2.0.0",
     "rxjs": "~6.6.0",
     "swiper": "^8.2.4",
