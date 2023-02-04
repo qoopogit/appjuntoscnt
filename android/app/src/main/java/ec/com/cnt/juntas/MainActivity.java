@@ -1,4 +1,4 @@
-package io.juntas.starter;
+package ec.com.cnt.juntas;
 
 import com.getcapacitor.BridgeActivity;
 
