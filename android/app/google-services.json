@@ -1,0 +1,154 @@
+{
+  "project_info": {
+    "project_number": "670364233295",
+    "project_id": "juntas-a836b",
+    "storage_bucket": "juntas-a836b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:670364233295:android:6f603781217df0e6ae843a",
+        "android_client_info": {
+          "package_name": "com.juntas.cnt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "670364233295-uluncbd978d3cmatd62ndp7d03r1hgsg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2MWwBOfs_WjJkWBnFLJipFMqL2d0y-jE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "670364233295-uluncbd978d3cmatd62ndp7d03r1hgsg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "670364233295-0hi1ju1e3nh4fncvrcrhrtaajshp43d8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ec.com.cnt.juntas"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:670364233295:android:4b263af955dbc7baae843a",
+        "android_client_info": {
+          "package_name": "ec.com.cnt.juntas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "670364233295-uluncbd978d3cmatd62ndp7d03r1hgsg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2MWwBOfs_WjJkWBnFLJipFMqL2d0y-jE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "670364233295-uluncbd978d3cmatd62ndp7d03r1hgsg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "670364233295-0hi1ju1e3nh4fncvrcrhrtaajshp43d8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ec.com.cnt.juntas"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:670364233295:android:6a44d1ccf620dca4ae843a",
+        "android_client_info": {
+          "package_name": "ec.com.cnt.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "670364233295-uluncbd978d3cmatd62ndp7d03r1hgsg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2MWwBOfs_WjJkWBnFLJipFMqL2d0y-jE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "670364233295-uluncbd978d3cmatd62ndp7d03r1hgsg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "670364233295-0hi1ju1e3nh4fncvrcrhrtaajshp43d8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ec.com.cnt.juntas"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:670364233295:android:bd3be4e3cc314475ae843a",
+        "android_client_info": {
+          "package_name": "io.juntas.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "670364233295-uluncbd978d3cmatd62ndp7d03r1hgsg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2MWwBOfs_WjJkWBnFLJipFMqL2d0y-jE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "670364233295-uluncbd978d3cmatd62ndp7d03r1hgsg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "670364233295-0hi1ju1e3nh4fncvrcrhrtaajshp43d8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ec.com.cnt.juntas"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
