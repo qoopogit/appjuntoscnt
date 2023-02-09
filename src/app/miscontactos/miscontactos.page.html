@@ -18,7 +18,7 @@
 <ion-content :fullscreen="true">
   <!-- fab placed to the top end -->
   <ion-fab vertical="top" horizontal="end" slot="fixed">
-    <ion-fab-button id="open-modal"  (click)="newContact()" class="fabBtn">
+    <ion-fab-button id="open-modal" (click)="newContact()" class="fabBtn">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
@@ -26,7 +26,8 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+        <ion-modal trigger="open-modal">
+          <!--(willDismiss)="onWillDismiss($event)"   >-->
           <ng-template>
             <ion-header>
               <ion-toolbar class="modalHeader">
@@ -84,7 +85,9 @@
 
               <ion-list lines="full">
                 <ion-toolbar>
-                  <ion-title color="light" class="contactName" >Importar Contacto</ion-title>
+                  <ion-title color="light" class="contactName"
+                    >Importar Contacto</ion-title
+                  >
                   <ion-buttons slot="end">
                     <ion-button
                       type="button"
@@ -98,19 +101,23 @@
                 <ion-item-sliding *ngFor="let contact of contacts | async">
                   <ion-item>
                     <ion-icon
-                      *ngIf="!contact.photoThumbnail"
+                      *ngIf="!contact.image"
                       color="primary"
                       slot="start"
                       name="person-circle-outline"
                     ></ion-icon>
-                    <ion-avatar *ngIf="contact.photoThumbnail" slot="start">
-                      <ion-img [src]="contact.photoThumbnail"></ion-img>
+                    <ion-avatar *ngIf="contact.image" slot="start">
+                      <ion-img [src]="contact.image.base64String"></ion-img>
                     </ion-avatar>
                     <ion-label class="ion-text-wrap">
                       <ion-label class="contactName">
-                        {{contact.displayName}}
+                        {{contact.name.display}}
                       </ion-label>
-                      <ion-text color="medium" class="contactNumber" *ngFor="let number of contact.phoneNumbers">
+                      <ion-text
+                        color="medium"
+                        class="contactNumber"
+                        *ngFor="let number of contact.phones"
+                      >
                         <p>{{number.label}}:{{number.number}}</p>
                       </ion-text>
                     </ion-label>
@@ -119,8 +126,9 @@
                       type="button"
                       (click)="seleccionarContacto(contact)"
                       class="colorBtn"
-                      ><ion-icon name="checkmark-outline"></ion-icon
-                    ></button>
+                    >
+                      <ion-icon name="checkmark-outline"></ion-icon>
+                    </button>
                   </ion-item>
                 </ion-item-sliding>
               </ion-list>

@@ -5,7 +5,8 @@ import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { DbService } from './../api/db.service';
 import { IonModal, isPlatform } from '@ionic/angular';
-import { Contacts, Contact } from '@capacitor-community/contacts';
+import { Contacts, ContactPayload } from '@capacitor-community/contacts';
+
 //import { OverlayEventDetail } from '@ionic/core/components';
 
 import {
@@ -28,7 +29,7 @@ export class MiscontactosPage implements OnInit {
   @ViewChild(IonModal) modal: IonModal;
 
   deviceContacts = [];
-  contacts: Observable<Contact[]>;
+  contacts: Observable<ContactPayload[]>;
 
   constructor(
     private db: DbService,
@@ -53,11 +54,17 @@ export class MiscontactosPage implements OnInit {
 
   async getPermissions(): Promise<void> {
     if (isPlatform('android')) {
-      let permission = await Contacts.getPermissions();
-      if (!permission.granted) {
+      let permission = await Contacts.checkPermissions().then((r) => {
+        if (!(r.contacts === 'granted')) {
+          this.toastMensaje('No se tiene permisos para leer los contactos.');
+        }
+      }); //.getPermissions();
+
+      /*if (!permission.granted) {
         this.toastMensaje('No se tiene permisos para leer los contactos.');
         return;
       }
+      */
     }
   }
 
@@ -86,8 +93,10 @@ export class MiscontactosPage implements OnInit {
   async getContacts(): Promise<void> {
     //this.getPermissions();
     if (isPlatform('android')) {
-      let permission = await Contacts.getPermissions();
-      if (!permission.granted) {
+      //let permission = await Contacts.getPermissions();
+      let permission = await Contacts.checkPermissions();
+
+      if (!(permission.contacts === 'granted')) {
         this.toastMensaje('No se tiene permisos para leer los contactos.');
         return;
       }
@@ -95,63 +104,53 @@ export class MiscontactosPage implements OnInit {
 
     this.toastMensaje('Cargando. Espere por favor.');
 
-    Contacts.getContacts()
-      .then((result) => {
-        const phoneContacts: Contact[] = result.contacts;
-        this.contacts = of(phoneContacts);
-        this.deviceContacts = result.contacts;
-      })
-      .catch((e) => {
-        console.log('Error al cargar contactos');
-        console.log(e);
-        this.toastMensaje('Error al cargar contactos:' + e);
-      });
+    const result = await Contacts.getContacts({
+      projection: {
+        // Specify which fields should be retrieved.
+        name: true,
+        phones: true,
+        //postalAddresses: true,
+      },
+    });
+
+    const phoneContacts: ContactPayload[] = result.contacts;
+    this.contacts = of(phoneContacts);
+    this.deviceContacts = result.contacts;
+    /*
+      for (const contact of result.contacts) {
+        const number = contact.phones?.[0]?.number;
+        const street = contact.postalAddresses?.[0]?.street;
+        console.log(number, street);
+      }
+      */
   }
 
-  async seleccionarContacto(contact: Contact) {
+  async seleccionarContacto(contact: ContactPayload) {
     console.log(contact);
 
     if (contact === null) {
       this.toastMensaje('El contacto seleccionado es nulo');
-      /*this.alertCtrl
-        .create({
-          header: 'Aviso',
-          message: `El contacto seleccionado es nulo.`,
-          buttons: ['Aceptar'],
-        })
-        .then((r) => {
-          r.present();
-        });*/
     } else {
-      if (contact.phoneNumbers === null || contact.phoneNumbers.length === 0) {
+      if (contact.phones === null || contact.phones.length === 0) {
         this.toastMensaje(
-          `El contacto ${contact.displayName} no tiene un número telefónico.`
+          `El contacto ${contact.name?.display} no tiene un número telefónico.`
         );
-        /*this.alertCtrl
-          .create({
-            header: 'Aviso',
-            message: `El contacto ${contact.displayName} no tiene un número telefónico.`,
-            buttons: ['Aceptar'],
-          })
-          .then((r) => {
-            r.present();
-          });*/
       } else {
         //this.mainForm.reset();
         //this.mainForm.value.name = contact.displayName;
         //this.mainForm.value.number = contact.phoneNumbers[0].number;
 
         this.mainForm = this.formBuilder.group({
-          name: [contact.displayName],
-          number: [contact.phoneNumbers[0].number],
+          name: [contact.name?.display],
+          number: [contact.phones?.[0]?.number],
           sms: [''],
         });
 
         this.toastMensaje(
           'Contacto seleccionado: ' +
-            contact.displayName +
+            contact.name?.display +
             ' ' +
-            contact.phoneNumbers[0].number
+            contact.phones?.[0]?.number
         );
       }
     }

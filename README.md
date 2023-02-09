@@ -11,6 +11,9 @@ Agregar en el archivo AndroidManifest.xml la siguiente etiqueta en el tag de app
 En el mismo archivo agregar los siguientes permisos:
 
   <uses-permission android:name="android.permission.SEND_SMS" />
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.READ_CONTACTS"/>
+  <uses-permission android:name="android.permission.WRITE_CONTACTS" />
 
 
 En el archivo capacitor.config.json agregar:

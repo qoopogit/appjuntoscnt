@@ -51,7 +51,7 @@
       [(ngModel)]="contactoSelecionado"
       [disabled]="smsContacto"
       interface="action-sheet"
-      (ionChange)="onChangeContacto($event)"
+      (ionChange)="onChangeContacto($any($event))"
     >
       <ion-select-option *ngFor="let contact of Data" [value]="contact">
         {{contact.name}}
@@ -68,7 +68,7 @@
       [(ngModel)]="smsSeleccionado"
       [disabled]="smsActivo"
       interface="action-sheet"
-      (ionChange)="onChangeSms( $event )"
+      (ionChange)="onChangeSms( $any($event) )"
     >
       <ion-select-option *ngFor="let sms of smsMensajes">
         {{sms}}
