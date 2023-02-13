@@ -6,14 +6,14 @@ const server = 'https://juntas-backend.cnt.gob.ec';
 
 export const environment = {
   production: true,
-  firebaseConfig : {
+  firebaseConfig: {
     apiKey: 'AIzaSyCFvfHFFos8bvNQiG4SXGsKTmO4Ikecm7I',
     authDomain: 'juntas-a836b.firebaseapp.com',
     projectId: 'juntas-a836b',
     storageBucket: 'juntas-a836b.appspot.com',
     messagingSenderId: '670364233295',
     appId: '1:670364233295:web:8d552be99fd3d118ae843a',
-    measurementId: 'G-8PP4XCG0CV'
+    measurementId: 'G-8PP4XCG0CV',
   },
   socialShareOption: [
     {
@@ -39,5 +39,5 @@ export const environment = {
   ],
   servicios: server + '/app/otro.php?',
   cms: server + '/cms/index.php?view=api&tabla=',
- //cms: server2 + '?view=api&tabla=',
+  //cms: server2 + '?view=api&tabla=',
 };

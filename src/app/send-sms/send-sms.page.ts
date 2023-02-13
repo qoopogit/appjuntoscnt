@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { SMS } from '@awesome-cordova-plugins/sms/ngx';
-//import { FormGroup, FormBuilder } from '@angular/forms';
+//import { SMS } from '@awesome-cordova-plugins/sms/ngx';
+import { SmsManager } from '@byteowls/capacitor-sms';
 import { Router } from '@angular/router';
 import { DbService } from './../api/db.service';
 import { Contacto } from './../api/contacto';
-//import { AndroidPermissions } from '@ionic-native/android-permissions';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 
 import {
@@ -12,7 +11,6 @@ import {
   LoadingController,
   AlertController,
 } from '@ionic/angular';
-//import { Service } from '../api/Service';
 
 @Component({
   selector: 'app-send-sms',
@@ -20,35 +18,28 @@ import {
   styleUrls: ['./send-sms.page.scss'],
 })
 export class SendSmsPage implements OnInit {
-  //public contactos: Contacto[] = [];
   Data: any[] = [];
   public contactoSelecionado: Contacto;
   public smsSeleccionado: string;
   public smsActivo = true;
   public smsContacto = true;
-
   public smsMensajes = [];
-  latitud: number;
-  longitud: number;
+  latitud: string;
+  longitud: string;
   public enviarOpcion = 1;
 
   constructor(
     private db: DbService,
-    //public formBuilder: FormBuilder,
     private toast: ToastController,
     private router: Router,
-    private sms: SMS,
+    //private sms: SMS,
     private geolocation: Geolocation
   ) {
-    //this.db.loadContactos();
-    //this.contactos = this.db.getData();
-    //console.log('Contactos lista=>');
-    //console.log(this.contactos);
     this.geolocation
       .getCurrentPosition()
       .then((resp) => {
-        this.latitud = resp.coords.latitude;
-        this.longitud = resp.coords.longitude;
+        this.latitud = resp.coords.latitude.toString();
+        this.longitud = resp.coords.longitude.toString();
       })
       .catch((error) => {
         console.log('Error getting location', error);
@@ -66,7 +57,6 @@ export class SendSmsPage implements OnInit {
 
   selectSendOption(opcion) {
     console.log('opcion send: ' + opcion);
-    //this.enviarOpcion = opcion;
     this.smsContacto = opcion === 1;
     this.onChangeContacto(null);
   }
@@ -91,7 +81,7 @@ export class SendSmsPage implements OnInit {
     var error = function (e) {
       alert('Something went wrong:' + e);
     };
-
+    /*
     let options = {
       eplaceLineBreaks: true, // true to replace \n by a new line, false by default
       android: {
@@ -109,18 +99,41 @@ export class SendSmsPage implements OnInit {
         console.log('Error el enviar sms');
         this.toastMensaje('Error al enviar el sms');
       });
+*/
+    const numbers: string[] = [numero];
+    SmsManager.send({
+      numbers: numbers,
+      text: mensaje,
+    })
+      .then(() => {
+        // success
+      })
+      .catch((error) => {
+        console.error(error);
+        this.toastMensaje('Error al enviar el sms ' + error);
+      });
   }
 
   async sendSms() {
     // Send a text message using default options
-    console.log('send sms global ' + this.smsContacto);
+    console.log('send sms global ? ' + this.smsContacto);
+    console.log('send sms mensaje ' + this.smsSeleccionado);
+    console.log(
+      'contacto seleccionado ' + JSON.stringify(this.contactoSelecionado)
+    );
+    if (this.smsSeleccionado === null) {
+      this.smsSeleccionado = '';
+    }
     var mensaje = this.smsSeleccionado.trim().toString();
-    mensaje = `${this.smsSeleccionado.toString()}, Mi ubicación actual es: https://www.google.com/maps/dir/?api=1&destination=${this.latitud.toString()},${this.longitud.toString()}&zoom=20`;
+    console.log('mensaje final (p1) =' + mensaje);
+    mensaje = `${this.smsSeleccionado.toString()}, Mi ubicación actual es: https://www.google.com/maps/dir/?api=1&destination=${
+      this.latitud
+    },${this.longitud}&zoom=20`;
+
+    console.log('mensaje final=' + mensaje);
 
     if (!this.smsContacto) {
       var numero = this.contactoSelecionado.number;
-      //var mensaje = this.contactoSelecionado.sms.trim().toString();
-      //mensaje = `${this.contactoSelecionado.sms.toString()}, Mi ubicación actual es: https://www.google.com/maps/dir/?api=1&destination=${this.latitud.toString()},${this.longitud.toString()}&zoom=20`;
       this.sendIndividualSms(numero, mensaje);
     } else {
       for (var contact of this.Data) {

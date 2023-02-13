@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { SMS } from '@awesome-cordova-plugins/sms/ngx';
+//import { SMS } from '@awesome-cordova-plugins/sms/ngx';
+import { SmsManager } from '@byteowls/capacitor-sms';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
@@ -14,8 +15,8 @@ import {
   LoadingController,
   AlertController,
 } from '@ionic/angular';
-import { identity } from 'rxjs';
-import { ContactosPage } from '../contactos/contactos.page';
+//import { identity } from 'rxjs';
+//import { ContactosPage } from '../contactos/contactos.page';
 //import { Service } from '../api/Service';
 
 @Component({
@@ -31,14 +32,16 @@ export class MiscontactosPage implements OnInit {
   deviceContacts = [];
   contacts: Observable<ContactPayload[]>;
 
+  iosOrAndroid: boolean;
+
   constructor(
     private db: DbService,
     public formBuilder: FormBuilder,
     private toast: ToastController,
     private router: Router,
-    private alertCtrl: AlertController,
-    private sms: SMS
-  ) {}
+    private alertCtrl: AlertController
+  ) //private sms: SMS
+  {}
 
   cancel() {
     this.modal.dismiss(null, 'cancel');
@@ -55,16 +58,11 @@ export class MiscontactosPage implements OnInit {
   async getPermissions(): Promise<void> {
     if (isPlatform('android')) {
       let permission = await Contacts.checkPermissions().then((r) => {
+        console.log('Permisos ' + JSON.stringify(permission));
         if (!(r.contacts === 'granted')) {
           this.toastMensaje('No se tiene permisos para leer los contactos.');
         }
-      }); //.getPermissions();
-
-      /*if (!permission.granted) {
-        this.toastMensaje('No se tiene permisos para leer los contactos.');
-        return;
-      }
-      */
+      });
     }
   }
 
@@ -91,17 +89,6 @@ export class MiscontactosPage implements OnInit {
   }
 
   async getContacts(): Promise<void> {
-    //this.getPermissions();
-    if (isPlatform('android')) {
-      //let permission = await Contacts.getPermissions();
-      let permission = await Contacts.checkPermissions();
-
-      if (!(permission.contacts === 'granted')) {
-        this.toastMensaje('No se tiene permisos para leer los contactos.');
-        return;
-      }
-    }
-
     this.toastMensaje('Cargando. Espere por favor.');
 
     const result = await Contacts.getContacts({
@@ -116,13 +103,12 @@ export class MiscontactosPage implements OnInit {
     const phoneContacts: ContactPayload[] = result.contacts;
     this.contacts = of(phoneContacts);
     this.deviceContacts = result.contacts;
-    /*
-      for (const contact of result.contacts) {
-        const number = contact.phones?.[0]?.number;
-        const street = contact.postalAddresses?.[0]?.street;
-        console.log(number, street);
-      }
-      */
+
+    for (const contact of result.contacts) {
+      const number = contact.phones?.[0]?.number;
+      const street = contact.postalAddresses?.[0]?.street;
+      console.log('contacto ', number, street);
+    }
   }
 
   async seleccionarContacto(contact: ContactPayload) {
@@ -136,10 +122,6 @@ export class MiscontactosPage implements OnInit {
           `El contacto ${contact.name?.display} no tiene un número telefónico.`
         );
       } else {
-        //this.mainForm.reset();
-        //this.mainForm.value.name = contact.displayName;
-        //this.mainForm.value.number = contact.phoneNumbers[0].number;
-
         this.mainForm = this.formBuilder.group({
           name: [contact.name?.display],
           number: [contact.phones?.[0]?.number],
@@ -180,18 +162,18 @@ export class MiscontactosPage implements OnInit {
         {
           text: 'Si',
           handler: () => {
-            let options = {
+            /* let options = {
               eplaceLineBreaks: true, // true to replace \n by a new line, false by default
               android: {
-                intent: 'INTENT', // send SMS with the native android SMS messaging
-                //intent: '' // send SMS without open any other app
+                //intent: 'INTENT', // send SMS with the native android SMS messaging
+                intent: '' // send SMS without open any other app
               },
             };
 
-            this.sms
+           this.sms
               .send(
                 numero,
-                'Usted ha sido agregado como contacto de emergencia por el remitente de este sms.',
+                '(1) Usted ha sido agregado como contacto de emergencia por el remitente de este sms.',
                 options
               )
               .then((resp) => {
@@ -202,6 +184,20 @@ export class MiscontactosPage implements OnInit {
               .catch((e) => {
                 console.log('Error el enviar sms');
                 this.toastMensaje('Error al enviar el sms');
+              });
+
+              */
+            const numbers: string[] = [numero];
+            SmsManager.send({
+              numbers: numbers,
+              text: '(2) Usted ha sido agregado como contacto de emergencia por el remitente de este sms.',
+            })
+              .then(() => {
+                // success
+              })
+              .catch((error) => {
+                console.error(error);
+                this.toastMensaje('Error al enviar el sms ' + error);
               });
           },
         },
@@ -239,6 +235,8 @@ export class MiscontactosPage implements OnInit {
       console.log('Ejecutando el fetch que actualiza la data...');
       this.Data = item;
     });
+
+    this.iosOrAndroid = isPlatform('android') || isPlatform('ios');
 
     this.getPermissions();
     /*
