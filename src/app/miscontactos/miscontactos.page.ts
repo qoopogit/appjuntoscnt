@@ -1,23 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-//import { SMS } from '@awesome-cordova-plugins/sms/ngx';
 import { SmsManager } from '@byteowls/capacitor-sms';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Observable, of } from 'rxjs';
-import { Router } from '@angular/router';
+//import { Router } from '@angular/router';
 import { DbService } from './../api/db.service';
 import { IonModal, isPlatform } from '@ionic/angular';
 import { Contacts, ContactPayload } from '@capacitor-community/contacts';
-
-//import { OverlayEventDetail } from '@ionic/core/components';
-
-import {
-  ToastController,
-  LoadingController,
-  AlertController,
-} from '@ionic/angular';
-//import { identity } from 'rxjs';
-//import { ContactosPage } from '../contactos/contactos.page';
-//import { Service } from '../api/Service';
+import { ToastController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-miscontactos',
@@ -28,20 +17,17 @@ export class MiscontactosPage implements OnInit {
   Data: any[] = [];
   mainForm: FormGroup;
   @ViewChild(IonModal) modal: IonModal;
-
   deviceContacts = [];
   contacts: Observable<ContactPayload[]>;
-
   iosOrAndroid: boolean;
 
   constructor(
     private db: DbService,
     public formBuilder: FormBuilder,
     private toast: ToastController,
-    private router: Router,
-    private alertCtrl: AlertController
-  ) //private sms: SMS
-  {}
+    //private router: Router,
+    private alertCtrl: AlertController //private sms: SMS
+  ) {}
 
   cancel() {
     this.modal.dismiss(null, 'cancel');
@@ -90,7 +76,6 @@ export class MiscontactosPage implements OnInit {
 
   async getContacts(): Promise<void> {
     this.toastMensaje('Cargando. Espere por favor.');
-
     const result = await Contacts.getContacts({
       projection: {
         // Specify which fields should be retrieved.
@@ -113,7 +98,6 @@ export class MiscontactosPage implements OnInit {
 
   async seleccionarContacto(contact: ContactPayload) {
     console.log(contact);
-
     if (contact === null) {
       this.toastMensaje('El contacto seleccionado es nulo');
     } else {
@@ -151,9 +135,7 @@ export class MiscontactosPage implements OnInit {
     let nombre: string = this.mainForm.value.name;
     let numero: string = this.mainForm.value.number;
     let msg: string = this.mainForm.value.sms;
-
     this.db.addContacto(id, nombre, numero, msg);
-
     let alertaCreacion = this.alertCtrl.create({
       header: 'A su nuevo contacto?',
       message:
@@ -162,35 +144,10 @@ export class MiscontactosPage implements OnInit {
         {
           text: 'Si',
           handler: () => {
-            /* let options = {
-              eplaceLineBreaks: true, // true to replace \n by a new line, false by default
-              android: {
-                //intent: 'INTENT', // send SMS with the native android SMS messaging
-                intent: '' // send SMS without open any other app
-              },
-            };
-
-           this.sms
-              .send(
-                numero,
-                '(1) Usted ha sido agregado como contacto de emergencia por el remitente de este sms.',
-                options
-              )
-              .then((resp) => {
-                this.toastMensaje(
-                  `Aviso: Mensaje enviado al contacto. ${nombre}`
-                );
-              })
-              .catch((e) => {
-                console.log('Error el enviar sms');
-                this.toastMensaje('Error al enviar el sms');
-              });
-
-              */
             const numbers: string[] = [numero];
             SmsManager.send({
               numbers: numbers,
-              text: '(2) Usted ha sido agregado como contacto de emergencia por el remitente de este sms.',
+              text: 'Usted ha sido agregado como contacto de emergencia por el remitente de este sms.',
             })
               .then(() => {
                 // success
@@ -235,19 +192,7 @@ export class MiscontactosPage implements OnInit {
       console.log('Ejecutando el fetch que actualiza la data...');
       this.Data = item;
     });
-
     this.iosOrAndroid = isPlatform('android') || isPlatform('ios');
-
     this.getPermissions();
-    /*
-      this.db.dbState().subscribe((res) => {
-        if (res) {
-          this.db.fetchContactos().subscribe((item) => {
-            console.log('contactos, obteniendo data ' + item);
-            this.Data = item;
-          });
-        }
-      });
-  */
   }
 }

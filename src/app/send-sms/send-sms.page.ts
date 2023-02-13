@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-//import { SMS } from '@awesome-cordova-plugins/sms/ngx';
 import { SmsManager } from '@byteowls/capacitor-sms';
 import { Router } from '@angular/router';
 import { DbService } from './../api/db.service';
 import { Contacto } from './../api/contacto';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+//import { Geolocation } from '@capacitor/geolocation';
 
 import {
   ToastController,
@@ -81,25 +81,7 @@ export class SendSmsPage implements OnInit {
     var error = function (e) {
       alert('Something went wrong:' + e);
     };
-    /*
-    let options = {
-      eplaceLineBreaks: true, // true to replace \n by a new line, false by default
-      android: {
-        intent: 'INTENT', // send SMS with the native android SMS messaging
-        //intent: '' // send SMS without open any other app
-      },
-    };
 
-    this.sms
-      .send(numero, mensaje, options)
-      .then((resp) => {
-        this.toastMensaje('Mensaje enviado');
-      })
-      .catch((e) => {
-        console.log('Error el enviar sms');
-        this.toastMensaje('Error al enviar el sms');
-      });
-*/
     const numbers: string[] = [numero];
     SmsManager.send({
       numbers: numbers,
@@ -116,21 +98,18 @@ export class SendSmsPage implements OnInit {
 
   async sendSms() {
     // Send a text message using default options
-    console.log('send sms global ? ' + this.smsContacto);
-    console.log('send sms mensaje ' + this.smsSeleccionado);
-    console.log(
-      'contacto seleccionado ' + JSON.stringify(this.contactoSelecionado)
-    );
+    //console.log('send sms global ? ' + this.smsContacto);
+    //console.log('send sms mensaje ' + this.smsSeleccionado);
+    //console.log(
+    //  'contacto seleccionado ' + JSON.stringify(this.contactoSelecionado)
+    //);
     if (this.smsSeleccionado === null) {
       this.smsSeleccionado = '';
     }
     var mensaje = this.smsSeleccionado.trim().toString();
-    console.log('mensaje final (p1) =' + mensaje);
     mensaje = `${this.smsSeleccionado.toString()}, Mi ubicación actual es: https://www.google.com/maps/dir/?api=1&destination=${
       this.latitud
     },${this.longitud}&zoom=20`;
-
-    console.log('mensaje final=' + mensaje);
 
     if (!this.smsContacto) {
       var numero = this.contactoSelecionado.number;
