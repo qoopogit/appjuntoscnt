@@ -1,5 +1,9 @@
 [
 	{
+		"pkg": "@byteowls/capacitor-sms",
+		"classpath": "com.byteowls.capacitor.sms.SmsManagerPlugin"
+	},
+	{
 		"pkg": "@capacitor-community/contacts",
 		"classpath": "getcapacitor.community.contacts.ContactsPlugin"
 	},
