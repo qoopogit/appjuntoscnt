@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { SmsManager } from '@byteowls/capacitor-sms';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Observable, of } from 'rxjs';
-//import { Router } from '@angular/router';
 import { DbService } from './../api/db.service';
 import { IonModal, isPlatform } from '@ionic/angular';
 import { Contacts, ContactPayload } from '@capacitor-community/contacts';

@@ -16,7 +16,6 @@
 </ion-header>
 
 <ion-content :fullscreen="true">
-  <!-- fab placed to the top end -->
   <ion-fab vertical="top" horizontal="end" slot="fixed">
     <ion-fab-button id="open-modal" (click)="newContact()" class="fabBtn">
       <ion-icon name="add"></ion-icon>
@@ -36,8 +35,7 @@
                 </ion-buttons>
                 <ion-title>Nuevo Contacto</ion-title>
               </ion-toolbar>
-            </ion-header>
-            <ion-content class="ion-padding">
+
               <ion-list lines="full">
                 <form [formGroup]="mainForm" (ngSubmit)="storeData()">
                   <ion-item>
@@ -82,7 +80,6 @@
                   </ion-row>
                 </form>
               </ion-list>
-
               <ion-list lines="full">
                 <ion-toolbar>
                   <ion-title color="light" class="contactName"
@@ -98,8 +95,12 @@
                   </ion-buttons>
                 </ion-toolbar>
               </ion-list>
-
-              <ion-virtual-scroll [items]="deviceContacts">
+            </ion-header>
+            <ion-content class="ion-padding">
+              <ion-virtual-scroll
+                [items]="deviceContacts"
+                style="height: 200px"
+              >
                 <ion-item *virtualItem="let item">
                   <ion-icon
                     *ngIf="!item.image"
