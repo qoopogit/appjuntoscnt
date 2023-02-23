@@ -84,9 +84,6 @@
               </ion-list>
 
               <ion-list lines="full">
-                <ion-list-header>
-                  <ion-label>Contactos</ion-label>
-                </ion-list-header>
                 <ion-toolbar>
                   <ion-title color="light" class="contactName"
                     >Importar Contacto</ion-title
@@ -100,36 +97,66 @@
                     ></ion-button>
                   </ion-buttons>
                 </ion-toolbar>
+              </ion-list>
 
-                <ion-item-sliding *ngFor="let contact of contacts | async">
-                  <ion-item>
-                    <ion-icon
-                      *ngIf="!contact.image"
-                      color="primary"
-                      slot="start"
-                      name="person-circle-outline"
-                    ></ion-icon>
-                    <ion-avatar *ngIf="contact.image" slot="start">
-                      <ion-img [src]="contact.image.base64String"></ion-img>
-                    </ion-avatar>
-                    <ion-label class="ion-text-wrap">
-                      <ion-label class="contactName">
-                        {{contact.name.display}}
-                      </ion-label>
-                      <ion-text color="medium" class="contactNumber">
-                        <p>{{contact.phones[0].number}}</p>
-                      </ion-text>
+              <ion-virtual-scroll [items]="deviceContacts">
+                <ion-item *virtualItem="let item">
+                  <ion-icon
+                    *ngIf="!item.image"
+                    color="primary"
+                    slot="start"
+                    name="person-circle-outline"
+                  ></ion-icon>
+                  <ion-avatar *ngIf="item.image" slot="start">
+                    <ion-img [src]="item.image.base64String"></ion-img>
+                  </ion-avatar>
+                  <ion-label class="ion-text-wrap">
+                    <ion-label class="contactName">
+                      {{item.name.display}}
                     </ion-label>
+                    <ion-text color="medium" class="contactNumber">
+                      <p>{{item.phones[0].number}}</p>
+                    </ion-text>
+                  </ion-label>
 
-                    <button
-                      type="button"
-                      (click)="seleccionarContacto(contact)"
-                      class="colorBtn"
-                    >
-                      <ion-icon name="checkmark-outline"></ion-icon>
-                    </button>
-                  </ion-item>
-                </ion-item-sliding>
+                  <button
+                    type="button"
+                    (click)="seleccionarContacto(item)"
+                    class="colorBtn"
+                  >
+                    <ion-icon name="checkmark-outline"></ion-icon>
+                  </button>
+                </ion-item>
+              </ion-virtual-scroll>
+
+              <ion-list *ngIf="false" lines="full">
+                <ion-item *ngFor="let item of contacts | async">
+                  <ion-icon
+                    *ngIf="!item.image"
+                    color="primary"
+                    slot="start"
+                    name="person-circle-outline"
+                  ></ion-icon>
+                  <ion-avatar *ngIf="item.image" slot="start">
+                    <ion-img [src]="item.image.base64String"></ion-img>
+                  </ion-avatar>
+                  <ion-label class="ion-text-wrap">
+                    <ion-label class="contactName">
+                      {{item.name.display}}
+                    </ion-label>
+                    <ion-text color="medium" class="contactNumber">
+                      <p>{{item.phones[0].number}}</p>
+                    </ion-text>
+                  </ion-label>
+
+                  <button
+                    type="button"
+                    (click)="seleccionarContacto(item)"
+                    class="colorBtn"
+                  >
+                    <ion-icon name="checkmark-outline"></ion-icon>
+                  </button>
+                </ion-item>
               </ion-list>
             </ion-content>
           </ng-template>

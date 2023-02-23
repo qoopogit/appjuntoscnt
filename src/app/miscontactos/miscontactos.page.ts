@@ -7,6 +7,7 @@ import { DbService } from './../api/db.service';
 import { IonModal, isPlatform } from '@ionic/angular';
 import { Contacts, ContactPayload } from '@capacitor-community/contacts';
 import { ToastController, AlertController } from '@ionic/angular';
+//import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @Component({
   selector: 'app-miscontactos',
@@ -25,21 +26,28 @@ export class MiscontactosPage implements OnInit {
     private db: DbService,
     public formBuilder: FormBuilder,
     private toast: ToastController,
-    //private router: Router,
-    private alertCtrl: AlertController //private sms: SMS
-  ) {}
+    private alertCtrl: AlertController
+  ) {
+    this.mainForm = this.formBuilder.group({
+      name: [''],
+      number: [''],
+      sms: [''],
+    });
+  }
 
   cancel() {
     this.modal.dismiss(null, 'cancel');
   }
 
   newContact() {
+    /*
+    this.mainForm.value.name = '';
+    this.mainForm.value.number = '';
+    this.mainForm.value.sms = '';
+ */
 
-    this.mainForm.value.name='';
-    this.mainForm.value.number='';
-    this.mainForm.value.sms='';
-
-/*
+    this.mainForm.reset();
+    /*
     this.mainForm = this.formBuilder.group({
       name: [''],
       number: [''],
@@ -113,19 +121,17 @@ export class MiscontactosPage implements OnInit {
           `El contacto ${contact.name?.display} no tiene un número telefónico.`
         );
       } else {
+        this.mainForm.controls["name"].setValue(contact.name?.display);
+        this.mainForm.controls["number"].setValue(contact.phones?.[0]?.number);
+        this.mainForm.controls["sms"].setValue('');
 
-        this.mainForm.value.name=contact.name?.display;
-        this.mainForm.value.number=contact.phones?.[0]?.number;
-        this.mainForm.value.sms='';
-
-    /*
+        /*
         this.mainForm = this.formBuilder.group({
           name: [contact.name?.display],
           number: [contact.phones?.[0]?.number],
           sms: [''],
         });
-        */
-
+*/
         this.toastMensaje(
           'Contacto seleccionado: ' +
             contact.name?.display +
@@ -196,15 +202,13 @@ export class MiscontactosPage implements OnInit {
   }
 
   ngOnInit() {
-
-
+    // this.mainForm.reset();
 
     this.mainForm = this.formBuilder.group({
       name: [''],
       number: [''],
       sms: [''],
     });
-
 
     this.db.fetchContactos().subscribe((item) => {
       console.log('Ejecutando el fetch que actualiza la data...');
