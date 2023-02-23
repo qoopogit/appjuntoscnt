@@ -34,11 +34,18 @@ export class MiscontactosPage implements OnInit {
   }
 
   newContact() {
+
+    this.mainForm.value.name='';
+    this.mainForm.value.number='';
+    this.mainForm.value.sms='';
+
+/*
     this.mainForm = this.formBuilder.group({
       name: [''],
       number: [''],
       sms: [''],
     });
+    */
   }
 
   async getPermissions(): Promise<void> {
@@ -106,11 +113,18 @@ export class MiscontactosPage implements OnInit {
           `El contacto ${contact.name?.display} no tiene un número telefónico.`
         );
       } else {
+
+        this.mainForm.value.name=contact.name?.display;
+        this.mainForm.value.number=contact.phones?.[0]?.number;
+        this.mainForm.value.sms='';
+
+    /*
         this.mainForm = this.formBuilder.group({
           name: [contact.name?.display],
           number: [contact.phones?.[0]?.number],
           sms: [''],
         });
+        */
 
         this.toastMensaje(
           'Contacto seleccionado: ' +
@@ -182,11 +196,15 @@ export class MiscontactosPage implements OnInit {
   }
 
   ngOnInit() {
+
+
+
     this.mainForm = this.formBuilder.group({
       name: [''],
       number: [''],
       sms: [''],
     });
+
 
     this.db.fetchContactos().subscribe((item) => {
       console.log('Ejecutando el fetch que actualiza la data...');

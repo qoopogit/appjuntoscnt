@@ -84,6 +84,9 @@
               </ion-list>
 
               <ion-list lines="full">
+                <ion-list-header>
+                  <ion-label>Contactos</ion-label>
+                </ion-list-header>
                 <ion-toolbar>
                   <ion-title color="light" class="contactName"
                     >Importar Contacto</ion-title
@@ -113,12 +116,8 @@
                       <ion-label class="contactName">
                         {{contact.name.display}}
                       </ion-label>
-                      <ion-text
-                        color="medium"
-                        class="contactNumber"
-                        *ngFor="let number of contact.phones"
-                      >
-                        <p>{{number.label}}:{{number.number}}</p>
+                      <ion-text color="medium" class="contactNumber">
+                        <p>{{contact.phones[0].number}}</p>
                       </ion-text>
                     </ion-label>
 
