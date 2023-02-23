@@ -7,7 +7,6 @@ import { DbService } from './../api/db.service';
 import { IonModal, isPlatform } from '@ionic/angular';
 import { Contacts, ContactPayload } from '@capacitor-community/contacts';
 import { ToastController, AlertController } from '@ionic/angular';
-//import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @Component({
   selector: 'app-miscontactos',
@@ -40,12 +39,6 @@ export class MiscontactosPage implements OnInit {
   }
 
   newContact() {
-    /*
-    this.mainForm.value.name = '';
-    this.mainForm.value.number = '';
-    this.mainForm.value.sms = '';
- */
-
     this.mainForm.reset();
     /*
     this.mainForm = this.formBuilder.group({
@@ -121,9 +114,9 @@ export class MiscontactosPage implements OnInit {
           `El contacto ${contact.name?.display} no tiene un número telefónico.`
         );
       } else {
-        this.mainForm.controls["name"].setValue(contact.name?.display);
-        this.mainForm.controls["number"].setValue(contact.phones?.[0]?.number);
-        this.mainForm.controls["sms"].setValue('');
+        this.mainForm.controls['name'].setValue(contact.name?.display);
+        this.mainForm.controls['number'].setValue(contact.phones?.[0]?.number);
+        this.mainForm.controls['sms'].setValue('');
 
         /*
         this.mainForm = this.formBuilder.group({
