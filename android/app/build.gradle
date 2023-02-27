@@ -5,11 +5,11 @@ android {
     namespace 'ec.com.cnt.juntas'
   compileSdk 33
   defaultConfig {
-        applicationId "ec.com.cnt.juntas"
+        applicationId "io.juntas.starter"
     minSdk 22
     targetSdk 33
-    versionCode 3
-        versionName '1.0.3'
+    versionCode 4
+        versionName '1.0.4'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
