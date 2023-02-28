@@ -17,14 +17,7 @@ export class DbService {
   editContacto: BehaviorSubject<Contacto> = new BehaviorSubject(new Contacto());
 
   constructor(private platform: Platform, private sqlite: SQLite) {
-    //console.log('iniciando db service...');
-
-    if (this.sqlite === null) {
-      //console.log('Viene nulo el sqlite');
-    }
-
     this.platform.ready().then(() => {
-      //console.log('platform ready');
       if (this.platform.is('cordova')) {
         this.sqlite
           .create({
@@ -33,8 +26,6 @@ export class DbService {
           })
           .then((db: SQLiteObject) => {
             this.storage = db;
-            console.warn('Se encuentra en un movil SqlLite');
-            //this.getFakeData();
             this.initDB();
             this.loadContactos();
           });
@@ -83,25 +74,24 @@ export class DbService {
       tabla.columns.forEach((campo) => {
         columns.push(campo.name + ' ' + campo.type);
       });
-     var tabla = tabla.name;
       var query =
-        'CREATE TABLE IF NOT EXISTS  ? (' +
+        //'CREATE TABLE IF NOT EXISTS  ? (' +
+        'CREATE TABLE IF NOT EXISTS  '+ tabla.name+' (' +
         columns.join(',') +
         ')';
-      ////console.log('CREATE ::: ' + query);
 
       this.storage.transaction((tsql) => {
         tsql.executeSql(
           query,
-          [tabla],
+          //[tabla.name],
+          [],
           (resp) => {
-            //console.log(resp);
+
           },
           (error) => {
-            //console.log(error);
+            
           }
-        );
-        //console.log('Table ' + tabla.name + ' initialized');
+        );        
       });
     });
   }
@@ -110,20 +100,14 @@ export class DbService {
    * Devuelve una lista de contactos
    */
   loadContactos() {
-    //console.log('Get contactos...');
-    //console.log(this.storage);
-
     if (this.storage) {
       return this.storage.transaction((tsql) => {
         tsql.executeSql(
           'SELECT * FROM junt_contactos',
           [],
           (tsql, res) => {
-            //console.log('Carga ok de contactos....');
-            //console.log('res=>' + res);
-            //console.log('records size=' + res.rows.length);
             let items: Contacto[] = [];
-            //this.lista=[];
+
             if (res.rows.length > 0) {
               for (var i = 0; i < res.rows.length; i++) {
                 items.push({
@@ -135,11 +119,8 @@ export class DbService {
               }
             }
             this.contactsList.next(items);
-            /*//console.log('Lista=>');
-            //console.log(this.lista);*/
           },
           (error) => {
-            //console.log(error);
             return error;
           }
         );
@@ -157,12 +138,10 @@ export class DbService {
         'INSERT INTO junt_contactos (cont_id,cont_nombre,cont_numero,cont_sms)  VALUES (?1,?2,?3,?4)',
         data,
         (resp) => {
-          //console.log(resp);
           this.loadContactos();
           return resp;
         },
         (error) => {
-          //console.log(error);
           this.loadContactos();
           return error;
         }
@@ -173,14 +152,10 @@ export class DbService {
   // Get single object
   async getContacto(id): Promise<Contacto> {
     return this.storage.transaction((tsql) => {
-      //console.log('consultado contacto con id=' + id);
       tsql.executeSql(
         'SELECT * FROM junt_contactos WHERE cont_id = ?',
         [id],
         (tsql, res) => {
-          //console.log('Resultado encontrado ');
-          //console.log('res=>' + res);
-          //console.log('records size=' + res.rows.length);
           var returnData: Contacto = {
             id: res.rows.item(0).cont_id,
             name: res.rows.item(0).cont_nombre,
@@ -191,7 +166,6 @@ export class DbService {
           return returnData;
         },
         (error) => {
-          //console.log('Error al conseguir contacto:' + error);
           this.loadContactos();
           return error;
         }
@@ -207,12 +181,10 @@ export class DbService {
         'UPDATE junt_contactos SET cont_nombre = ?, cont_numero = ?, cont_sms = ? WHERE cont_id = ?',
         data,
         (var1, resp) => {
-          //console.log(resp);
           this.loadContactos();
           return resp;
         },
         (error) => {
-          //console.log(error);
           this.loadContactos();
           return error;
         }
@@ -222,20 +194,16 @@ export class DbService {
 
   // Delete
   deleteContacto(id) {
-    //console.log('Eliminando registro ' + id);
     return this.storage.transaction((tsql) => {
       tsql.executeSql(
         'DELETE FROM junt_contactos WHERE cont_id = ?',
         [id],
         (resp) => {
-          //console.log('Eliminado registro ' + resp);
           this.loadContactos();
           return resp;
         },
         (error) => {
           let dataResponse = JSON.parse(JSON.stringify(error));
-          //console.log('Error stringfy ' + dataResponse.json);
-          //console.log('Error al eliminar ' + error);
           this.loadContactos();
           return error;
         }

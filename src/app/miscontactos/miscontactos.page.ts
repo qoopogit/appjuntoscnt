@@ -49,6 +49,7 @@ export class MiscontactosPage implements OnInit {
   }
 
   async getPermissions(): Promise<void> {
+    /*
     if (isPlatform('android')) {
       let permission = await Contacts.checkPermissions().then((r) => {
         ////console.log('Permisos ' + JSON.stringify(permission));
@@ -57,6 +58,7 @@ export class MiscontactosPage implements OnInit {
         }
       });
     }
+    */
   }
 
   /**
@@ -99,7 +101,6 @@ export class MiscontactosPage implements OnInit {
     for (const contact of result.contacts) {
       const number = contact.phones?.[0]?.number;
       const street = contact.postalAddresses?.[0]?.street;
-      ////console.log('contacto ', number, street);
     }
   }
 
@@ -203,7 +204,6 @@ export class MiscontactosPage implements OnInit {
     });
 
     this.db.fetchContactos().subscribe((item) => {
-      ////console.log('Ejecutando el fetch que actualiza la data...');
       this.Data = item;
     });
     this.iosOrAndroid = isPlatform('android') || isPlatform('ios');
