@@ -83,10 +83,9 @@ export class DbService {
       tabla.columns.forEach((campo) => {
         columns.push(campo.name + ' ' + campo.type);
       });
+     var tabla = tabla.name;
       var query =
-        'CREATE TABLE IF NOT EXISTS ' +
-        tabla.name +
-        ' (' +
+        'CREATE TABLE IF NOT EXISTS  ? (' +
         columns.join(',') +
         ')';
       ////console.log('CREATE ::: ' + query);
@@ -94,7 +93,7 @@ export class DbService {
       this.storage.transaction((tsql) => {
         tsql.executeSql(
           query,
-          [],
+          [tabla],
           (resp) => {
             //console.log(resp);
           },
