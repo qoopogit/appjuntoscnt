@@ -20,10 +20,10 @@ export class HombresPage implements OnInit {
         this.titulo = res.data.titulo;
         this.body = res.data.body;
         this.texto1 = res.data.texto1;
-        console.log(res.data);
+        //console.log(res.data);
       })
       .catch((err) => {
-        console.log(err);
+        //console.log(err);
       });
   }
   ngOnInit() {}

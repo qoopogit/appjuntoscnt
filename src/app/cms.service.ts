@@ -51,12 +51,12 @@ export class CmsService   {
       this.imagenprincial= res.data.imagen_princial;
       this.titulo= res.data.titulo;
       this.body= res.data.body;
-      console.log(res.data, );
+      //console.log(res.data, );
       return   res.data.body ;
-      console.log( this.body );
+      //console.log( this.body );
     })
     .catch(err => {
-      console.log(err);
+      //console.log(err);
     });
 
 

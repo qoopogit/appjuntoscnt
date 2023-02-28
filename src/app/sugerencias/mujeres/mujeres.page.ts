@@ -18,10 +18,10 @@ export class MujeresPage implements OnInit {
         this.imagenprincial = res.data.imagen_princial;
         this.titulo = res.data.titulo;
         this.body = res.data.body;
-        console.log(res.data);
+        //console.log(res.data);
       })
       .catch((err) => {
-        console.log(err);
+        //console.log(err);
       });
   }
 

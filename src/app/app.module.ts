@@ -33,7 +33,6 @@ import { TestimoniosPage } from './testimonios/testimonios.page';
     //SMS,
     Geolocation,
     TestimoniosPage,
-    //WaitUtil,
   ],
 
   bootstrap: [AppComponent],

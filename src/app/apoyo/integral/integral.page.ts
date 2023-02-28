@@ -25,18 +25,18 @@ export class IntegralPage implements OnInit {
         this.body = res.data.body;
         this.idzonas = res.data.idZonas;
         this.descipcion = res.data.descipcion;
-        console.log(res.data.idZonas);
+        //console.log(res.data.idZonas);
         const i = 0;
         res.data.body.forEach((element) => {
           this.bloques[i] = element;
         });
       })
       .catch((err) => {
-        console.log(err);
+        //console.log(err);
       });
   }
   zonas(z) {
-    console.log('zonas', z);
+    //console.log('zonas', z);
     this.route.navigate(['/zona/' + z]);
   }
   ngOnInit() {

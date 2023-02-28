@@ -26,9 +26,9 @@ export class ContactosProvider {
       tsql.executeSql('INSERT INTO junt_contactos (cont_id,cont_nombre,cont_numero,cont_sms) ' +
               ' VALUES (?1,?2,?3,?4)', [id, nombre, numero, sms]);
           }, Terror =>{
-            console.log("Transaccion error:",Terror);
+            //console.log("Transaccion error:",Terror);
           }, () =>{
-              console.log("Inserción realizada");
+              //console.log("Inserción realizada");
           });
 
   };
@@ -41,9 +41,9 @@ export class ContactosProvider {
   public async delete (id) {
       return this.db.transaction ( (tsql) =>{
        tsql.executeSql('DELETE FROM junt_contactos WHERE cont_id=?', [id]);
-        }, Terror=>{ console.log("Eliminar error", Terror);},
+        }, Terror=>{ //console.log("Eliminar error", Terror);},
         () =>{
-            console.log(`El ${id} fue eliminado con exito`);
+            //console.log(`El ${id} fue eliminado con exito`);
         });
 
   };
@@ -60,9 +60,9 @@ export class ContactosProvider {
       return this.db.transaction ( (tsql) =>{
       tsql.executeSql('UPDATE junt_contactos SET cont_nombre=?,cont_numero=?,cont_sms=? ' +
               ' WHERE cont_id=?', [nombre, numero, sms, id]);
-        }, Terror =>{ console.log("Transaccion error", Terror);},
+        }, Terror =>{ //console.log("Transaccion error", Terror);},
         () =>{
-            console.log("Actualizacion realizada");
+            //console.log("Actualizacion realizada");
         });
   };
 
@@ -84,7 +84,7 @@ export class ContactosProvider {
       }, Terror =>{
         reject(Terror);
       }, () =>{
-          console.log(`Econtrado ${this.regContatos.length} contacto(s)`);
+          //console.log(`Econtrado ${this.regContatos.length} contacto(s)`);
       } );
 
    });
@@ -96,7 +96,7 @@ export class ContactosProvider {
     return this.db.transaction ( tsql =>{
      tsql.executeSql('SELECT cont_id,cont_nombre,cont_numero,cont_sms ' +
             ' FROM junt_contactos  WHERE cont_id = ?', [id], (tsql,resp)=>{
-                console.log(resp);
+                //console.log(resp);
             });
       });
   };

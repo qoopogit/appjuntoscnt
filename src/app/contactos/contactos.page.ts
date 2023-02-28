@@ -19,10 +19,10 @@ export class ContactosPage implements OnInit {
       .then((res) => {
         this.titulo = res.data.titulo;
         this.body = res.data.body;
-        console.log(res.data.body);
+        //console.log(res.data.body);
       })
       .catch((err) => {
-        console.log(err);
+        //console.log(err);
       });
   }
 

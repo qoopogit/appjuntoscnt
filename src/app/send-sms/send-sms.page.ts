@@ -42,21 +42,21 @@ export class SendSmsPage implements OnInit {
         this.longitud = resp.coords.longitude.toString();
       })
       .catch((error) => {
-        console.log('Error getting location', error);
+        //console.log('Error getting location', error);
       });
     this.enviarOpcion = 1;
   }
 
   ngOnInit() {
     this.db.fetchContactos().subscribe((item) => {
-      console.log('Ejecutando el fetch que actualiza la data...');
+      //console.log('Ejecutando el fetch que actualiza la data...');
       this.Data = item;
     });
     this.onChangeContacto(null);
   }
 
   selectSendOption(opcion) {
-    console.log('opcion send: ' + opcion);
+    //console.log('opcion send: ' + opcion);
     this.smsContacto = opcion === 1;
     this.onChangeContacto(null);
   }
@@ -77,7 +77,7 @@ export class SendSmsPage implements OnInit {
    * @param mensaje
    */
   sendIndividualSms(numero, mensaje) {
-    console.log('sendind sms ' + mensaje + '  to ' + numero);
+    //console.log('sendind sms ' + mensaje + '  to ' + numero);
     var error = function (e) {
       alert('Something went wrong:' + e);
     };
@@ -98,9 +98,9 @@ export class SendSmsPage implements OnInit {
 
   async sendSms() {
     // Send a text message using default options
-    //console.log('send sms global ? ' + this.smsContacto);
-    //console.log('send sms mensaje ' + this.smsSeleccionado);
-    //console.log(
+    ////console.log('send sms global ? ' + this.smsContacto);
+    ////console.log('send sms mensaje ' + this.smsSeleccionado);
+    ////console.log(
     //  'contacto seleccionado ' + JSON.stringify(this.contactoSelecionado)
     //);
     if (this.smsSeleccionado === null) {

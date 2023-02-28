@@ -29,7 +29,7 @@ export class HacerPageModule {
 
   constructor( public httpClient: HttpClient) {
 
-    console.log('cargo');
+    //console.log('cargo');
 
 
   }

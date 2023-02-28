@@ -30,7 +30,7 @@ export class TestimoniosPage implements OnInit   {
 
       })
       .catch((err) => {
-        console.log(err);
+        //console.log(err);
       });
   }
 
@@ -46,7 +46,7 @@ export class TestimoniosPage implements OnInit   {
 
     })
     .catch((err) => {
-      console.log(err);
+      //console.log(err);
     });
 
     return this.link  ;
@@ -60,7 +60,7 @@ export class TestimoniosPage implements OnInit   {
 
     })
     .catch((err) => {
-      console.log(err);
+      //console.log(err);
     });
 
     return this.link  ;

@@ -49,12 +49,12 @@ export class TestSoyViolentoPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log('Entro a ngOnInit Estoy sufriendo Mobbing');
+    //console.log('Entro a ngOnInit Estoy sufriendo Mobbing');
     //this.getPregunta();
   }
 
   ionViewDidEnter() {
-    console.log('Entro a ionViewDidEnter Estoy sufriendo Mobbing');
+    //console.log('Entro a ionViewDidEnter Estoy sufriendo Mobbing');
     this.estadoRespuesta = true;
     //this.idx=0;
     this.qnumber = '0';
@@ -72,7 +72,7 @@ export class TestSoyViolentoPage implements OnInit {
     if (this.estadoRespuesta) {
       this.mensaje = '';
       this.idx = parseInt(this.qnumber) + 1;
-      console.log('pregunta id=' + this.idx);
+      //console.log('pregunta id=' + this.idx);
       this.valueGroup = (this.idx * this.idx * 30).toString(); //this.idx.toString();
 
       this.qsuma = (parseInt(this.qsuma) + parseInt(this.dchange)).toString();
@@ -94,8 +94,8 @@ export class TestSoyViolentoPage implements OnInit {
       this.service.getTest(this.test, this.bandResp).subscribe(
         (data) => {
           let dataResponse = JSON.parse(JSON.stringify(data));
-          console.log('response  ' + dataResponse.json);
-          console.log(JSON.stringify(data));
+          //console.log('response  ' + dataResponse.json);
+          //console.log(JSON.stringify(data));
           this.estadoRespuesta = false;
 
           var result = data;
@@ -128,7 +128,7 @@ export class TestSoyViolentoPage implements OnInit {
                 'Ha finalizado el test, su puntuación es de ' +
                 this.qsuma +
                 ' puntos, como conclusión usted:';
-              console.log('punt mensaje=' + result[i].punt_mensaje);
+              //console.log('punt mensaje=' + result[i].punt_mensaje);
               this.mensaje = result[i].punt_mensaje;
               this.btnAccion = 'FINALIZAR';
               this.estadoRespuesta = true;
@@ -144,13 +144,13 @@ export class TestSoyViolentoPage implements OnInit {
           loader.dismiss();
         },
         (err) => {
-          console.log('Traer data test ERROR:' + err.toString());
-          console.log(JSON.stringify(err));
+          //console.log('Traer data test ERROR:' + err.toString());
+          //console.log(JSON.stringify(err));
           loader.dismiss();
         }
       );
     } else {
-      console.log('Respuesta no contestada');
+      //console.log('Respuesta no contestada');
       let alert = await this.alertCtrl.create({
         header: 'Notificación',
         message: 'Debe seleccionar una respuesta para continuar.',
@@ -161,7 +161,7 @@ export class TestSoyViolentoPage implements OnInit {
   }
 
   guardarRespuesta(qrespuesta) {
-    console.log('qrespuesta: ' + qrespuesta);
+    //console.log('qrespuesta: ' + qrespuesta);
     this.dchange = qrespuesta;
     this.estadoRespuesta = true;
   }

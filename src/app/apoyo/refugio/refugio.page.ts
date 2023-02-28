@@ -26,7 +26,7 @@ export class RefugioPage implements OnInit {
       this.body= res.data.body;
     })
     .catch(err => {
-      console.log(err);
+      //console.log(err);
     });
 
    }

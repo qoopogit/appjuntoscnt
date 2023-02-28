@@ -51,7 +51,7 @@ export class MiscontactosPage implements OnInit {
   async getPermissions(): Promise<void> {
     if (isPlatform('android')) {
       let permission = await Contacts.checkPermissions().then((r) => {
-        console.log('Permisos ' + JSON.stringify(permission));
+        ////console.log('Permisos ' + JSON.stringify(permission));
         if (!(r.contacts === 'granted')) {
           this.toastMensaje('No se tiene permisos para leer los contactos.');
         }
@@ -99,12 +99,12 @@ export class MiscontactosPage implements OnInit {
     for (const contact of result.contacts) {
       const number = contact.phones?.[0]?.number;
       const street = contact.postalAddresses?.[0]?.street;
-      console.log('contacto ', number, street);
+      ////console.log('contacto ', number, street);
     }
   }
 
   async seleccionarContacto(contact: ContactPayload) {
-    console.log(contact);
+    ////console.log(contact);
     if (contact === null) {
       this.toastMensaje('El contacto seleccionado es nulo');
     } else {
@@ -203,7 +203,7 @@ export class MiscontactosPage implements OnInit {
     });
 
     this.db.fetchContactos().subscribe((item) => {
-      console.log('Ejecutando el fetch que actualiza la data...');
+      ////console.log('Ejecutando el fetch que actualiza la data...');
       this.Data = item;
     });
     this.iosOrAndroid = isPlatform('android') || isPlatform('ios');

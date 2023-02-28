@@ -44,10 +44,10 @@ export class IntroPage implements OnInit {
         this.splash8 = res.data.splash8;
         this.alerta = res.data.alerta;
         this.showAlertComoUsar(res.data.alerta);
-        console.log(res.data);
+        //console.log(res.data);
       })
       .catch((err) => {
-        console.log(err);
+        //console.log(err);
       });
 
 
@@ -57,7 +57,7 @@ export class IntroPage implements OnInit {
   proximo([swiper])
   {
 
-    console.log('proximo',swiper);
+    //console.log('proximo',swiper);
   }
   ngOnInit() {
 
@@ -69,7 +69,7 @@ export class IntroPage implements OnInit {
   }
 
   onRobotClick() {
-    console.log('next');
+    //console.log('next');
     this.swiper.swiperRef.slideNext(1200);
     }
 

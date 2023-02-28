@@ -33,7 +33,7 @@ export class ContactoPage implements OnInit {
     });
 
     this.id = this.actRoute.snapshot.paramMap.get('id');
-    console.log('id=' + this.id);
+    //console.log('id=' + this.id);
     this.db.getContacto(this.id);
 
     //.then((res) => {
@@ -60,7 +60,7 @@ export class ContactoPage implements OnInit {
     });
 
     this.db.fetchEditContact().subscribe((item) => {
-      console.log('Ejecutando el fetch que consulta el contacto...');
+      //console.log('Ejecutando el fetch que consulta el contacto...');
       this.editForm = this.formBuilder.group({
         name: [item['name']],
         number: [item['number']],

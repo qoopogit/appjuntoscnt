@@ -17,7 +17,7 @@ export class Service {
     private http: HttpClient,
     private platform: Platform
   ) {
-    console.log('Service iniciado');
+    //console.log('Service iniciado');
   }
 
   getTest(dataTestReq: any, respuesta: number) {
@@ -43,8 +43,8 @@ export class Service {
               return res;
             },
             (err: any) => {
-              console.log('algun error...');
-              console.log(err);
+              //console.log('algun error...');
+              //console.log(err);
               return err;
             }
           )
@@ -69,8 +69,8 @@ export class Service {
               return res;
             },
             (err: any) => {
-              console.log('algun error...');
-              console.log(err);
+              //console.log('algun error...');
+              //console.log(err);
               return err;
             }
           )
