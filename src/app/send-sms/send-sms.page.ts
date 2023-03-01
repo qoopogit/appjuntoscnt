@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { DbService } from './../api/db.service';
 import { Contacto } from './../api/contacto';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
-//import { Geolocation } from '@capacitor/geolocation';
 
 import {
   ToastController,
@@ -32,7 +31,6 @@ export class SendSmsPage implements OnInit {
     private db: DbService,
     private toast: ToastController,
     private router: Router,
-    //private sms: SMS,
     private geolocation: Geolocation
   ) {
     this.geolocation
@@ -41,22 +39,18 @@ export class SendSmsPage implements OnInit {
         this.latitud = resp.coords.latitude.toString();
         this.longitud = resp.coords.longitude.toString();
       })
-      .catch((error) => {
-        //console.log('Error getting location', error);
-      });
+      .catch((error) => {});
     this.enviarOpcion = 1;
   }
 
   ngOnInit() {
     this.db.fetchContactos().subscribe((item) => {
-      //console.log('Ejecutando el fetch que actualiza la data...');
       this.Data = item;
     });
     this.onChangeContacto(null);
   }
 
   selectSendOption(opcion) {
-    //console.log('opcion send: ' + opcion);
     this.smsContacto = opcion === 1;
     this.onChangeContacto(null);
   }
@@ -77,7 +71,6 @@ export class SendSmsPage implements OnInit {
    * @param mensaje
    */
   sendIndividualSms(numero, mensaje) {
-    //console.log('sendind sms ' + mensaje + '  to ' + numero);
     var error = function (e) {
       alert('Something went wrong:' + e);
     };
@@ -91,18 +84,11 @@ export class SendSmsPage implements OnInit {
         // success
       })
       .catch((error) => {
-        console.error(error);
         this.toastMensaje('Error al enviar el sms ' + error);
       });
   }
 
   async sendSms() {
-    // Send a text message using default options
-    ////console.log('send sms global ? ' + this.smsContacto);
-    ////console.log('send sms mensaje ' + this.smsSeleccionado);
-    ////console.log(
-    //  'contacto seleccionado ' + JSON.stringify(this.contactoSelecionado)
-    //);
     if (this.smsSeleccionado === null) {
       this.smsSeleccionado = '';
     }
@@ -137,7 +123,6 @@ export class SendSmsPage implements OnInit {
       ];
     }
     this.smsActivo = false;
-    //this.contactoSelecionado = contacto;
   }
 
   onChangeSms(sms: string) {
