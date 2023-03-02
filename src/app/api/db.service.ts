@@ -3,7 +3,7 @@ import { Platform } from '@ionic/angular';
 import { Contacto } from './contacto';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
-//import { JUNTOSDB } from '../db/model';
+import { JUNTOSDB } from '../db/model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +12,7 @@ export class DbService {
   private storage: SQLiteObject;
   contactsList = new BehaviorSubject([]);
   private isDbReady: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  //private juntosDB = JUNTOSDB;
+  private juntosDB = JUNTOSDB;
 
   editContacto: BehaviorSubject<Contacto> = new BehaviorSubject(new Contacto());
 
@@ -21,8 +21,7 @@ export class DbService {
       if (this.platform.is('cordova')) {
         this.sqlite
           .create({
-            //name: this.juntosDB.name,
-            name: 'juntos.db',
+            name: this.juntosDB.name,
             location: 'default',
           })
           .then((db: SQLiteObject) => {
@@ -33,8 +32,7 @@ export class DbService {
       } else {
         console.warn('Se encuentra en un pc WebSQL');
         this.storage = (<any>window).openDatabase(
-          //this.juntosDB.name,
-          'juntos.db',
+          this.juntosDB.name,
           '1.0',
           'database',
           1
